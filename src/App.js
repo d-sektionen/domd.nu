@@ -1,69 +1,30 @@
-import "./App.css";
-import styled from "styled-components";
-import Countdown from "react-countdown";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes  } from "react-router-dom";
 
-const hundreddays = new Date("2021-12-31T00:00:00");
+import StartPage from "./compoments/StartPage"
+import Rules from "./compoments/Rules"
+import DimD from "./compoments/DimD";
+import Ulag from "./compoments/U_lag";
 
-const render = ({ days, hours, minutes, seconds }) => {
+
+import NavbarNew from "./compoments/Navbartest";
+
+
+
+function App() {
+
   return (
-    <span>
-      {" "}
-      {days} days {hours} hours {minutes} minutes and {seconds} seconds left
-    </span>
+    <Router>
+      <NavbarNew/>
+      <Routes>
+        <Route exact path="/" element={<StartPage/>} />
+        <Route exact path="/dimd" element={<DimD/>} />
+        <Route exact path="/rules" element={<Rules/>} />
+        <Route exact path="/start" element={<StartPage/>} />
+        <Route exact path="ulag" element={<Ulag/>}/>
+      </Routes>
+    </Router>
   );
-};
+}
 
-const Title = styled.h1`
-  font-family: "Courier New", monospace;
-  color: white;
-  font-size: 2rem;
-  text-align: center;
-  margin-top: 10%;
-`;
-
-const Grid = styled.div`
-  background-color: black;
-  height: 100vh;
-  margin-left: auto;
-  
-  
-`;
-
-const Row = styled.div`
-  
-  padding-top: 2vh;
-  
-  
-  
-`;
-export const Col = styled.div`
-  flex: ${(props) => props.size};
-  padding: 2vw;
-`;
-
-export const ÖMSpan = styled.span`
-  font-size: 1.5rem;
-  
-`;
-
-const error404 = () => {
-  return (
-    <>
-      <Grid>
-        <Row>
-          <Title>
-            Error 404: not 100 days left until D<ÖMSpan>ÖM</ÖMSpan>D yet
-          </Title>
-        </Row>
-        <Row>
-          <Title >
-            It is days <Countdown date={hundreddays} renderer={render} /> until
-            100 days left until D<ÖMSpan>ÖM</ÖMSpan>D
-          </Title>
-        </Row>
-      </Grid>
-    </>
-  );
-};
-
-export default error404;
+export default App;
