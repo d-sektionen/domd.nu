@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "//d-sektionen.github.io/domd.nu/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "//d-sektionen.github.io/domd.nu/static/js/main.5223031f.chunk.js",
-    "main.js.map": "//d-sektionen.github.io/domd.nu/static/js/main.5223031f.chunk.js.map",
+    "main.js": "//d-sektionen.github.io/domd.nu/static/js/main.1c58175e.chunk.js",
+    "main.js.map": "//d-sektionen.github.io/domd.nu/static/js/main.1c58175e.chunk.js.map",
     "runtime-main.js": "//d-sektionen.github.io/domd.nu/static/js/runtime-main.321a3aff.js",
     "runtime-main.js.map": "//d-sektionen.github.io/domd.nu/static/js/runtime-main.321a3aff.js.map",
     "static/js/2.8d870d45.chunk.js": "//d-sektionen.github.io/domd.nu/static/js/2.8d870d45.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.90d57c95.chunk.js": "//d-sektionen.github.io/domd.nu/static/js/3.90d57c95.chunk.js",
     "static/js/3.90d57c95.chunk.js.map": "//d-sektionen.github.io/domd.nu/static/js/3.90d57c95.chunk.js.map",
     "index.html": "//d-sektionen.github.io/domd.nu/index.html",
-    "precache-manifest.045583e4c8cc15ef6250b81ead1c55b3.js": "//d-sektionen.github.io/domd.nu/precache-manifest.045583e4c8cc15ef6250b81ead1c55b3.js",
+    "precache-manifest.f12da99b3a7b7507e673b8ac345e7246.js": "//d-sektionen.github.io/domd.nu/precache-manifest.f12da99b3a7b7507e673b8ac345e7246.js",
     "service-worker.js": "//d-sektionen.github.io/domd.nu/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "//d-sektionen.github.io/domd.nu/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.8d870d45.chunk.js.LICENSE.txt": "//d-sektionen.github.io/domd.nu/static/js/2.8d870d45.chunk.js.LICENSE.txt",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.321a3aff.js",
     "static/js/2.8d870d45.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.5223031f.chunk.js"
+    "static/js/main.1c58175e.chunk.js"
   ]
 }

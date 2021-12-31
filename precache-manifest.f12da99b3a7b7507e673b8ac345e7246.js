@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "df370801518acf6de6858151f717b3cc",
+    "revision": "5f86bcbc524bf99298ab31c6eca93d70",
     "url": "//d-sektionen.github.io/domd.nu/index.html"
   },
   {
-    "revision": "3b9d43eedbeb91570905",
+    "revision": "f1ce320785f0d809a5f3",
     "url": "//d-sektionen.github.io/domd.nu/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "//d-sektionen.github.io/domd.nu/static/js/3.90d57c95.chunk.js"
   },
   {
-    "revision": "3b9d43eedbeb91570905",
-    "url": "//d-sektionen.github.io/domd.nu/static/js/main.5223031f.chunk.js"
+    "revision": "f1ce320785f0d809a5f3",
+    "url": "//d-sektionen.github.io/domd.nu/static/js/main.1c58175e.chunk.js"
   },
   {
     "revision": "2d2f13a4224f2d6783cc",
