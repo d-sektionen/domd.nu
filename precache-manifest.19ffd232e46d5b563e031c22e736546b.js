@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a3e8e829b71fd12a5a6c1fa83c78ee29",
+    "revision": "4383ce036d357dd0543e8f2efcc7f724",
     "url": "//d-sektionen.github.io/domd.nu/index.html"
   },
   {

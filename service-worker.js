@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "//d-sektionen.github.io/domd.nu/precache-manifest.a1cb82b69ce66d1796ffc28a7a34c20b.js"
+  "//d-sektionen.github.io/domd.nu/precache-manifest.19ffd232e46d5b563e031c22e736546b.js"
 );
 
 self.addEventListener('message', (event) => {
