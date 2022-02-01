@@ -7,7 +7,7 @@ import { NavLink} from "react-router-dom"
 
 function DimD() {
   return (
-    <Box sx={{ flexGrow: 1, color:"white" }}>
+    <Box sx={{ flexGrow: 1, color:"white", backgroundColor:"black" }}>
       <img src={dart} alt="dartild" style={{height:"40vh", width:"100%"}}/>
       <Grid container>
         <Grid sm={12} md={6}  sx={{m:4}}>

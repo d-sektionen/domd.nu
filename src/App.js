@@ -18,6 +18,7 @@ function App() {
       <NavbarNew/>
       <Routes>
         <Route exact path="/" element={<StartPage/>} />
+        <Route exact path="/domd.nu" element={<StartPage/>} />
         <Route exact path="/dimd" element={<DimD/>} />
         <Route exact path="/rules" element={<Rules/>} />
         <Route exact path="/start" element={<StartPage/>} />
