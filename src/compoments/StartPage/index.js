@@ -8,6 +8,7 @@ import dart from '../../res/images/dart.png'
 import Cygate from "../../res/sponsImg/Cygate.webp";
 import Xamera from "../../res/sponsImg/xameraSpons.webp"
 import Ericsson from "../../res/sponsImg/ericssonSpons.webp"
+import Ida from "../../res/sponsImg/idaSpons.webp"
 import SoundcloudPlayer from 'react-player'
 import { padding } from "@mui/system";
 
@@ -59,6 +60,9 @@ function StartPage() {
           </Box>
           <Box sx={{px:0, backgroundColor: "white"}}>
             <img src={Ericsson} alt="Ericsson Sponsor" width={"100%"} height={"100%"} />
+          </Box>
+          <Box sx={{px:0}}>
+            <img src={ida} alt="Ida Sponsor" width={"100%"} height={"100%"} />
           </Box>
          
         </Grid>
