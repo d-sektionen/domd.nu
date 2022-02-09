@@ -1,29 +1,30 @@
 {
   "files": {
     "main.css": "/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/static/js/main.f831e51c.chunk.js",
-    "main.js.map": "/static/js/main.f831e51c.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.ea51ee7c.js",
-    "runtime-main.js.map": "/static/js/runtime-main.ea51ee7c.js.map",
-    "static/js/2.83af9ed2.chunk.js": "/static/js/2.83af9ed2.chunk.js",
-    "static/js/2.83af9ed2.chunk.js.map": "/static/js/2.83af9ed2.chunk.js.map",
-    "static/js/3.9d99c90c.chunk.js": "/static/js/3.9d99c90c.chunk.js",
-    "static/js/3.9d99c90c.chunk.js.map": "/static/js/3.9d99c90c.chunk.js.map",
+    "main.js": "/static/js/main.f2471842.chunk.js",
+    "main.js.map": "/static/js/main.f2471842.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.fef56b20.js",
+    "runtime-main.js.map": "/static/js/runtime-main.fef56b20.js.map",
+    "static/js/2.e29212d2.chunk.js": "/static/js/2.e29212d2.chunk.js",
+    "static/js/2.e29212d2.chunk.js.map": "/static/js/2.e29212d2.chunk.js.map",
+    "static/js/3.f5dc58e0.chunk.js": "/static/js/3.f5dc58e0.chunk.js",
+    "static/js/3.f5dc58e0.chunk.js.map": "/static/js/3.f5dc58e0.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.f620897cee5c250130c4294b9c2d2278.js": "/precache-manifest.f620897cee5c250130c4294b9c2d2278.js",
+    "precache-manifest.76a9d54bc332defc3446be40d4e1b432.js": "/precache-manifest.76a9d54bc332defc3446be40d4e1b432.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.83af9ed2.chunk.js.LICENSE.txt": "/static/js/2.83af9ed2.chunk.js.LICENSE.txt",
+    "static/js/2.e29212d2.chunk.js.LICENSE.txt": "/static/js/2.e29212d2.chunk.js.LICENSE.txt",
     "static/media/Cygate.webp": "/static/media/Cygate.e72a9de6.webp",
     "static/media/D-group.png": "/static/media/D-group.baea0123.png",
     "static/media/dart.png": "/static/media/dart.e733a004.png",
     "static/media/ericssonSpons.webp": "/static/media/ericssonSpons.0219e3ef.webp",
+    "static/media/idaSpons.webp": "/static/media/idaSpons.03620aa0.webp",
     "static/media/xameraSpons.webp": "/static/media/xameraSpons.63263905.webp"
   },
   "entrypoints": [
-    "static/js/runtime-main.ea51ee7c.js",
-    "static/js/2.83af9ed2.chunk.js",
+    "static/js/runtime-main.fef56b20.js",
+    "static/js/2.e29212d2.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.f831e51c.chunk.js"
+    "static/js/main.f2471842.chunk.js"
   ]
 }
