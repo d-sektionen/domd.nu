@@ -90,22 +90,22 @@ const ResponsiveAppBar = () => {
             >
                 <NavLink to ="/">
                 <MenuItem key="/" onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Start</Typography>
+                  <Typography textAlign="center" sx={{ textDecoration: "none" }}>Start</Typography>
                 </MenuItem>
                 </NavLink>
                 <NavLink to="dimd">
                 <MenuItem key="dimd" onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">DimD</Typography>
+                  <Typography textAlign="center" sx={{ textDecoration: "none" }}>DimD</Typography>
                 </MenuItem>
                 </NavLink>
                 <NavLink to="rules">
                 <MenuItem key="Rules" onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Regler</Typography>
+                  <Typography textAlign="center" sx={{ textDecoration: "none" }}>Regler</Typography>
                 </MenuItem>
                 </NavLink>
                 <NavLink to="ulag">
                 <MenuItem key="U-Lag" onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">U-Lag</Typography>
+                  <Typography textAlign="center" sx={{ textDecoration: "none" }}>U-Lag</Typography>
                 </MenuItem>
                 </NavLink>
               
@@ -122,29 +122,29 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             
               
-              <NavLink to="rules">
+              <NavLink to="rules" sx={{ textDecoration: "none" }}>
               <Button
                 key="hej"
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', textDecoration: "none" }}
               >
                 Regler
               </Button>
               </NavLink>
-              <NavLink to="dimd">
+              <NavLink to="dimd" sx={{ textDecoration: "none" }}>
               <Button
                 key="dimd"
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', textDecoration: "none" }}
               >
                 DimD
               </Button>
               </NavLink>
-              <NavLink to="ulag">
+              <NavLink to="ulag" sx={{ textDecoration: "none" }}>
               <Button
                 key="U-Lag"
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', textDecoration: "none" }}
               >
                 U-Lag
               </Button>

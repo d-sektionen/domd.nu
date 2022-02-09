@@ -4,13 +4,13 @@ import Grid from "@mui/material/Grid";
 import Box from '@mui/material/Box'
 import Typography from "@mui/material/Typography";
 import { SponsImg} from "./StartPageElements";
-import dart from '../../res/images/dart.png'
+import dart from "../../res//dart.gif";
 import Cygate from "../../res/sponsImg/Cygate.webp";
 import Xamera from "../../res/sponsImg/xameraSpons.webp"
 import Ericsson from "../../res/sponsImg/ericssonSpons.webp"
 import Ida from "../../res/sponsImg/idaSpons.webp"
 import SoundcloudPlayer from 'react-player'
-import { padding } from "@mui/system";
+
 
 const DOMDdate = new Date("2022-04-09T10:00:00");
 
@@ -53,17 +53,18 @@ function StartPage() {
             Sponsorer
           </Typography>
           <Box sx={{px:0}}>
-            <img src={Cygate} alt="Cygate Sponsor"width={"100%"} height={"100%"}/>
-          </Box>
-          <Box sx={{px:0}}>
-            <img src={Xamera} alt="Xamera Sponsor" width={"100%"} height={"100%"}/>
+            <img src={Ida} alt="Ida Sponsor" width={"100%"} height={"100%"} />
           </Box>
           <Box sx={{px:0, backgroundColor: "white"}}>
             <img src={Ericsson} alt="Ericsson Sponsor" width={"100%"} height={"100%"} />
           </Box>
           <Box sx={{px:0}}>
-            <img src={Ida} alt="Ida Sponsor" width={"100%"} height={"100%"} />
+            <img src={Cygate} alt="Cygate Sponsor"width={"100%"} height={"100%"}/>
           </Box>
+          <Box sx={{px:0}}>
+            <img src={Xamera} alt="Xamera Sponsor" width={"100%"} height={"100%"}/>
+          </Box>
+          
          
         </Grid>
       </Grid>

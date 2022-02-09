@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import dart from "../../res/images/dart.png";
+import dart from "../../res//dart.gif";
 import Grid from "@mui/material/Grid";
 import Box from '@mui/material/Box'
 import { NavLink} from "react-router-dom"

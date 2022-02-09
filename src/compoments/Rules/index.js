@@ -1,16 +1,23 @@
 import React from "react";
-import dart from "../../res/images/dart.png";
+
+import dart from "../../res/dart.gif";
 import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box'
+
+//
 
 function Rules() {
   return (
     <Box sx={{backgroundColor:"black"}}>
+      <Box>
       <img src={dart} alt="dart.png" style={{height:"40vh", width:"100%"}}/>
+      </Box>
+      
       <Typography variant="h2" guttomBottom sx={{ color: "white", textAlign:"center", fontWeight:"bold" }}>
         Regler
       </Typography>
-      <Typography variant="h6" sx={{ color: "white",m:3 }}>
+      
+      <Typography variant="h6" sx={{ color: "white",m:3, p:10 }}>
         <ul >
           <li>
         §1. Lagen ska själva se till att de har pilar. Pilarna ska besiktigas av
