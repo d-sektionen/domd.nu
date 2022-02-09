@@ -7,6 +7,7 @@ import { SponsImg} from "./StartPageElements";
 import dart from '../../res/images/dart.png'
 import Cygate from "../../res/sponsImg/Cygate.webp";
 import Xamera from "../../res/sponsImg/xameraSpons.webp"
+import Ericsson from "../../res/sponsImg/ericssonSpons.webp"
 import SoundcloudPlayer from 'react-player'
 import { padding } from "@mui/system";
 
@@ -45,7 +46,7 @@ function StartPage() {
           height="500px"/>
         
         </Grid>
-        <Grid md={3} sx={{m:4}} >
+        <Grid md={3} sx={{m:4}} /* Sponsorer */>
         <Typography variant="h4" gutterBottom sx={{mr: 6, mt:6, mb:3}}>
             {" "}
             Sponsorer
@@ -56,7 +57,9 @@ function StartPage() {
           <Box sx={{px:0}}>
             <img src={Xamera} alt="Xamera Sponsor" width={"100%"} height={"100%"}/>
           </Box>
-          
+          <Box sx={{px:0, backgroundColor: "white"}}>
+            <img src={Ericsson} alt="Ericsson Sponsor" width={"100%"} height={"100%"} />
+          </Box>
          
         </Grid>
       </Grid>
