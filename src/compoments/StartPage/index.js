@@ -62,7 +62,7 @@ function StartPage() {
             <img src={Ericsson} alt="Ericsson Sponsor" width={"100%"} height={"100%"} />
           </Box>
           <Box sx={{px:0}}>
-            <img src={ida} alt="Ida Sponsor" width={"100%"} height={"100%"} />
+            <img src={Ida} alt="Ida Sponsor" width={"100%"} height={"100%"} />
           </Box>
          
         </Grid>
