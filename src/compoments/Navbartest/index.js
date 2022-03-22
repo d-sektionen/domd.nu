@@ -6,6 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu1 from '@mui/material/Menu';
 import { HiMenu} from 'react-icons/hi';
+import styled from "styled-components";
+
 import Container from '@mui/material/Container';
 
 
@@ -15,6 +17,11 @@ import MenuItem from '@mui/material/MenuItem';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { NavLink} from "react-router-dom"
 import logo from "../../res/images/D-group.png"
+
+
+const Link = styled(NavLink)`
+  text-decoration: none;
+`;
 
 
 
@@ -88,26 +95,26 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-                <NavLink to ="/">
+                <Link to ="/">
                 <MenuItem key="/" onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{ textDecoration: "none" }}>Start</Typography>
+                  <Typography textAlign="center" color="white">Start</Typography>
                 </MenuItem>
-                </NavLink>
-                <NavLink to="dimd">
+                </Link>
+                <Link to="dimd">
                 <MenuItem key="dimd" onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{ textDecoration: "none" }}>DimD</Typography>
+                  <Typography textAlign="center" color="white">DimD</Typography>
                 </MenuItem>
-                </NavLink>
-                <NavLink to="rules">
+                </Link>
+                <Link to="rules">
                 <MenuItem key="Rules" onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{ textDecoration: "none" }}>Regler</Typography>
+                  <Typography textAlign="center" color="white">Regler</Typography>
                 </MenuItem>
-                </NavLink>
-                <NavLink to="ulag">
+                </Link>
+                <Link to="ulag">
                 <MenuItem key="U-Lag" onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{ textDecoration: "none" }}>U-Lag</Typography>
+                  <Typography textAlign="center"  color="white">U-Lag</Typography>
                 </MenuItem>
-                </NavLink>
+                </Link>
               
             </Menu1>
           </Box>
