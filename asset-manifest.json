@@ -1,31 +1,31 @@
 {
   "files": {
     "main.css": "/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/static/js/main.7bfe572b.chunk.js",
-    "main.js.map": "/static/js/main.7bfe572b.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.02c8f5eb.js",
-    "runtime-main.js.map": "/static/js/runtime-main.02c8f5eb.js.map",
-    "static/js/2.45d2f0d4.chunk.js": "/static/js/2.45d2f0d4.chunk.js",
-    "static/js/2.45d2f0d4.chunk.js.map": "/static/js/2.45d2f0d4.chunk.js.map",
-    "static/js/3.43b65544.chunk.js": "/static/js/3.43b65544.chunk.js",
-    "static/js/3.43b65544.chunk.js.map": "/static/js/3.43b65544.chunk.js.map",
+    "main.js": "/static/js/main.9750119d.chunk.js",
+    "main.js.map": "/static/js/main.9750119d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.299a2415.js",
+    "runtime-main.js.map": "/static/js/runtime-main.299a2415.js.map",
+    "static/js/2.eeb33629.chunk.js": "/static/js/2.eeb33629.chunk.js",
+    "static/js/2.eeb33629.chunk.js.map": "/static/js/2.eeb33629.chunk.js.map",
+    "static/js/3.ce7a7c3e.chunk.js": "/static/js/3.ce7a7c3e.chunk.js",
+    "static/js/3.ce7a7c3e.chunk.js.map": "/static/js/3.ce7a7c3e.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.e8524374de4df4e2c8560a51b62a5660.js": "/precache-manifest.e8524374de4df4e2c8560a51b62a5660.js",
+    "precache-manifest.15c1f65ffa54ed0bd03db6d38701a27b.js": "/precache-manifest.15c1f65ffa54ed0bd03db6d38701a27b.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.45d2f0d4.chunk.js.LICENSE.txt": "/static/js/2.45d2f0d4.chunk.js.LICENSE.txt",
-    "static/media/Cygate.webp": "/static/media/Cygate.e72a9de6.webp",
+    "static/js/2.eeb33629.chunk.js.LICENSE.txt": "/static/js/2.eeb33629.chunk.js.LICENSE.txt",
+    "static/media/Cygate.webp": "/static/media/Cygate.2a1dfb0d.webp",
     "static/media/D-group.png": "/static/media/D-group.baea0123.png",
     "static/media/dart.gif": "/static/media/dart.1b9c90bb.gif",
-    "static/media/ericssonSpons.webp": "/static/media/ericssonSpons.0219e3ef.webp",
+    "static/media/ericssonSpons.webp": "/static/media/ericssonSpons.ded8c2ef.webp",
     "static/media/ferroampSpons.webp": "/static/media/ferroampSpons.3a9150af.webp",
     "static/media/idaSpons.webp": "/static/media/idaSpons.03620aa0.webp",
     "static/media/xameraSpons.webp": "/static/media/xameraSpons.63263905.webp"
   },
   "entrypoints": [
-    "static/js/runtime-main.02c8f5eb.js",
-    "static/js/2.45d2f0d4.chunk.js",
+    "static/js/runtime-main.299a2415.js",
+    "static/js/2.eeb33629.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.7bfe572b.chunk.js"
+    "static/js/main.9750119d.chunk.js"
   ]
 }
