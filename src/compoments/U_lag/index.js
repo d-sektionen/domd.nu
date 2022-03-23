@@ -59,7 +59,7 @@ function Ulag () {
                 Lördag:
                 </Typography>
                 <Typography variant="h6" guttomButtom sx={{pb:4}}>
-                <li>D<span tyle="font-size:75%">ÖM</span>D-tävlingen på Kårallen inheckining kl 09:00</li>
+                <li>D<span tyle="font-size:75%">ÖM</span>D-tävlingen på Kårallen incheckning kl 09:00</li>
                 <li> AfterDart, vanlig klädkod på <Link href="https://goo.gl/maps/tsp8ezQskF9MxDhg8"
                 variant='h6'
                 underlink="hover"

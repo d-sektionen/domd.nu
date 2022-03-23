@@ -10,7 +10,7 @@ function Rules() {
   return (
     <Box sx={{backgroundColor:"black"}}>
       <Box>
-      <img src={dart} alt="dart.png" style={{height:"40vh", width:"100%"}}/>
+      <img src={dart} alt="dart.png" style={{height:"auto", width:"100%"}}/>
       </Box>
       
       <Typography variant="h2" guttomBottom sx={{ color: "white", textAlign:"center", fontWeight:"bold" }}>
