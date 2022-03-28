@@ -16,7 +16,8 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { NavLink} from "react-router-dom"
-import logo from "../../res/images/D-group.png"
+//import logo from "../../res/images/D-group.png"
+import logotheme from "../../res/images/logotheme.png"
 
 
 const Link = styled(NavLink)`
@@ -61,7 +62,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            <img alt="logo" src={logo} width={60} height={60} component="div"/>
+            <img alt="logo" src={logotheme} width={60} height={60} component="div"/>
           </Typography>
           </NavLink>
           
@@ -124,7 +125,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            <img alt="logo" src={logo} width={60} height={60} component="div"/>
+            <img alt="logo" src={logotheme} width={60} height={60} component="div"/>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             
