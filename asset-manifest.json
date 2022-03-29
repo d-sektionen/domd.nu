@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/static/js/main.d87b1b6f.chunk.js",
-    "main.js.map": "/static/js/main.d87b1b6f.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.76cda3b0.js",
-    "runtime-main.js.map": "/static/js/runtime-main.76cda3b0.js.map",
-    "static/js/2.1958c7f2.chunk.js": "/static/js/2.1958c7f2.chunk.js",
-    "static/js/2.1958c7f2.chunk.js.map": "/static/js/2.1958c7f2.chunk.js.map",
-    "static/js/3.b7c714e5.chunk.js": "/static/js/3.b7c714e5.chunk.js",
-    "static/js/3.b7c714e5.chunk.js.map": "/static/js/3.b7c714e5.chunk.js.map",
+    "main.js": "/static/js/main.76536426.chunk.js",
+    "main.js.map": "/static/js/main.76536426.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.567a297d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.567a297d.js.map",
+    "static/js/2.898af25f.chunk.js": "/static/js/2.898af25f.chunk.js",
+    "static/js/2.898af25f.chunk.js.map": "/static/js/2.898af25f.chunk.js.map",
+    "static/js/3.9317a461.chunk.js": "/static/js/3.9317a461.chunk.js",
+    "static/js/3.9317a461.chunk.js.map": "/static/js/3.9317a461.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.e4ae8a33c218ebf6321a018026b95d1d.js": "/precache-manifest.e4ae8a33c218ebf6321a018026b95d1d.js",
+    "precache-manifest.de000e87277298289d75adf793610751.js": "/precache-manifest.de000e87277298289d75adf793610751.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.1958c7f2.chunk.js.LICENSE.txt": "/static/js/2.1958c7f2.chunk.js.LICENSE.txt",
+    "static/js/2.898af25f.chunk.js.LICENSE.txt": "/static/js/2.898af25f.chunk.js.LICENSE.txt",
     "static/media/Cygate.webp": "/static/media/Cygate.2a1dfb0d.webp",
     "static/media/computer_back.webp": "/static/media/computer_back.e224d39b.webp",
     "static/media/dart.gif": "/static/media/dart.1b9c90bb.gif",
@@ -25,9 +25,9 @@
     "static/media/xameraSpons.webp": "/static/media/xameraSpons.63263905.webp"
   },
   "entrypoints": [
-    "static/js/runtime-main.76cda3b0.js",
-    "static/js/2.1958c7f2.chunk.js",
+    "static/js/runtime-main.567a297d.js",
+    "static/js/2.898af25f.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.d87b1b6f.chunk.js"
+    "static/js/main.76536426.chunk.js"
   ]
 }
