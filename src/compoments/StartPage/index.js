@@ -60,10 +60,10 @@ const TextGrid = styled(Grid)(({ theme }) => ({
   
   
   [theme.breakpoints.down("md")]: {
-    textAlign:"center"
+    textAlign:"center",
   },
   [theme.breakpoints.up("md")]: {
-    textAlign:"left"
+    textAlign:"left",
   },
 }));
 
