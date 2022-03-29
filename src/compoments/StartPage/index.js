@@ -2,6 +2,7 @@ import React from "react";
 import Countdown from "react-countdown";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 //import dart from "../../res//dart.gif";
@@ -15,6 +16,8 @@ import Mobile from "../../res/background/mobile_back.webp";
 
 
 import SoundcloudPlayer from "react-player";
+
+
 
 const DOMDdate = new Date("2022-04-09T10:00:00");
 
@@ -67,9 +70,24 @@ const TextGrid = styled(Grid)(({ theme }) => ({
   },
 }));
 
+const TextLink = styled(Link)(({ theme }) => ({
+  textDecoration: "none",
+  color:"darkblue",
+  
+  
+  [theme.breakpoints.down("md")]: {
+    textAlign:"center",
+  },
+  [theme.breakpoints.up("md")]: {
+    textAlign:"left",
+  },
+}));
+
+
+
 /*<Grid>
         <img src={dart} width="100%" alt="Dart GIf"></img>
-      </Grid> */
+      </Grid> <br/> länk till eventet */
 
 function StartPage() {
   return (
@@ -107,29 +125,57 @@ function StartPage() {
             D<span STYLE="font-size:75%">ÖM</span>D schema
           </Typography>
           <Typography variant="h4" gutterBottom sx={{ m: 3 }}>
-            Måndag 28/3:
-          </Typography>
-          <Typography variant="h6" gutterBottom>
-            <li>Temasläpp i Collo kl: 12:15 </li>
-            <li>Lagsläpp i Collo kl: 12:45</li>
-          </Typography>
-
-          <Typography variant="h4" gutterBottom sx={{ m: 3 }}>
             Onsdag 30/3:
           </Typography>
           <Typography variant="h6" gutterBottom>
             <li>Jobbsläpp i Collo kl 12:15</li>
+            <li>Tagga D<span STYLE="font-size:75%">ÖM</span>D-pub på HG, där man kan vinna förköp!</li>
+            
+            <TextLink href="https://fb.me/e/2j6mYSN61"
+                variant='h6'
+                underlink="hover"
+                textAlign="center"
+                
+                >
+                Länk till eventet
+                </TextLink>
           </Typography>
+          <Typography variant="h4" gutterBottom sx={{ m: 3 }}>
+            Torsdag 31/3
+          </Typography>
+          <Typography variant="h6" gutterBottom>
+            <li>D<span STYLE="font-size:75%">ÖM</span>D-Jubileumsquiz & Torsdagsklubben på KK </li>
+            <TextLink href="https://fb.me/e/ldMjLgtvE"
+                variant='h6'
+                underlink="hover"
+                >
+                Länk till eventet
+                </TextLink>
+          </Typography>
+
           <Typography variant="h4" gutterBottom sx={{ m: 3 }}>
             Måndag 4/4
           </Typography>
           <Typography variant="h6" gutterBottom>
-            <li>Biljettsläpp i skrivsalen kl 06:00</li>
+            <li>Temaenlig myskväll i C-Huste med Aktu </li>
+            <TextLink href="https://fb.me/e/2a2fdDN6x"
+                variant='h6'
+                underlink="hover"
+                >
+                Länk till eventet
+                </TextLink>
+          </Typography>
+          <Typography variant="h4" gutterBottom sx={{ m: 3 }}>
+            Onsdag 6/4
+          </Typography>
+          <Typography variant="h6" gutterBottom>
+            <li>D<span STYLE="font-size:75%">ÖM</span>D-pub på Flamman</li>
+           
           </Typography>
 
           <Typography variant="h4" gutterBottom sx={{ mr: 6, mt: 6, mb: 3 }}>
             {" "}
-            Lyssna på D<span STYLE="font-size:75%">ÖM</span>D låtar för
+            Lyssna på D<span STYLE="font-size:75%">ÖM</span>D-låtarna för
             att tagga till!
           </Typography>
           <Grid md={5} align="center">

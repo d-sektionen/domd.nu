@@ -2,16 +2,36 @@ import React from 'react';
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography';
-import dart from "../../res//dart.gif";
 import Link from '@mui/material/Link'
+import Desktop from "../../res/background/computer_back.webp";
+import Mobile from "../../res/background/mobile_back.webp";
+import { styled } from "@mui/material/styles";
+
+
+
+const Root = styled(Box)(({ theme }) => ({
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    color: "white",
+    textAlign: "center",
+    mt: { xs: 6, md: 2 },
+    [theme.breakpoints.down("md")]: {
+      backgroundImage: `url(${Mobile})`,
+      backgroundPosition: "50% 30%",
+    },
+    [theme.breakpoints.up("md")]: {
+      backgroundImage: `url(${Desktop})`,
+      backgroundPosition: "50% 30%",
+    },
+  }));
 
 
 function Ulag () {
     return(
-        <Box sx={{backgroundColor:"black", color:"white", textAlign:"center"}}>
+        <Root>
             <Grid >
-                <img src={dart} alt="DartImg" style={{height:"40vh", width:"100%"}} />
-                <Typography variant="h2" guttomButtom sx={{mb:6, mx:6}}>
+                <Typography variant="h2" guttomButtom sx={{mb:6, mx:6, pt:43}}>
                     U-Lag
                 </Typography>
                 <Typography  variant="h4" guttomButtom sx={{m:3}}>
@@ -69,7 +89,7 @@ function Ulag () {
                 </Typography>
 
             </Grid>
-        </Box>
+        </Root>
 
     )
 }

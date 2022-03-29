@@ -5,6 +5,7 @@ import StartPage from "./compoments/StartPage"
 import Rules from "./compoments/Rules"
 import DimD from "./compoments/DimD";
 import Ulag from "./compoments/U_lag";
+import Lag from "./compoments/Lag"
 
 
 import NavbarNew from "./compoments/Navbartest";
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/rules" element={<Rules/>} />
         <Route exact path="/start" element={<StartPage/>} />
         <Route exact path="ulag" element={<Ulag/>}/>
+        <Route exact path="lag" element={<Lag/>}/>
       </Routes>
     </Router>
   );

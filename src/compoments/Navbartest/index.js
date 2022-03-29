@@ -116,6 +116,11 @@ const ResponsiveAppBar = () => {
                   <Typography textAlign="center"  color="white">U-Lag</Typography>
                 </MenuItem>
                 </Link>
+                <Link to="lag">
+                <MenuItem key="lag" onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center"  color="white">LagAktiviteter</Typography>
+                </MenuItem>
+                </Link>
               
             </Menu1>
           </Box>
@@ -123,7 +128,8 @@ const ResponsiveAppBar = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            textAlign="center"
+            sx={{ flexGrow: 1.5, display: { xs: 'flex', md: 'none' } }}
           >
             <img alt="logo" src={logotheme} width={60} height={60} component="div"/>
           </Typography>
@@ -155,6 +161,15 @@ const ResponsiveAppBar = () => {
                 sx={{ my: 2, color: 'white', display: 'block', textDecoration: "none" }}
               >
                 U-Lag
+              </Button>
+              </NavLink>
+              <NavLink to="lag" sx={{ textDecoration: "none" }}>
+              <Button
+                key="Lag"
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block', textDecoration: "none" }}
+              >
+                LagAktiviteter
               </Button>
               </NavLink>
                           
