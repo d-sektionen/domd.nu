@@ -223,7 +223,7 @@ function StartPage() {
         Lyssna på D<span STYLE="font-size:75%">ÖM</span>
         D-låtar för att tagga till!
       </Typography>
-      <Grid xs={12} align="center">
+      <Grid xs={12} align="center" sx={{ paddingBottom: "10%" }}>
         <SoundcloudPlayer
           className="player"
           url="https://soundcloud.com/d-group/"

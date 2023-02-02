@@ -18,8 +18,7 @@ const YoutubeEmbed = ({ embedId }) => (
   <div className="video-responsive">
     <ReactPlayer
       url={`https://www.youtube.com/embed/${embedId}`}
-      width="80%"
-      height="100%"
+      controls={true}
     />
   </div>
 );

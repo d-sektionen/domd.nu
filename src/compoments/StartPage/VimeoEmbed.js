@@ -4,11 +4,7 @@ import ReactPlayer from "react-player";
 
 const VimeoEmbed = ({ embedId }) => (
   <div className="video-responsive">
-    <ReactPlayer
-      url={`https://vimeo.com/${embedId}`}
-      width="100%"
-      height="100%"
-    />
+    <ReactPlayer url={`https://vimeo.com/${embedId}`} controls={true} />
   </div>
 );
 
