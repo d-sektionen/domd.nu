@@ -7,37 +7,38 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 //import dart from "../../res//dart.gif";
 import Cygate from "../../res/sponsImg/Cygate.webp";
-import Xamera from "../../res/sponsImg/xameraSpons.webp";
+import Xamera from "../../res/sponsImg/xamera.png";
 import Ericsson from "../../res/sponsImg/ericssonSpons.webp";
-import Ferroamp from "../../res/sponsImg/ferroampSpons.webp";
+import Microtec from "../../res/sponsImg/microtec.png";
 import Ida from "../../res/sponsImg/idaSpons.webp";
 import Desktop from "../../res/background/computer_back.webp";
 import Mobile from "../../res/background/mobile_back.webp";
-
+import Darttavla from "../../res/background/darttavla_svart_vit.jpg";
 
 import SoundcloudPlayer from "react-player";
+import YoutubeEmbed from "./YoutubeEmbed";
+import "./style.css";
+import VimeoEmbed from "./VimeoEmbed";
 
-
-
-const DOMDdate = new Date("2022-04-09T10:00:00");
+const DOMDdate = new Date("2023-04-20T10:00:00");
 
 const render = ({ days, hours, minutes, seconds }) => {
   return (
     <span>
       {days} dagar {hours} timmar {minutes} minuter {seconds} sekunder kvar
-      tills D<span STYLE="font-size:75%">ÖM</span>D!!
+      tills D<span STYLE="font-size:75%">ÖM</span>D!
     </span>
   );
 };
 const mobilerender = ({ days, hours, minutes, seconds }) => {
   return (
     <span>
-      {days} dagar <br />
-      {hours} timmar <br />
-      {minutes} minuter <br />
-      {seconds} sekunder
+      {days} Dagar <br />
+      {hours} Timmar <br />
+      {minutes} Minuter <br />
+      {seconds} Sekunder
       <br />
-      kvar tills D<span STYLE="font-size:75%">ÖM</span>D!
+      Kvar Tills D<span STYLE="font-size:75%">ÖM</span>D!
     </span>
   );
 };
@@ -50,40 +51,35 @@ const Root = styled(Box)(({ theme }) => ({
   textAlign: "center",
   mt: { xs: 6, md: 2 },
   [theme.breakpoints.down("md")]: {
-    backgroundImage: `url(${Mobile})`,
+    backgroundImage: `url(${Darttavla})`,
     backgroundPosition: "50% 30%",
   },
   [theme.breakpoints.up("md")]: {
-    backgroundImage: `url(${Desktop})`,
+    backgroundImage: `url(${Darttavla})`,
     backgroundPosition: "50% 30%",
   },
 }));
 
 const TextGrid = styled(Grid)(({ theme }) => ({
-  
-  
   [theme.breakpoints.down("md")]: {
-    textAlign:"center",
+    textAlign: "center",
   },
   [theme.breakpoints.up("md")]: {
-    textAlign:"left",
+    textAlign: "left",
   },
 }));
 
 const TextLink = styled(Link)(({ theme }) => ({
   textDecoration: "none",
-  color:"darkblue",
-  
-  
+  color: "darkblue",
+
   [theme.breakpoints.down("md")]: {
-    textAlign:"center",
+    textAlign: "center",
   },
   [theme.breakpoints.up("md")]: {
-    textAlign:"left",
+    textAlign: "left",
   },
 }));
-
-
 
 /*<Grid>
         <img src={dart} width="100%" alt="Dart GIf"></img>
@@ -93,142 +89,148 @@ function StartPage() {
   return (
     <Root container sx={{ pt: { xs: 5, md: 10 } }}>
       <Grid sm={12} container>
-        <Grid xs={12} sx={{ pb: 0, px: 6, pt:43 }}>
+        <Grid xs={12} sx={{ pb: 0, px: 6, pt: 30 }}>
           <Typography
             variant="h4"
             gutterBottom
-            
+            fontFamily={"Courier New"}
             align="center"
             sx={{
-              display: { xs: "none", md: "inline" },
+              display: {
+                xs: "none",
+                md: "inline",
+                textShadow: "1px 1px 3px red, 0 0 1em blue, 0 0 0.2em blue",
+              },
             }} /* Dator rendering av countdown */
           >
             <Countdown renderer={render} date={DOMDdate} /> <br />
           </Typography>
           <Typography
             variant="h4"
+            fontFamily={"Courier New"}
             gutterBottom
             align="center"
             sx={{
-              display: { xs: "inline", sm: "inline", md: "none" },
+              display: {
+                xs: "inline",
+                sm: "inline",
+                md: "none",
+                textShadow: "1px 1px 3px red, 0 0 1em blue, 0 0 0.2em blue",
+              },
             }} /* Mobil rendering av countdown */
           >
             <Countdown renderer={mobilerender} date={DOMDdate} /> <br />
           </Typography>
-          <Typography variant="h4" gutterBottom sx={{ mt: 3 }}>
-            Nu är det vår.
-          </Typography> 
+          <Typography
+            variant="h4"
+            gutterBottom
+            align="center"
+            fontFamily={"Courier New"}
+            sx={{
+              mt: 5,
+              textShadow: "1px 1px 3px red, 0 0 1em blue, 0 0 0.2em blue",
+              fontSize: "30px",
+            }}
+          >
+            Snart är det vår.
+          </Typography>
         </Grid>
-        <TextGrid md={9} sx={{px:5}} >
-          
-          <Typography variant="h4" gutterBottom sx={{ m: 3 }}>
-            D<span STYLE="font-size:75%">ÖM</span>D schema
-          </Typography>
-          <Typography variant="h4" gutterBottom sx={{ m: 3 }}>
-            Onsdag 30/3:
-          </Typography>
-          <Typography variant="h6" gutterBottom>
-            <li>Jobbsläpp i Collo kl 12:15</li>
-            <li>Tagga D<span STYLE="font-size:75%">ÖM</span>D-pub på HG, där man kan vinna förköp!</li>
-            
-            <TextLink href="https://fb.me/e/2j6mYSN61"
-                variant='h6'
-                underlink="hover"
-                textAlign="center"
-                
-                >
-                Länk till eventet
-                </TextLink>
-          </Typography>
-          <Typography variant="h4" gutterBottom sx={{ m: 3 }}>
-            Torsdag 31/3
-          </Typography>
-          <Typography variant="h6" gutterBottom>
-            <li>D<span STYLE="font-size:75%">ÖM</span>D-Jubileumsquiz & Torsdagsklubben på KK </li>
-            <TextLink href="https://fb.me/e/ldMjLgtvE"
-                variant='h6'
-                underlink="hover"
-                >
-                Länk till eventet
-                </TextLink>
-          </Typography>
+      </Grid>
 
-          <Typography variant="h4" gutterBottom sx={{ m: 3 }}>
-            Måndag 4/4
-          </Typography>
-          <Typography variant="h6" gutterBottom>
-            <li>Temaenlig myskväll i C-Huste med Aktu </li>
-            <TextLink href="https://fb.me/e/2a2fdDN6x"
-                variant='h6'
-                underlink="hover"
-                >
-                Länk till eventet
-                </TextLink>
-          </Typography>
-          <Typography variant="h4" gutterBottom sx={{ m: 3 }}>
-            Onsdag 6/4
-          </Typography>
-          <Typography variant="h6" gutterBottom>
-            <li>D<span STYLE="font-size:75%">ÖM</span>D-pub på Flamman</li>
-           
-          </Typography>
-
-          <Typography variant="h4" gutterBottom sx={{ mr: 6, mt: 6, mb: 3 }}>
-            {" "}
-            Lyssna på D<span STYLE="font-size:75%">ÖM</span>D-låtarna för
-            att tagga till!
-          </Typography>
-          <Grid md={5} align="center">
-          <SoundcloudPlayer
-            className="player"
-            url="https://soundcloud.com/d-group/"
-            controls={true}
-            width="100%"
-            height="500px"
+      <Grid xs={12} sx={{ mt: "20%", px: 1 }} align="center" /* Sponsorer */>
+        <Typography
+          align="center"
+          variant="h4"
+          fontFamily={"Brush Script MT"}
+          gutterBottom
+          sx={{ textShadow: "2px 2px 6px black" }}
+        >
+          {" "}
+          Samarbetspartners
+        </Typography>
+      </Grid>
+      <Grid container margin={2}>
+        <Grid xs={3} sx={{ marginTop: "5%" }}>
+          <img
+            src={Microtec}
+            alt="Microtec Sponsor"
+            width={"100%"}
+            height={"auto"}
           />
-          </Grid>
-        </TextGrid>
-        <Grid md={3} sx={{ py: 6, px: 1 }} align="right" /* Sponsorer */>
-          <Typography align="center" variant="h4" gutterBottom>
-            {" "}
-            Sponsorer
-          </Typography>
-          <Box sx={{ px: 0 }}>
-            <img src={Ida} alt="Ida Sponsor" width={"100%"} height={"100%"} />
-          </Box>
-          <Box sx={{ px: 0 }}>
-            <img
-              src={Ericsson}
-              alt="Ericsson Sponsor"
-              width={"100%"}
-              height={"100%"}
-            />
-          </Box>
-          <Box sx={{ px: 0 }}>
-            <img
-              src={Ferroamp}
-              alt="Ferroamp Sponsor"
-              width={"100%"}
-              height={"100%"}
-            />
-          </Box>
-          <Box sx={{ px: 0 }}>
-            <img
-              src={Cygate}
-              alt="Cygate Sponsor"
-              width={"100%"}
-              height={"100%"}
-            />
-          </Box>
-          <Box sx={{ px: 0 }}>
-            <img
-              src={Xamera}
-              alt="Xamera Sponsor"
-              width={"100%"}
-              height={"100%"}
-            />
-          </Box>
         </Grid>
+        <Grid xs={3}>
+          <img
+            src={Ericsson}
+            alt="Ericsson Sponsor"
+            width={"50%"}
+            height={"auto"}
+          />
+        </Grid>
+        <Grid xs={3} sx={{ marginTop: "8%" }}>
+          <img src={Ida} alt="Ida Sponsor" width={"100%"} height={"auto"} />
+        </Grid>
+        <Grid xs={3}>
+          <img
+            src={Xamera}
+            alt="Xamera Sponsor"
+            width={"60%"}
+            height={"auto"}
+          />
+        </Grid>
+      </Grid>
+      <Grid align="center">
+        <Typography
+          xs={12}
+          variant="h4"
+          gutterBottom
+          fontFamily={"Courier New"}
+          sx={{ mx: 5, mt: 6, mb: 3, textShadow: "#FF22FF 1px 0 10px" }}
+        >
+          {" "}
+          Aftermovies
+        </Typography>
+        <Grid lg={9} margin={5} alignItems="center">
+          <YoutubeEmbed embedId="aU4x0WtvJIs" />
+        </Grid>
+
+        <Grid lg={9} margin={5}>
+          <YoutubeEmbed embedId="qwltF5RATTE" />
+        </Grid>
+
+        <Typography
+          variant="h4"
+          gutterBottom
+          fontFamily={"Courier New"}
+          sx={{ mx: 10, mt: 6, mb: 3, textShadow: "#FF22FF 1px 0 10px" }}
+        >
+          {" "}
+          Taggfilmer
+        </Typography>
+        <Grid xs={12} lg={9} margin={5}>
+          <VimeoEmbed embedId="694777821" />
+        </Grid>
+        <Grid xs={12} lg={9} margin={5}>
+          <VimeoEmbed embedId="533536885" />
+        </Grid>
+      </Grid>
+
+      <Typography
+        variant="h5"
+        gutterBottom
+        sx={{ mx: 6, mt: 6, mb: 3, textShadow: "#FF22FF 1px 0 10px" }}
+      >
+        {" "}
+        Lyssna på D<span STYLE="font-size:75%">ÖM</span>
+        D-låtar för att tagga till!
+      </Typography>
+      <Grid xs={12} align="center">
+        <SoundcloudPlayer
+          className="player"
+          url="https://soundcloud.com/d-group/"
+          controls={true}
+          width="50%"
+          height="500px"
+        />
       </Grid>
     </Root>
   );
