@@ -90,6 +90,7 @@ function StartPage() {
     <Root container sx={{ pt: { xs: 5, md: 10 } }}>
       <Grid sm={12} container>
         <Grid xs={12} sx={{ pb: 0, px: 6, pt: 30 }}>
+          <Grid xs={12} sx={{backgroundColor: "rgba(0,0,0,0.7)", paddingY: "5%", marginX: "5%"}}>
           <Typography
             variant="h4"
             gutterBottom
@@ -129,11 +130,12 @@ function StartPage() {
             sx={{
               mt: 5,
               textShadow: "1px 1px 3px red, 0 0 1em blue, 0 0 0.2em blue",
-              fontSize: "30px",
+              fontSize: "38px",
             }}
           >
             Snart är det vår.
           </Typography>
+          </Grid>
         </Grid>
       </Grid>
 
