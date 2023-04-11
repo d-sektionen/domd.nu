@@ -14,13 +14,17 @@ import Ida from "../../res/sponsImg/idaSpons.webp";
 import Desktop from "../../res/background/computer_back.webp";
 import Mobile from "../../res/background/mobile_back.webp";
 import Darttavla from "../../res/background/darttavla_svart_vit.jpg";
-
+import TemaEnligBakgrund from "../../res/background/4x2vepa.jpg";
+import TemaEnligBakgrundMobil from "../../res/background/bakgrund_mobil_test.jpg";
 import SoundcloudPlayer from "react-player";
 import YoutubeEmbed from "./YoutubeEmbed";
 import "./style.css";
 import VimeoEmbed from "./VimeoEmbed";
+import Schema from "./schema";
 
-const DOMDdate = new Date("2023-04-20T10:00:00");
+import Tidning from "./tidning";
+
+const DOMDdate = new Date("2023-04-22T10:00:00");
 
 const render = ({ days, hours, minutes, seconds }) => {
   return (
@@ -51,11 +55,11 @@ const Root = styled(Box)(({ theme }) => ({
   textAlign: "center",
   mt: { xs: 6, md: 2 },
   [theme.breakpoints.down("md")]: {
-    backgroundImage: `url(${Darttavla})`,
-    backgroundPosition: "50% 30%",
+    backgroundImage: `url(${TemaEnligBakgrundMobil})`,
+    backgroundPosition: "50% 10%",
   },
   [theme.breakpoints.up("md")]: {
-    backgroundImage: `url(${Darttavla})`,
+    backgroundImage: `url(${TemaEnligBakgrund})`,
     backgroundPosition: "50% 30%",
   },
 }));
@@ -90,54 +94,67 @@ function StartPage() {
     <Root container sx={{ pt: { xs: 5, md: 10 } }}>
       <Grid sm={12} container>
         <Grid xs={12} sx={{ pb: 0, px: 6, pt: 30 }}>
-          <Grid xs={12} sx={{backgroundColor: "rgba(0,0,0,0.7)", paddingY: "5%", marginX: "5%"}}>
-          <Typography
-            variant="h4"
-            gutterBottom
-            fontFamily={"Courier New"}
-            align="center"
+          <Grid
+            xs={12}
             sx={{
-              display: {
-                xs: "none",
-                md: "inline",
-                textShadow: "1px 1px 3px red, 0 0 1em blue, 0 0 0.2em blue",
-              },
-            }} /* Dator rendering av countdown */
-          >
-            <Countdown renderer={render} date={DOMDdate} /> <br />
-          </Typography>
-          <Typography
-            variant="h4"
-            fontFamily={"Courier New"}
-            gutterBottom
-            align="center"
-            sx={{
-              display: {
-                xs: "inline",
-                sm: "inline",
-                md: "none",
-                textShadow: "1px 1px 3px red, 0 0 1em blue, 0 0 0.2em blue",
-              },
-            }} /* Mobil rendering av countdown */
-          >
-            <Countdown renderer={mobilerender} date={DOMDdate} /> <br />
-          </Typography>
-          <Typography
-            variant="h4"
-            gutterBottom
-            align="center"
-            fontFamily={"Courier New"}
-            sx={{
-              mt: 5,
-              textShadow: "1px 1px 3px red, 0 0 1em blue, 0 0 0.2em blue",
-              fontSize: "38px",
+              backgroundColor: "rgba(0,0,0,0.7)",
+              paddingY: "5%",
+              marginTop: "10%",
+              marginX: "5%",
             }}
           >
-            Snart är det vår.
-          </Typography>
+            <Typography
+              variant="h4"
+              gutterBottom
+              fontFamily={"Courier New"}
+              align="center"
+              sx={{
+                display: {
+                  xs: "none",
+                  md: "inline",
+                  textShadow:
+                    "1px 1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
+                },
+              }} /* Dator rendering av countdown */
+            >
+              <Countdown renderer={render} date={DOMDdate} /> <br />
+            </Typography>
+            <Typography
+              variant="h4"
+              fontFamily={"Courier New"}
+              gutterBottom
+              align="center"
+              sx={{
+                display: {
+                  xs: "inline",
+                  sm: "inline",
+                  md: "none",
+                  textShadow:
+                    "1px 1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
+                },
+              }} /* Mobil rendering av countdown */
+            >
+              <Countdown renderer={mobilerender} date={DOMDdate} /> <br />
+            </Typography>
+            <Typography
+              variant="h4"
+              gutterBottom
+              align="center"
+              fontFamily={"Courier New"}
+              sx={{
+                mt: 5,
+                textShadow:
+                  "1px 1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
+                fontSize: "38px",
+              }}
+            >
+              Nu Är Det Vår.
+            </Typography>
           </Grid>
         </Grid>
       </Grid>
+
+      <Schema></Schema>
 
       <Grid xs={12} sx={{ mt: "20%", px: 1 }} align="center" /* Sponsorer */>
         <Typography
@@ -151,7 +168,7 @@ function StartPage() {
           Samarbetspartners
         </Typography>
       </Grid>
-      <Grid container margin={2}>
+      <Grid container margin={0}>
         <Grid xs={3} sx={{ marginTop: "5%" }}>
           <img
             src={Microtec}
@@ -180,13 +197,34 @@ function StartPage() {
           />
         </Grid>
       </Grid>
-      <Grid align="center">
+
+      <Grid align="center" sx={{ marginTop: "5%" }}>
+        <Grid overflow="hidden" xs={10}>
+          <Typography
+            align="center"
+            variant="h4"
+            fontFamily={"Brush Script MT"}
+            gutterBottom
+            sx={{ textShadow: "2px 2px 6px black" }}
+          >
+            {" "}
+            Årets D<span STYLE="font-size:75%">ÖM</span>D-Tidning
+          </Typography>
+
+          <Tidning></Tidning>
+        </Grid>
+
         <Typography
           xs={12}
           variant="h4"
           gutterBottom
           fontFamily={"Courier New"}
-          sx={{ mx: 5, mt: 6, mb: 3, textShadow: "#FF22FF 1px 0 10px" }}
+          sx={{
+            mx: 5,
+            mt: 6,
+            mb: 3,
+            textShadow: "1px 1px 3px brown, 0 0 1em #FFD700, 0 0 0.2em #FFD700",
+          }}
         >
           {" "}
           Aftermovies
@@ -203,7 +241,12 @@ function StartPage() {
           variant="h4"
           gutterBottom
           fontFamily={"Courier New"}
-          sx={{ mx: 10, mt: 6, mb: 3, textShadow: "#FF22FF 1px 0 10px" }}
+          sx={{
+            mx: 10,
+            mt: 6,
+            mb: 3,
+            textShadow: "1px 1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
+          }}
         >
           {" "}
           Taggfilmer
@@ -219,11 +262,17 @@ function StartPage() {
       <Typography
         variant="h5"
         gutterBottom
-        sx={{ mx: 6, mt: 6, mb: 3, textShadow: "#FF22FF 1px 0 10px" }}
+        sx={{
+          mx: 6,
+          mt: 6,
+          mb: 3,
+          textShadow: "1px 1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
+        }}
       >
         {" "}
         Lyssna på D<span STYLE="font-size:75%">ÖM</span>
-        D-låtar för att tagga till!
+        D-låtar, Tagga D<span STYLE="font-size:75%">ÖM</span>
+        D!
       </Typography>
       <Grid xs={12} align="center" sx={{ paddingBottom: "10%" }}>
         <SoundcloudPlayer

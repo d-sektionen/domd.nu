@@ -4,15 +4,14 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu1 from "@mui/material/Menu";
+import Menu from "@mui/material/Menu";
 import { HiMenu } from "react-icons/hi";
 import styled from "styled-components";
+import "./navbar.css";
 import Grid from "@mui/material/Grid";
-
 import Container from "@mui/material/Container";
 
 import Button from "@mui/material/Button";
-
 import MenuItem from "@mui/material/MenuItem";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
@@ -22,6 +21,8 @@ import Xamera from "../../res/sponsImg/xamera.png";
 import Ericsson from "../../res/sponsImg/ericssonSpons.webp";
 import Microtec from "../../res/sponsImg/microtec.png";
 import Ida from "../../res/sponsImg/idaSpons.webp";
+import { Paper } from "@material-ui/core";
+import { ClassNames } from "@emotion/react";
 //import logotheme from "../../res/images/logotheme.png";
 
 /*<NavLink to="ulag" sx={{ textDecoration: "none" }}>
@@ -80,14 +81,22 @@ const ResponsiveAppBar = () => {
     palette: {
       mode: "dark",
       primary: {
-        main: "#1976d2",
+        main: "#051820",
+      },
+    },
+  });
+
+  const useStyles = createTheme({
+    palette: {
+      background: {
+        default: "#051820",
       },
     },
   });
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar position="fixed" color="primary">
+      <AppBar position="fixed" color="primary" enableColorOnDark>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <NavLink to="/">
@@ -107,7 +116,12 @@ const ResponsiveAppBar = () => {
               </Typography>
             </NavLink>
 
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "flex", md: "none" },
+              }}
+            >
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -118,7 +132,7 @@ const ResponsiveAppBar = () => {
               >
                 <HiMenu />
               </IconButton>
-              <Menu1
+              <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
                 anchorOrigin={{
@@ -132,32 +146,42 @@ const ResponsiveAppBar = () => {
                 }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
+                sx={{}}
               >
                 <Link to="/">
                   <MenuItem key="/" onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center" color="white">
+                    <Typography
+                      textAlign="center"
+                      color="white"
+                      fontFamily="Monaco"
+                    >
                       Start
                     </Typography>
                   </MenuItem>
                 </Link>
                 <Link to="dimd">
                   <MenuItem key="dimd" onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center" color="white">
+                    <Typography
+                      textAlign="center"
+                      color="white"
+                      fontFamily="Monaco"
+                    >
                       DimD
                     </Typography>
                   </MenuItem>
                 </Link>
                 <Link to="rules">
                   <MenuItem key="Rules" onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center" color="white">
+                    <Typography
+                      textAlign="center"
+                      color="white"
+                      fontFamily="Monaco"
+                    >
                       Regler
                     </Typography>
                   </MenuItem>
                 </Link>
-              </Menu1>
+              </Menu>
             </Box>
             <Typography
               variant="h6"
@@ -175,7 +199,7 @@ const ResponsiveAppBar = () => {
               />
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              <NavLink to="rules" sx={{ textDecoration: "none" }}>
+              <NavLink to="rules" style={{ textDecoration: "none" }}>
                 <Button
                   key="hej"
                   onClick={handleCloseNavMenu}
@@ -183,13 +207,14 @@ const ResponsiveAppBar = () => {
                     my: 2,
                     color: "white",
                     display: "block",
-                    textDecoration: "none",
+                    fontFamily: "Monaco",
+                    fontSize: "100%",
                   }}
                 >
                   Regler
                 </Button>
               </NavLink>
-              <NavLink to="dimd" sx={{ textDecoration: "none" }}>
+              <NavLink to="dimd" style={{ textDecoration: "none" }}>
                 <Button
                   key="dimd"
                   onClick={handleCloseNavMenu}
@@ -197,7 +222,8 @@ const ResponsiveAppBar = () => {
                     my: 2,
                     color: "white",
                     display: "block",
-                    textDecoration: "none",
+                    fontFamily: "Monaco",
+                    fontSize: "100%",
                   }}
                 >
                   DimD
