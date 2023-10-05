@@ -9,7 +9,7 @@ import Lag from "./compoments/Lag";
 import Error404 from "./compoments/error404";
 
 import NavbarNew from "./compoments/Navbartest";
-
+import ThrowDart from "./compoments/ThrowDart";
 //<NavbarNew/>
 //<Route exact path="ulag" element={<Ulag />} />
 //<Route exact path="lag" element={<Lag />} />
@@ -27,7 +27,7 @@ function App() {
   const daysUntilDomd = Math.floor(differenceInTime / (1000 * 3600 * 24));
   console.log(daysUntilDomd)
   
-  if (daysUntilDomd <= 100) {
+  if (daysUntilDomd >= 100) {
     return (
       <Router>
         <NavbarNew />
@@ -37,6 +37,7 @@ function App() {
           <Route exact path="/dimd" element={<DimD />} />
           <Route exact path="/rules" element={<Rules />} />
           <Route exact path="/start" element={<StartPage />} />
+          <Route exact path="/kastapil" element={<ThrowDart />} />
         </Routes>
       </Router>
     );

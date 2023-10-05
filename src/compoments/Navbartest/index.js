@@ -229,6 +229,21 @@ const ResponsiveAppBar = () => {
                   DimD
                 </Button>
               </NavLink>
+              <NavLink to="kastapil" style={{ textDecoration: "none" }}>
+                <Button
+                  key="kastapil"
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    fontFamily: "Monaco",
+                    fontSize: "100%",
+                  }}
+                >
+                  Träna
+                </Button>
+              </NavLink>
             </Box>
           </Toolbar>
         </Container>
