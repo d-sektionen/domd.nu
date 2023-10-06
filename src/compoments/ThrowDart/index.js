@@ -91,7 +91,7 @@ function ThrowDart() {
         <p>Doubletap to change size</p>
         <p>Hold to rotate</p>
       </div>
-      <Canvas width={window.innerWidth} height={window.innerHeight}>
+      <Canvas width={window.innerWidth} height={window.innerHeight+500}>
         this is textAlign
       </Canvas>
     </Box>
