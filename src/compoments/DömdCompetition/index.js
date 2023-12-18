@@ -77,43 +77,6 @@ async function getNextGameDetails(teamID) {
 const MATCH_ID = 304405505;
 const MATCH_URL = `https://api.challonge.com/v1/tournaments/${TOURNAMENT_ID}/matches/${MATCH_ID}.json`;
 
-// Function to update the location of a match
-async function updateMatchLocation(newLocation) {
-  try {
-    const requestOptions = {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        api_key: API_KEY,
-        match: {
-          station: newLocation,
-          // Other match properties that you might want to update can be included here
-        },
-      }),
-    };
-
-    const response = await fetch(MATCH_URL, requestOptions);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-
-    const updatedMatch = await response.json();
-    console.log('Updated match location:', updatedMatch.match.suggested_play_order);
-  } catch (error) {
-    console.error('Error updating match location:', error);
-  }
-}
-
-// Call the function to update the location of the match
-// updateMatchLocation('New Location hehe');
-
-
-
-
-
-
 const time = '10:30';
 const location = 'Baljan';
 const boardNumb = '16';

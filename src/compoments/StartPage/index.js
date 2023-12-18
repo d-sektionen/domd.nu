@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Countdown from "react-countdown";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
-import Typography from "@mui/material/Typography";
+import { Grid, Box, Link, Typography, TextField, Button, IconButton, InputAdornment} from '@mui/material';
+
+import { Send } from '@mui/icons-material';
 import { styled } from "@mui/material/styles";
 //import dart from "../../res//dart.gif";
 import Cygate from "../../res/sponsImg/Cygate.webp";
@@ -21,10 +20,12 @@ import YoutubeEmbed from "./YoutubeEmbed";
 import "./style.css";
 import VimeoEmbed from "./VimeoEmbed";
 import Schema from "./schema";
+import Bakgrund from '../../res/background/dartBackground.jpg';
 
 import Tidning from "./tidning";
+import { BrowserRouter } from "react-router-dom";
 
-const DOMDdate = new Date("2023-04-22T10:00:00");
+const DOMDdate = new Date("2024-04-11T10:00:00");
 
 const render = ({ days, hours, minutes, seconds }) => {
   return (
@@ -55,11 +56,11 @@ const Root = styled(Box)(({ theme }) => ({
   textAlign: "center",
   mt: { xs: 6, md: 2 },
   [theme.breakpoints.down("md")]: {
-    backgroundImage: `url(${TemaEnligBakgrundMobil})`,
+    backgroundImage: `url(${Bakgrund})`,
     backgroundPosition: "50% 10%",
   },
   [theme.breakpoints.up("md")]: {
-    backgroundImage: `url(${TemaEnligBakgrund})`,
+    backgroundImage: `url(${Bakgrund})`,
     backgroundPosition: "50% 30%",
   },
 }));
@@ -90,21 +91,33 @@ const TextLink = styled(Link)(({ theme }) => ({
       </Grid> <br/> länk till eventet */
 
 function StartPage() {
+  const [email, setEmail] = useState('');
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Use 'email' state for further processing or validation
+    console.log('Entered Email:', email);
+    // You can add further logic here (e.g., validation, API calls, etc.)
+  };
+
   return (
     <Root container sx={{ pt: { xs: 5, md: 10 } }}>
       <Grid sm={12} container>
-        <Grid xs={12} sx={{ pb: 0, px: 6, pt: 30 }}>
+        <Grid xs={12} sx={{ pb: 0, px: 2, pt: 30 }}>
           <Grid
             xs={12}
             sx={{
-              backgroundColor: "rgba(0,0,0,0.7)",
-              paddingY: "5%",
-              marginTop: "10%",
-              marginX: "5%",
+              backgroundColor: "rgba(0,0,0,0.5)",
+              paddingY: "5px",
+              paddingX: "5px",
             }}
           >
             <Typography
-              variant="h4"
+              variant="h5"
               gutterBottom
               fontFamily={"Courier New"}
               align="center"
@@ -120,7 +133,7 @@ function StartPage() {
               <Countdown renderer={render} date={DOMDdate} /> <br />
             </Typography>
             <Typography
-              variant="h4"
+              variant="h5"
               fontFamily={"Courier New"}
               gutterBottom
               align="center"
@@ -137,7 +150,7 @@ function StartPage() {
               <Countdown renderer={mobilerender} date={DOMDdate} /> <br />
             </Typography>
             <Typography
-              variant="h4"
+              variant="h5"
               gutterBottom
               align="center"
               fontFamily={"Courier New"}
@@ -148,58 +161,61 @@ function StartPage() {
                 fontSize: "38px",
               }}
             >
-              Nu Är Det Vår.
+              Snart Är Det Vår.
             </Typography>
           </Grid>
         </Grid>
       </Grid>
 
-      <Schema></Schema>
+      {/* <Schema></Schema> */}
 
-      <Grid xs={12} sx={{ mt: "20%", px: 1 }} align="center" /* Sponsorer */>
-        <Typography
-          align="center"
+      {/*Benims försök i att göra en responsiv sponsorlista */}
+      <Box
+        container
+        sx={{
+          backgroundColor: "rgba(0,0,0,0.5)",
+          paddingY: "10px",
+          paddingX: "5px",
+          marginX: "16px",
+          marginTop: '10%',
+        }}
+      >
+        <Typography 
           variant="h4"
           fontFamily={"Brush Script MT"}
-          gutterBottom
-          sx={{ textShadow: "2px 2px 6px black" }}
         >
-          {" "}
           Samarbetspartners
         </Typography>
-      </Grid>
-      <Grid container margin={0}>
-        <Grid xs={3} sx={{ marginTop: "5%" }}>
-          <img
-            src={Microtec}
-            alt="Microtec Sponsor"
-            width={"100%"}
-            height={"auto"}
-          />
+        <Grid container alignItems="center" justifyContent="space-evenly">
+          {/* On small screens, display 2 logos per row */}
+          <Grid item xs={6} sm={3}>
+            <a href="https://www.microtec.eu/sv-se">
+              <img src={Microtec} alt="Logo 1" style={{ width: '80%' }} />
+            </a>
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <a href="https://www.ericsson.com/en/careers">
+              <img src={Ericsson} alt="Logo 2" style={{ width: '80%' }} />
+            </a>
+          </Grid>
+
+          {/* On medium or larger screens, display 4 logos per row */}
+          <Grid item xs={6} sm={3}>
+            <a href="https://idainfront.se/en/">
+              <img src={Ida} alt="Logo 3" style={{ width: '80%' }} />
+            </a>
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <a href="https://xamera.se/">
+              <img src={Xamera} alt="Logo 4" style={{ width: '80%' }} />
+            </a>
+          </Grid>
         </Grid>
-        <Grid xs={3}>
-          <img
-            src={Ericsson}
-            alt="Ericsson Sponsor"
-            width={"50%"}
-            height={"auto"}
-          />
-        </Grid>
-        <Grid xs={3} sx={{ marginTop: "8%" }}>
-          <img src={Ida} alt="Ida Sponsor" width={"100%"} height={"auto"} />
-        </Grid>
-        <Grid xs={3}>
-          <img
-            src={Xamera}
-            alt="Xamera Sponsor"
-            width={"60%"}
-            height={"auto"}
-          />
-        </Grid>
-      </Grid>
+      </Box>
 
       <Grid align="center" sx={{ marginTop: "5%" }}>
-        <Grid overflow="hidden" xs={10}>
+        {/* DömD tidningen */}
+        {/* <Grid overflow="hidden" xs={10}>
           <Typography
             align="center"
             variant="h4"
@@ -212,7 +228,7 @@ function StartPage() {
           </Typography>
 
           <Tidning></Tidning>
-        </Grid>
+        </Grid> */}
 
         <Typography
           xs={12}
@@ -229,12 +245,14 @@ function StartPage() {
           {" "}
           Aftermovies
         </Typography>
-        <Grid lg={9} margin={5} alignItems="center">
-          <YoutubeEmbed embedId="aU4x0WtvJIs" />
-        </Grid>
+        <Grid container justifyContent="space-evenly">
+          <Grid xs={11} lg={4} margin={3}>
+            <YoutubeEmbed embedId="aU4x0WtvJIs" />
+          </Grid>
 
-        <Grid lg={9} margin={5}>
-          <YoutubeEmbed embedId="qwltF5RATTE" />
+          <Grid xs={11} lg={4} margin={3}>
+            <YoutubeEmbed embedId="qwltF5RATTE" />
+          </Grid>
         </Grid>
 
         <Typography
@@ -251,15 +269,18 @@ function StartPage() {
           {" "}
           Taggfilmer
         </Typography>
-        <Grid xs={12} lg={9} margin={5}>
-          <VimeoEmbed embedId="694777821" />
-        </Grid>
-        <Grid xs={12} lg={9} margin={5}>
-          <VimeoEmbed embedId="533536885" />
+        <Grid container justifyContent="space-evenly">
+          <Grid xs={11} lg={4} margin={3}>
+            <VimeoEmbed embedId="694777821" />
+          </Grid>
+          <Grid xs={11} lg={4} margin={3}>
+            <VimeoEmbed embedId="533536885" />
+          </Grid>
         </Grid>
       </Grid>
 
       <Typography
+        id="dgMusik"
         variant="h5"
         gutterBottom
         sx={{
@@ -279,10 +300,39 @@ function StartPage() {
           className="player"
           url="https://soundcloud.com/d-group/"
           controls={true}
-          width="50%"
+          width="90%"
           height="500px"
+          sx={{maxWidth: '400px'}}
         />
       </Grid>
+
+      
+      <Box bgcolor="#30201D" height={190} padding={2}>
+        <Typography variant="h6" >
+          Vill du bli uppdaterad inför <br />
+          D<span STYLE="font-size:75%">ÖM</span>D?
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label="Email"
+            variant="outlined"
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            fullWidth
+            margin="normal"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton type="submit">
+                    <Send />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </form>
+      </Box>
     </Root>
   );
 }

@@ -69,6 +69,13 @@ const NavBar = () => {
     setIsOpen(!isOpen);
   };
 
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   // const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   // const handleOpenNavMenu = (event) => {
@@ -242,7 +249,7 @@ const NavBar = () => {
                 <img src={dgLogo} height={'50px'}/>
                 
               </Button>
-              <Button href="/bangers" 
+              <Button href="/#dgMusik" 
                 sx={{
                   borderRadius: 0,
                   boxSizing: 'border-box',
@@ -256,6 +263,24 @@ const NavBar = () => {
               
               >
                 <Typography variant="h5" color={'black'} fontWeight="bold">DG Låtar</Typography>
+                <img src={dgLogo} height={'50px'}/>
+                
+              </Button>
+              <Button 
+                href="/#test"
+                sx={{
+                  borderRadius: 0,
+                  boxSizing: 'border-box',
+                  color: 'inherit',
+                  width: '100%',
+                  borderWidth: 1, 
+                  justifyContent: 'space-between',
+                  height: '76px',
+                  borderBottom: '1px solid #000', // Add a bottom border
+                }}
+              
+              >
+                <Typography variant="h5" color={'black'} fontWeight="bold">d-group.se</Typography>
                 <img src={dgLogo} height={'50px'}/>
                 
               </Button>
