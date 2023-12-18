@@ -3,6 +3,12 @@ import { AppBar, Box, Toolbar, IconButton, Typography, Container, Button, MenuIt
 
 import { HiMenu } from "react-icons/hi";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { CiMusicNote1 } from 'react-icons/ci';
+import { FcRules } from "react-icons/fc";
+import { MdHistory } from "react-icons/md";
+import { FaHome } from "react-icons/fa";
+import { GiDart } from "react-icons/gi";
+
 import { RxCross2 } from "react-icons/rx";
 import { Menu, Close } from '@mui/icons-material';
 
@@ -19,6 +25,7 @@ import { ClassNames } from "@emotion/react";
 
 import dgLogo from './../../res/images/standard.png';
 import Logo from './../../res/images/dartArrow.png';
+import { Home } from "@material-ui/icons";
 //import logotheme from "../../res/images/logotheme.png";
 
 /*<NavLink to="ulag" sx={{ textDecoration: "none" }}>
@@ -131,7 +138,7 @@ const NavBar = () => {
             }}
           >
             <Typography variant="h5" fontWeight="bold">
-              DöMD
+              D<span STYLE="font-size:75%">ÖM</span>D
             </Typography>
           </Button>
           <IconButton
@@ -195,7 +202,7 @@ const NavBar = () => {
               
               >
                 <Typography variant="h5" color={'black'} fontWeight="bold">Start</Typography>
-                <img src={dgLogo} height={'50px'}/>
+                <FaHome color="black" size='40px'/>
                 
               </Button>
               <Button href="/dimd" 
@@ -211,8 +218,14 @@ const NavBar = () => {
                 }}
               
               >
-                <Typography variant="h5" color={'black'} fontWeight="bold">DIMD</Typography>
-                <img src={dgLogo} height={'50px'}/>
+                <Typography 
+                  variant="h5" 
+                  color={'black'} 
+                  fontWeight="bold"
+                >
+                  D<span STYLE="font-size:80%">IM</span>D
+                </Typography>
+                <MdHistory color="black" size='50px' />
                 
               </Button>
               <Button href="/rules" 
@@ -229,7 +242,7 @@ const NavBar = () => {
               
               >
                 <Typography variant="h5" color={'black'} fontWeight="bold">Regler</Typography>
-                <img src={dgLogo} height={'50px'}/>
+                <FcRules size={'40px'}/>
                 
               </Button>
               <Button href="/tavling" 
@@ -246,7 +259,7 @@ const NavBar = () => {
               
               >
                 <Typography variant="h5" color={'black'} fontWeight="bold">Tävling</Typography>
-                <img src={dgLogo} height={'50px'}/>
+                <GiDart color="black" size={'40px'}/>
                 
               </Button>
               <Button href="/#dgMusik" 
@@ -263,7 +276,7 @@ const NavBar = () => {
               
               >
                 <Typography variant="h5" color={'black'} fontWeight="bold">DG Låtar</Typography>
-                <img src={dgLogo} height={'50px'}/>
+                <CiMusicNote1 color="black" size="40px"/>
                 
               </Button>
               <Button 
@@ -281,9 +294,10 @@ const NavBar = () => {
               
               >
                 <Typography variant="h5" color={'black'} fontWeight="bold">d-group.se</Typography>
-                <img src={dgLogo} height={'50px'}/>
+                <img src={dgLogo} height={'40px'}/>
                 
               </Button>
+              
               {/* <Button color="secondary" href="/dimd">DIMD</Button>
               <Button color="error" href="/rules">Regler</Button>
               <Button color="warning" href="/tavling">DöMDTävling</Button>
