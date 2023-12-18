@@ -10,6 +10,8 @@ import Error404 from "./compoments/error404";
 
 import NavbarNew from "./compoments/Navbartest";
 import ThrowDart from "./compoments/ThrowDart";
+import NavBar from "./compoments/Navbartest/NavBar";
+import DomdComp from "./compoments/DömdCompetition";
 //<NavbarNew/>
 //<Route exact path="ulag" element={<Ulag />} />
 //<Route exact path="lag" element={<Lag />} />
@@ -30,7 +32,8 @@ function App() {
   if (daysUntilDomd >= 100) {
     return (
       <Router>
-        <NavbarNew />
+        {/* <NavbarNew /> */}
+        <NavBar />
         <Routes>
           <Route exact path="/" element={<StartPage />} />
           <Route exact path="/domd.nu" element={<StartPage />} />
@@ -38,6 +41,7 @@ function App() {
           <Route exact path="/rules" element={<Rules />} />
           <Route exact path="/start" element={<StartPage />} />
           <Route exact path="/kastapil" element={<ThrowDart />} />
+          <Route exact path="/tavling" element={<DomdComp />} />
         </Routes>
       </Router>
     );
