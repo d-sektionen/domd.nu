@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Countdown from "react-countdown";
-import { Grid, Box, Link, Typography, TextField, Button, IconButton, InputAdornment} from '@mui/material';
+import { Grid, Box, Link, Typography, TextField, Button, IconButton, InputAdornment, Paper} from '@mui/material';
 
 import { Send } from '@mui/icons-material';
 import { styled } from "@mui/material/styles";
@@ -21,6 +21,7 @@ import "./style.css";
 import VimeoEmbed from "./VimeoEmbed";
 import Schema from "./schema";
 import Bakgrund from '../../res/background/dartBackground.jpg';
+import imgTest from '../../res/images/Slideshow/1.jpg';
 
 import Tidning from "./tidning";
 import { BrowserRouter } from "react-router-dom";
@@ -86,9 +87,50 @@ const TextLink = styled(Link)(({ theme }) => ({
   },
 }));
 
-/*<Grid>
-        <img src={dart} width="100%" alt="Dart GIf"></img>
-      </Grid> <br/> länk till eventet */
+const slides = [
+  {
+    label: 'Slide 1',
+    imgPath: imgTest,
+  },
+  {
+    label: 'Slide 2',
+    imgPath: '../../res/images/Slideshow/1.jpg',
+  },
+  // Add more slide objects as needed
+];
+
+// for (let i = 1; i <= 100; i++) {
+//   slides.push({label: `Slide ${i}`, imgPath})
+// }
+
+// Slideshow component
+const Slideshow = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide === slides.length - 1 ? 0 : prevSlide + 1));
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000); // Change slide every 3 seconds (adjust as needed)
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div>
+      <Paper>
+        <img src={slides[currentSlide].imgPath} alt={slides[currentSlide].label} style={{ width: '100%' }} />
+        <Typography>{slides[currentSlide].label}</Typography>
+        <Button onClick={nextSlide}>Next Slide</Button>
+      </Paper>
+    </div>
+  );
+};
+
+
 
 function StartPage() {
   const [email, setEmail] = useState('');
@@ -106,8 +148,9 @@ function StartPage() {
 
   return (
     <Root container sx={{ pt: { xs: 5, md: 10 } }}>
+      <Slideshow />
       <Grid sm={12} container>
-        <Grid xs={12} sx={{ pb: 0, px: 2, pt: 30 }}>
+        <Grid xs={12} sx={{ pb: 0, px: 2, pt: 0 }}>
           <Grid
             xs={12}
             sx={{
@@ -177,7 +220,7 @@ function StartPage() {
           paddingY: "10px",
           paddingX: "5px",
           marginX: "16px",
-          marginTop: '10%',
+          marginTop: 16,
         }}
       >
         <Typography 
