@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AppBar, Box, Toolbar, IconButton, Typography, Container, Button, MenuItem, Slide } from "@mui/material";
+import { keyframes } from '@emotion/react';
 
-import { HiMenu } from "react-icons/hi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CiMusicNote1 } from 'react-icons/ci';
 import { FcRules } from "react-icons/fc";
@@ -9,65 +9,58 @@ import { MdHistory } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { GiDart } from "react-icons/gi";
 
-import { RxCross2 } from "react-icons/rx";
-import { Menu, Close } from '@mui/icons-material';
-
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { NavLink } from "react-router-dom";
-import logo from "../../res/images/D-group.png";
-
-import Xamera from "../../res/sponsImg/xamera.png";
-import Ericsson from "../../res/sponsImg/ericssonSpons.webp";
-import Microtec from "../../res/sponsImg/microtec.png";
-import Ida from "../../res/sponsImg/idaSpons.webp";
-import { Paper } from "@material-ui/core";
-import { ClassNames } from "@emotion/react";
+import { Close } from '@mui/icons-material';
 
 import dgLogo from './../../res/images/standard.png';
 import Logo from './../../res/images/dartArrow.png';
-import { Home } from "@material-ui/icons";
-//import logotheme from "../../res/images/logotheme.png";
-
-/*<NavLink to="ulag" sx={{ textDecoration: "none" }}>
-<Button
-key="U-Lag"
-onClick={handleCloseNavMenu}
-sx={{ my: 2, color: 'white', display: 'block', textDecoration: "none" }}
->
-U-Lag
-</Button>
-</NavLink>
-<NavLink to="lag" sx={{ textDecoration: "none" }}>
-<Button
-key="Lag"
-onClick={handleCloseNavMenu}
-sx={{ my: 2, color: 'white', display: 'block', textDecoration: "none" }}
->
-LagAktiviteter
-</Button>
-</NavLink>
-
-*/
-
-/*<Link to="ulag">
-                  <MenuItem key="U-Lag" onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center" color="white">
-                      U-Lag
-                    </Typography>
-                  </MenuItem>
-                </Link>
-                <Link to="lag">
-                  <MenuItem key="lag" onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center" color="white">
-                      LagAktiviteter
-                    </Typography>
-                  </MenuItem>
-                </Link>
-  */
 
 // Colors
 const PINK = '#FF05C8';
 const BROWN = '#30201D';
+
+const MusicLogo = () => <CiMusicNote1 color="black" size={"40px"} />
+const DgLogo = () => <img src={dgLogo} height={'40px'}/>
+const DartLogo = () => <GiDart color="black" size={"40px"} />
+const RulesLogo = () => <FcRules color="black" size={"40px"} />
+const DimdLogo = () => <MdHistory color="black" size={"40px"} />
+const HomeLogo = () => <FaHome color="black" size={"40px"} />
+
+const scaleAnimation = keyframes`
+from {
+  transform: scale(1);
+}
+to {
+  transform: scale(1.1);
+}
+`;
+// Component for each button in the navbar
+const PageLink = ({link, title, Logo}) => {
+
+  return (
+    <Button 
+      href={link}
+      sx={{
+        borderRadius: 0,
+        boxSizing: 'border-box',
+        color: 'inherit',
+        width: '100%',
+        borderWidth: 1, 
+        justifyContent: 'space-between',
+        height: '76px',
+        borderBottom: '1px solid #000', // Add a bottom border
+        '&:hover': {
+          backgroundColor: '#efefef', // Change background color on hover
+          animation: `${scaleAnimation} 0.3s forwards`, // Apply scale animation on hover
+        },
+      }}
+    
+    >
+      <Typography variant="h5" color={'black'} fontWeight="bold">{title}</Typography>
+      <Logo />
+      
+    </Button>
+  );
+}
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -92,23 +85,6 @@ const NavBar = () => {
   // const handleCloseNavMenu = () => {
   //   setAnchorElNav(null);
   // };
-
-  const darkTheme = createTheme({
-    palette: {
-      mode: "dark",
-      primary: {
-        main: "#051820",
-      },
-    },
-  });
-
-  const useStyles = createTheme({
-    palette: {
-      background: {
-        default: "#000000",
-      },
-    },
-  });
 
   return (
     <Box>
@@ -187,24 +163,8 @@ const NavBar = () => {
                   vår!
                 </Typography>
               </Box>
-
-              <Button href="/" 
-                sx={{
-                  borderRadius: 0,
-                  boxSizing: 'border-box',
-                  color: 'inherit',
-                  width: '100%',
-                  borderWidth: 1, 
-                  justifyContent: 'space-between',
-                  height: '76px',
-                  borderBottom: '1px solid #000', // Add a bottom border
-                }}
               
-              >
-                <Typography variant="h5" color={'black'} fontWeight="bold">Start</Typography>
-                <FaHome color="black" size='40px'/>
-                
-              </Button>
+              <PageLink link="/" title="Start" Logo={HomeLogo} />
               <Button href="/dimd" 
                 sx={{
                   borderRadius: 0,
@@ -215,6 +175,10 @@ const NavBar = () => {
                   justifyContent: 'space-between',
                   height: '76px',
                   borderBottom: '1px solid #000', // Add a bottom border
+                  '&:hover': {
+                    backgroundColor: '#efefef', // Change background color on hover
+                    animation: `${scaleAnimation} 0.3s forwards`, // Apply scale animation on hover
+                  },
                 }}
               
               >
@@ -228,75 +192,10 @@ const NavBar = () => {
                 <MdHistory color="black" size='50px' />
                 
               </Button>
-              <Button href="/rules" 
-                sx={{
-                  borderRadius: 0,
-                  boxSizing: 'border-box',
-                  color: 'inherit',
-                  width: '100%',
-                  borderWidth: 1, 
-                  justifyContent: 'space-between',
-                  height: '76px',
-                  borderBottom: '1px solid #000', // Add a bottom border
-                }}
-              
-              >
-                <Typography variant="h5" color={'black'} fontWeight="bold">Regler</Typography>
-                <FcRules size={'40px'}/>
-                
-              </Button>
-              <Button href="/tavling" 
-                sx={{
-                  borderRadius: 0,
-                  boxSizing: 'border-box',
-                  color: 'inherit',
-                  width: '100%',
-                  borderWidth: 1, 
-                  justifyContent: 'space-between',
-                  height: '76px',
-                  borderBottom: '1px solid #000', // Add a bottom border
-                }}
-              
-              >
-                <Typography variant="h5" color={'black'} fontWeight="bold">Tävling</Typography>
-                <GiDart color="black" size={'40px'}/>
-                
-              </Button>
-              <Button href="/#dgMusik" 
-                sx={{
-                  borderRadius: 0,
-                  boxSizing: 'border-box',
-                  color: 'inherit',
-                  width: '100%',
-                  borderWidth: 1, 
-                  justifyContent: 'space-between',
-                  height: '76px',
-                  borderBottom: '1px solid #000', // Add a bottom border
-                }}
-              
-              >
-                <Typography variant="h5" color={'black'} fontWeight="bold">DG Låtar</Typography>
-                <CiMusicNote1 color="black" size="40px"/>
-                
-              </Button>
-              <Button 
-                href="/#test"
-                sx={{
-                  borderRadius: 0,
-                  boxSizing: 'border-box',
-                  color: 'inherit',
-                  width: '100%',
-                  borderWidth: 1, 
-                  justifyContent: 'space-between',
-                  height: '76px',
-                  borderBottom: '1px solid #000', // Add a bottom border
-                }}
-              
-              >
-                <Typography variant="h5" color={'black'} fontWeight="bold">d-group.se</Typography>
-                <img src={dgLogo} height={'40px'}/>
-                
-              </Button>
+              <PageLink link="/rules" title="Regler" Logo={RulesLogo} />
+              <PageLink link="/tavling" title="Tävling" Logo={DartLogo} />
+              <PageLink link='/#dgMusik' title='DG Låtar' Logo={MusicLogo} />
+              <PageLink link='https://d-group.se/' title='d-group.se' Logo={DgLogo}/>
               
               {/* <Button color="secondary" href="/dimd">DIMD</Button>
               <Button color="error" href="/rules">Regler</Button>

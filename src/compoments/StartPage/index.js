@@ -3,7 +3,7 @@ import Countdown from "react-countdown";
 import { Grid, Box, Link, Typography, TextField, Button, IconButton, InputAdornment, Paper} from '@mui/material';
 
 import { Send } from '@mui/icons-material';
-import { styled } from "@mui/material/styles";
+import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 //import dart from "../../res//dart.gif";
 import Cygate from "../../res/sponsImg/Cygate.webp";
 import Xamera from "../../res/sponsImg/xamera.png";
@@ -21,13 +21,21 @@ import "./style.css";
 import VimeoEmbed from "./VimeoEmbed";
 import Schema from "./schema";
 import Bakgrund from '../../res/background/dartBackground.jpg';
-import imgTest from '../../res/images/Slideshow/1.jpg';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import EmailIcon from '@mui/icons-material/Email';
 
 import Tidning from "./tidning";
 import { BrowserRouter } from "react-router-dom";
+import { pink } from "@mui/material/colors";
 
+// Colors
+const PINK = '#FF05C8';
+const BROWN = '#30201D';
 const DOMDdate = new Date("2024-04-11T10:00:00");
+const TOTIMG = 35;
 
+// Larger size countdown Renderer component
 const render = ({ days, hours, minutes, seconds }) => {
   return (
     <span>
@@ -36,6 +44,8 @@ const render = ({ days, hours, minutes, seconds }) => {
     </span>
   );
 };
+
+// Mobile countdown Renderer component
 const mobilerender = ({ days, hours, minutes, seconds }) => {
   return (
     <span>
@@ -46,6 +56,66 @@ const mobilerender = ({ days, hours, minutes, seconds }) => {
       <br />
       Kvar Tills D<span STYLE="font-size:75%">ÖM</span>D!
     </span>
+  );
+};
+
+// Component for social media
+const SocialIcons = () => {
+  const openInstagram = () => {
+    // Open Instagram URL
+    window.open('https://www.instagram.com/dgroup2324/', '_blank');
+  };
+
+  const openFacebook = () => {
+    // Open Facebook URL
+    window.open('https://www.facebook.com/DGroup2324', '_blank');
+  };
+
+  const openMail = () => {
+    // Open Mail URL or mailto link
+    window.open('mailto:info@d-group.se');
+  };
+
+  return (
+    <Grid container spacing={2} justifyContent="center">
+      <Grid item>
+        <IconButton 
+          onClick={openInstagram} 
+          sx={{
+            backgroundColor: 'white',
+            '&:hover': {
+              backgroundColor: 'white', // Ensure the same color on hover
+            },          
+          }}
+        >
+          <InstagramIcon />
+        </IconButton>
+      </Grid>
+      <Grid item>
+        <IconButton onClick={openFacebook} 
+          sx={{
+            backgroundColor: 'white',
+            '&:hover': {
+              backgroundColor: 'white', // Ensure the same color on hover
+            },          
+          }}
+        >
+          <FacebookIcon />
+        </IconButton>
+      </Grid>
+      <Grid item>
+        <IconButton onClick={openMail} 
+          sx={{
+            backgroundColor: 'white',
+            '&:hover': {
+              backgroundColor: 'white', // Ensure the same color on hover
+            },          
+          }}
+        >
+          <EmailIcon />
+        </IconButton>
+      </Grid>
+    </Grid>
   );
 };
 
@@ -66,46 +136,19 @@ const Root = styled(Box)(({ theme }) => ({
   },
 }));
 
-const TextGrid = styled(Grid)(({ theme }) => ({
-  [theme.breakpoints.down("md")]: {
-    textAlign: "center",
-  },
-  [theme.breakpoints.up("md")]: {
-    textAlign: "left",
-  },
-}));
-
-const TextLink = styled(Link)(({ theme }) => ({
-  textDecoration: "none",
-  color: "darkblue",
-
-  [theme.breakpoints.down("md")]: {
-    textAlign: "center",
-  },
-  [theme.breakpoints.up("md")]: {
-    textAlign: "left",
-  },
-}));
-
-const slides = [
-  {
-    label: 'Slide 1',
-    imgPath: imgTest,
-  },
-  {
-    label: 'Slide 2',
-    imgPath: '../../res/images/Slideshow/1.jpg',
-  },
-  // Add more slide objects as needed
-];
-
-// for (let i = 1; i <= 100; i++) {
-//   slides.push({label: `Slide ${i}`, imgPath})
-// }
 
 // Slideshow component
 const Slideshow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const slides = [
+  ];
+  // inserting all images from public/slideshow into slides
+  for (let i = 1; i <= TOTIMG; i++) {
+    slides.push(
+      {label: `Slide ${i}`, imgPath: `slideshow/${i}.jpg`}
+    )
+  }
 
   const nextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === slides.length - 1 ? 0 : prevSlide + 1));
@@ -119,14 +162,11 @@ const Slideshow = () => {
     return () => clearInterval(interval);
   }, []);
 
+  console.log(slides[currentSlide].imgPath, 'testing imgpath')
   return (
-    <div>
-      <Paper>
+    <Box>
         <img src={slides[currentSlide].imgPath} alt={slides[currentSlide].label} style={{ width: '100%' }} />
-        <Typography>{slides[currentSlide].label}</Typography>
-        <Button onClick={nextSlide}>Next Slide</Button>
-      </Paper>
-    </div>
+    </Box>
   );
 };
 
@@ -147,7 +187,7 @@ function StartPage() {
   };
 
   return (
-    <Root container sx={{ pt: { xs: 5, md: 10 } }}>
+    <Root container sx={{ pt: { xs: 5, md: 5 } }}>
       <Slideshow />
       <Grid sm={12} container>
         <Grid xs={12} sx={{ pb: 0, px: 2, pt: 0 }}>
@@ -349,32 +389,35 @@ function StartPage() {
         />
       </Grid>
 
-      
-      <Box bgcolor="#30201D" height={190} padding={2}>
+      <Box bgcolor={BROWN} height={190} padding={2}>
         <Typography variant="h6" >
           Vill du bli uppdaterad inför <br />
           D<span STYLE="font-size:75%">ÖM</span>D?
         </Typography>
-        <form onSubmit={handleSubmit}>
-          <TextField
-            label="Email"
-            variant="outlined"
-            type="email"
-            value={email}
-            onChange={handleEmailChange}
-            fullWidth
-            margin="normal"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton type="submit">
-                    <Send />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
-        </form>
+        <Box sx={{maxWidth: '350px', marginX: 'auto'}}>
+          <form onSubmit={handleSubmit} sx={{maxWidth: '350px'}}>
+            <TextField
+              label="Email"
+              variant="outlined"
+              type="email"
+              value={email}
+              onChange={handleEmailChange}
+              fullWidth
+              margin="normal"
+              InputProps={{
+                style: {backgroundColor: 'white', color: {PINK}, },
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton type="submit">
+                      <Send />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </form>
+        </Box>
+        <SocialIcons />
       </Box>
     </Root>
   );

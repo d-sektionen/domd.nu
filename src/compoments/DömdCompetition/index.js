@@ -162,7 +162,7 @@ export default function DomdComp() {
 
   return (
 
-    <Box sx={{height: '90vh', backgroundColor: 'yellow', paddingTop: '10vh', alignItems:'center'}}>
+    <Box sx={{height: '90vh', backgroundColor: 'rgba(255, 230, 0, 0.5)', paddingTop: '10vh', alignItems:'center'}}>
       <Typography variant="h4" sx={{textAlign: 'center'}}>Välj Tävling!</Typography>
         <FormControl
           sx={{
