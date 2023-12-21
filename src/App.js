@@ -11,7 +11,7 @@ import Error404 from "./compoments/error404";
 import NavbarNew from "./compoments/Navbartest";
 import ThrowDart from "./compoments/ThrowDart";
 import NavBar from "./compoments/Navbartest/NavBar";
-import DomdComp from "./compoments/DömdCompetition";
+import DomdComp from "./compoments/DomdCompetition";
 //<NavbarNew/>
 //<Route exact path="ulag" element={<Ulag />} />
 //<Route exact path="lag" element={<Lag />} />

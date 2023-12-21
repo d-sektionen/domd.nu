@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography, Select, FormControl, InputLabel, MenuItem } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import API_KEY from './config';
 // import { makeStyles } from "@mui/styles";
 
 // const theme = createTheme({
@@ -9,7 +10,6 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 //   }
 // })
 
-const API_KEY = 'får ej visas';
 const TOURNAMENT_URL = 'https://api.challonge.com/v1/tournaments/testAvAPI/matches.json';
 
 const TOURNAMENT_ID = 'domd2023';
