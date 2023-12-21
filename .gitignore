@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-.config.js
+# ignore config files with sensitive information
+config.js
 
 # testing
 /coverage
