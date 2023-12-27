@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 import StartPage from "./compoments/StartPage";
 import Rules from "./compoments/Rules";
@@ -17,8 +17,6 @@ import DomdComp from "./compoments/DomdCompetition";
 //<Route exact path="lag" element={<Lag />} />
 
 function App() {
-
-  
   const domdDate = new Date("04/11/2024");
   const currentDate = new Date();
     

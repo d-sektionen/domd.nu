@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AppBar, Box, Toolbar, IconButton, Typography, Container, Button, MenuItem, Slide } from "@mui/material";
 import { keyframes } from '@emotion/react';
-
+import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CiMusicNote1 } from 'react-icons/ci';
 import { FcRules } from "react-icons/fc";
@@ -38,7 +38,8 @@ const PageLink = ({link, title, Logo}) => {
 
   return (
     <Button 
-      href={link}
+      component={Link}
+      to={link}
       sx={{
         borderRadius: 0,
         boxSizing: 'border-box',
@@ -64,17 +65,25 @@ const PageLink = ({link, title, Logo}) => {
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navbarRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const closeMenu = (event) => {
+    if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+      setIsOpen(false);
     }
   };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", closeMenu);
+
+    return () => {
+      document.removeEventListener("mousedown", closeMenu);
+    };
+  }, []);
 
   // const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -100,11 +109,11 @@ const NavBar = () => {
         }}
       />
       <AppBar position="fixed" sx={{ bgcolor: BROWN, zIndex: 1}}>
-        <Toolbar sx={{ display: 'flex'}}>
+        <Toolbar ref={navbarRef} sx={{ display: 'flex'}}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <img src={Logo} alt="Logo" style={{ height: '60px', position: 'absolute', marginTop: '20px' }} />
           </Box>
-          <Button href="/" 
+          <Button href="/#/" 
             sx={{ 
               flexGrow: 0,
               textAlign: 'center', 
@@ -130,6 +139,7 @@ const NavBar = () => {
           <Slide direction="left" in={isOpen} mountOnEnter unmountOnExit>
           {/* <Button color="inherit" href="/contact">Contact</Button> */}
             <Toolbar 
+
               variant="dense" 
               sx={{
                 background: `linear-gradient(${BROWN} 150px, transparent 170px), #ffffff`,
@@ -165,7 +175,9 @@ const NavBar = () => {
               </Box>
               
               <PageLink link="/" title="Start" Logo={HomeLogo} />
-              <Button href="/dimd" 
+              <Button 
+                component={Link}
+                to="/dimd" 
                 sx={{
                   borderRadius: 0,
                   boxSizing: 'border-box',
@@ -194,13 +206,63 @@ const NavBar = () => {
               </Button>
               <PageLink link="/rules" title="Regler" Logo={RulesLogo} />
               <PageLink link="/tavling" title="Tävling" Logo={DartLogo} />
-              <PageLink link='/#dgMusik' title='DG Låtar' Logo={MusicLogo} />
-              <PageLink link='https://d-group.se/' title='d-group.se' Logo={DgLogo}/>
+              {/* Button to link to the main page and go to dg music section, but did not work. */}
+              {/* <Button 
+                component="a"
+                href="#dgMusik" 
+                sx={{
+                  borderRadius: 0,
+                  boxSizing: 'border-box',
+                  color: 'inherit',
+                  width: '100%',
+                  borderWidth: 1, 
+                  justifyContent: 'space-between',
+                  height: '76px',
+                  borderBottom: '1px solid #000', // Add a bottom border
+                  '&:hover': {
+                    backgroundColor: '#efefef', // Change background color on hover
+                    animation: `${scaleAnimation} 0.3s forwards`, // Apply scale animation on hover
+                  },
+                }}
               
-              {/* <Button color="secondary" href="/dimd">DIMD</Button>
-              <Button color="error" href="/rules">Regler</Button>
-              <Button color="warning" href="/tavling">DöMDTävling</Button>
-              <Button color="info" href="/bangers">DG Låtar</Button> */}
+              >
+                <Typography 
+                  variant="h5" 
+                  color={'black'} 
+                  fontWeight="bold"
+                >
+                  DG Låtar
+                </Typography>
+                <CiMusicNote1 color="black" size='50px' />
+              </Button> */}
+              <Button 
+                href="https://d-group.se/" 
+                sx={{
+                  borderRadius: 0,
+                  boxSizing: 'border-box',
+                  color: 'inherit',
+                  width: '100%',
+                  borderWidth: 1, 
+                  justifyContent: 'space-between',
+                  height: '76px',
+                  borderBottom: '1px solid #000', // Add a bottom border
+                  '&:hover': {
+                    backgroundColor: '#efefef', // Change background color on hover
+                    animation: `${scaleAnimation} 0.3s forwards`, // Apply scale animation on hover
+                  },
+                }}
+              
+              >
+                <Typography 
+                  variant="h5" 
+                  color={'black'} 
+                  fontWeight="bold"
+                >
+                  d-group.se
+                </Typography>
+                <DgLogo />
+                
+              </Button>
             </Toolbar>
           </Slide>
         </Toolbar>
