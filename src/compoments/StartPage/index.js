@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Countdown from "react-countdown";
 import { Grid, Box, Link, Typography, TextField, Button, IconButton, InputAdornment, Paper} from '@mui/material';
+import ReactPlayer from "react-player";
 
 import { Send } from '@mui/icons-material';
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
@@ -28,6 +29,9 @@ import EmailIcon from '@mui/icons-material/Email';
 import Tidning from "./tidning";
 import { BrowserRouter } from "react-router-dom";
 import { pink } from "@mui/material/colors";
+
+import afterMovie22 from "./movies/afterMovie22.mp4";
+import afterMovie23 from "./movies/afterMovie23.mp4";
 
 // Colors
 const PINK = '#FF05C8';
@@ -140,7 +144,6 @@ const Root = styled(Box)(({ theme }) => ({
 // Slideshow component
 const Slideshow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
   const slides = [
   ];
   // inserting all images from public/slideshow into slides
@@ -199,7 +202,7 @@ function StartPage() {
               paddingX: "5px",
             }}
           >
-            <Typography
+            {/* <Typography
               variant="h5"
               gutterBottom
               fontFamily={"Courier New"}
@@ -211,10 +214,10 @@ function StartPage() {
                   textShadow:
                     "1px 1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
                 },
-              }} /* Dator rendering av countdown */
+              }} 
             >
               <Countdown renderer={render} date={DOMDdate} /> <br />
-            </Typography>
+            </Typography> */}
             <Typography
               variant="h5"
               fontFamily={"Courier New"}
@@ -224,7 +227,7 @@ function StartPage() {
                 display: {
                   xs: "inline",
                   sm: "inline",
-                  md: "none",
+                  // md: "none",
                   textShadow:
                     "1px 1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
                 },
@@ -330,6 +333,18 @@ function StartPage() {
         </Typography>
         <Grid container justifyContent="space-evenly">
           <Grid xs={11} lg={4} margin={3}>
+          <video width="100%" controls>
+              <source src={afterMovie23} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </Grid> 
+          <Grid xs={11} lg={4} margin={3}>
+            <video width="100%" controls>
+              <source src={afterMovie22} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </Grid>
+          <Grid xs={11} lg={4} margin={3}>
             <YoutubeEmbed embedId="aU4x0WtvJIs" />
           </Grid>
 
@@ -343,16 +358,17 @@ function StartPage() {
           gutterBottom
           fontFamily={"Courier New"}
           sx={{
-            mx: 10,
             mt: 6,
             mb: 3,
             textShadow: "1px 1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
           }}
         >
-          {" "}
           Taggfilmer
         </Typography>
         <Grid container justifyContent="space-evenly">
+        <Grid xs={11} lg={4} margin={3}>
+            <VimeoEmbed embedId="816998178" />
+          </Grid>
           <Grid xs={11} lg={4} margin={3}>
             <VimeoEmbed embedId="694777821" />
           </Grid>
@@ -368,7 +384,7 @@ function StartPage() {
         gutterBottom
         sx={{
           mx: 6,
-          mt: 6,
+          mt: 3,
           mb: 3,
           textShadow: "1px 1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
         }}
@@ -424,3 +440,6 @@ function StartPage() {
 }
 
 export default StartPage;
+
+
+

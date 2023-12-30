@@ -27,7 +27,7 @@ function App() {
   const daysUntilDomd = Math.floor(differenceInTime / (1000 * 3600 * 24));
   console.log(daysUntilDomd)
   
-  if (daysUntilDomd >= 100) {
+  if (daysUntilDomd <= 100) {
     return (
       <Router>
         {/* <NavbarNew /> */}

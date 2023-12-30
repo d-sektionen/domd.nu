@@ -7,7 +7,10 @@ import TemaEnligBakgrund from "../../res/background/4x2vepa.jpg";
 import TemaEnligBakgrundMobil from "../../res/background/bakgrund_mobil_test.jpg";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
-import logo from "../../res/images/D-group.png";
+import logo from "../../res/images/standard.png";
+import Bakgrund from '../../res/background/dartBackground.jpg';
+
+
 
 //
 
@@ -19,24 +22,24 @@ const Root = styled(Box)(({ theme }) => ({
   textAlign: "center",
   mt: { xs: 6, md: 2 },
   [theme.breakpoints.down("md")]: {
-    backgroundImage: `url(${TemaEnligBakgrundMobil})`,
+    backgroundImage: `url(${Bakgrund})`,
     backgroundPosition: "50% 10%",
   },
   [theme.breakpoints.up("md")]: {
-    backgroundImage: `url(${TemaEnligBakgrund})`,
+    backgroundImage: `url(${Bakgrund})`,
     backgroundPosition: "50% 30%",
   },
 }));
 
 function Rules() {
   return (
-    <Root container sx={{ pt: { xs: 1, md: 11 } }} align="left">
+    <Root container sx={{ pt: { xs: 7, md: 11 } }} align="left">
       <Grid
         xs={12}
         sx={{
           backgroundColor: "rgba(0,0,0,0.9)",
           borderRadius: "2%",
-          paddingY: "5%",
+          paddingY: '60px',
           marginX: "5%",
         }}
       >
