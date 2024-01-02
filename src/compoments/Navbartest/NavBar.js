@@ -34,10 +34,11 @@ to {
 }
 `;
 // Component for each button in the navbar
-const PageLink = ({link, title, Logo}) => {
+const PageLink = ({link, title, Logo, closeMenu}) => {
 
   return (
     <Button 
+      onClick={closeMenu}
       component={Link}
       to={link}
       sx={{
@@ -174,8 +175,9 @@ const NavBar = () => {
                 </Typography>
               </Box>
               
-              <PageLink link="/" title="Start" Logo={HomeLogo} />
+              <PageLink link="/" title="Start" Logo={HomeLogo} closeMenu={toggleMenu}/>
               <Button 
+                onClick={toggleMenu}
                 component={Link}
                 to="/dimd" 
                 sx={{
@@ -204,8 +206,8 @@ const NavBar = () => {
                 <MdHistory color="black" size='50px' />
                 
               </Button>
-              <PageLink link="/rules" title="Regler" Logo={RulesLogo} />
-              <PageLink link="/tavling" title="Tävling" Logo={DartLogo} />
+              <PageLink link="/rules" title="Regler" Logo={RulesLogo} closeMenu={toggleMenu}/>
+              <PageLink link="/tavling" title="Tävling" Logo={DartLogo} closeMenu={toggleMenu}/>
               {/* Button to link to the main page and go to dg music section, but did not work. */}
               {/* <Button 
                 component="a"
