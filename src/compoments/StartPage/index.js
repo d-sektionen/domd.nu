@@ -36,7 +36,7 @@ import afterMovie23 from "./movies/afterMovie23.mp4";
 // Colors
 const PINK = '#FF05C8';
 const BROWN = '#30201D';
-const DOMDdate = new Date("2024-04-11T10:00:00");
+const DOMDdate = new Date("2024-04-11T22:00:00");
 const TOTIMG = 35;
 
 // Larger size countdown Renderer component

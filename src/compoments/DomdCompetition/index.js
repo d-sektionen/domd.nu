@@ -135,8 +135,9 @@ export default function DomdComp() {
   useEffect(() => {
     async function getAllTeams() {
       console.log(year, 'fetching teams');
+      const url = 'https://corsproxy.io/?' + encodeURIComponent(`https://cors-anywhere.herokuapp.com/https://api.challonge.com/v1/tournaments/${year}/participants.json?api_key=${API_KEY}`); 
       try {
-        const response = await fetch(`https://api.challonge.com/v1/tournaments/${year}/participants.json?api_key=${API_KEY}`);
+        const response = await fetch(url);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
