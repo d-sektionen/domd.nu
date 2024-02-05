@@ -97,7 +97,7 @@ const MenuPropsTeam = {
 // Returns all games of a tournamentId
 async function fetchAllGames(tournamentId, apiKey) {
   try {
-    const url = `https:/thingproxy.freeboard.io/fetch/https://api.challonge.com/v1/tournaments/${tournamentId}/matches.json?api_key=${apiKey}`;
+    const url = `https://thingproxy.freeboard.io/fetch/https://api.challonge.com/v1/tournaments/${tournamentId}/matches.json?api_key=${apiKey}`;
     const response = await fetch(url);    
     
     if (!response.ok) {
