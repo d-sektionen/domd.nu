@@ -18,8 +18,11 @@ import TemaEnligBakgrund from "../../res/background/4x2vepa.jpg";
 import TemaEnligBakgrundMobil from "../../res/background/bakgrund_mobil_test.jpg";
 import SoundcloudPlayer from "react-player";
 import YoutubeEmbed from "./YoutubeEmbed";
+
 import "./style.css";
 import VimeoEmbed from "./VimeoEmbed";
+import FacebookEventWidget from "./FacebookEmbed";
+import { FacebookProvider } from "react-facebook";
 import Schema from "./schema";
 import Bakgrund from '../../res/background/dartBackground.jpg';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -38,6 +41,8 @@ const PINK = '#FF05C8';
 const BROWN = '#30201D';
 const DOMDdate = new Date("2024-04-11T22:00:00");
 const TOTIMG = 35;
+const U_LAG_EVENT = 'https://www.facebook.com/events/802960461639286/?acontext=%7B%22event_action_history%22%3A[%7B%22mechanism%22%3A%22your_upcoming_events_unit%22%2C%22surface%22%3A%22bookmark%22%7D]%2C%22ref_notif_type%22%3Anull%7D';
+
 
 // Larger size countdown Renderer component
 const render = ({ days, hours, minutes, seconds }) => {
@@ -186,6 +191,19 @@ function StartPage() {
     event.preventDefault();
     // Use 'email' state for further processing or validation
     console.log('Entered Email:', email);
+
+    // // Send the email data to Google Sheets using fetch or XMLHttpRequest
+    // fetch('https://script.google.com/macros/s/AKfycbytBhPLXhR9yXRR-uIldoWbsuwBpmO-jW8aOesL7JxhY0qgzSwwjHnTzeY73u3IVo06cw/exec', {
+    //   method: 'POST',
+    //   mode: 'no-cors',
+    //   body: JSON.stringify({ email }),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
+    // .then(response => console.log(response))
+    // .catch(error => console.error(error));
+    // alert("Your email has been saved!")
     // You can add further logic here (e.g., validation, API calls, etc.)
   };
 
@@ -254,7 +272,20 @@ function StartPage() {
       </Grid>
 
       {/* <Schema></Schema> */}
-
+      {/* <Box
+        container
+        sx={{
+          backgroundColor: "rgba(0,0,0,0.5)",
+          paddingY: "10px",
+          paddingX: "5px",
+          marginX: "16px",
+          marginTop: 16,
+        }}
+      >
+        <FacebookProvider>
+          <FacebookEventWidget eventUrl={U_LAG_EVENT} />
+        </FacebookProvider>
+      </Box> */}
       {/*Benims försök i att göra en responsiv sponsorlista */}
       <Box
         container
@@ -274,11 +305,11 @@ function StartPage() {
         </Typography>
         <Grid container alignItems="center" justifyContent="space-evenly">
           {/* On small screens, display 2 logos per row */}
-          <Grid item xs={6} sm={3}>
+          {/* <Grid item xs={6} sm={3}>
             <a href="https://www.microtec.eu/sv-se">
               <img src={Microtec} alt="Logo 1" style={{ width: '80%' }} />
             </a>
-          </Grid>
+          </Grid> */}
           <Grid item xs={6} sm={3}>
             <a href="https://www.ericsson.com/en/careers">
               <img src={Ericsson} alt="Logo 2" style={{ width: '80%' }} />

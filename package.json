@@ -18,6 +18,7 @@
     "react": "^17.0.2",
     "react-countdown": "^2.3.2",
     "react-dom": "^17.0.2",
+    "react-facebook": "^9.0.12",
     "react-icons": "^4.12.0",
     "react-pageflip": "^2.0.3",
     "react-player": "^2.9.0",
