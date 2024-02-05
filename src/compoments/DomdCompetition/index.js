@@ -97,7 +97,7 @@ const MenuPropsTeam = {
 // Returns all games of a tournamentId
 async function fetchAllGames(tournamentId, apiKey) {
   try {
-    const url = 'https://corsproxy.io/?' + encodeURIComponent(`https://api.challonge.com/v1/tournaments/${tournamentId}/matches.json?api_key=${apiKey}`);
+    const url = `https:/thingproxy.freeboard.io/fetch/https://api.challonge.com/v1/tournaments/${tournamentId}/matches.json?api_key=${apiKey}`;
     const response = await fetch(url);    
     
     if (!response.ok) {
@@ -231,7 +231,7 @@ export default function DomdComp() {
   useEffect(() => {
     async function getAllTeams() {
       console.log(tournamentID, 'fetching teams');
-      const url = 'https://corsproxy.io/?' + encodeURIComponent(`https://cors-anywhere.herokuapp.com/https://api.challonge.com/v1/tournaments/${tournamentID}/participants.json?api_key=${API_KEY}`); 
+      const url = `https:/thingproxy.freeboard.io/fetch/https://api.challonge.com/v1/tournaments/${tournamentID}/participants.json?api_key=${API_KEY}`;
       try {
         const response = await fetch(url);
         if (!response.ok) {
