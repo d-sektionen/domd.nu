@@ -231,7 +231,7 @@ export default function DomdComp() {
   useEffect(() => {
     async function getAllTeams() {
       console.log(tournamentID, 'fetching teams');
-      const url = `https:/thingproxy.freeboard.io/fetch/https://api.challonge.com/v1/tournaments/${tournamentID}/participants.json?api_key=${API_KEY}`;
+      const url = `https://thingproxy.freeboard.io/fetch/https://api.challonge.com/v1/tournaments/${tournamentID}/participants.json?api_key=${API_KEY}`;
       try {
         const response = await fetch(url);
         if (!response.ok) {
