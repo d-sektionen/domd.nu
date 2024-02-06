@@ -148,7 +148,12 @@ function getDartBoardNumb(tournament, allGames, game) {
           return FINAL_BOARD;
       }
     } else {
-      return game.match.suggested_play_order % 12;
+      const dartBoardNumb = game.match.suggested_play_order % 12;
+      if (dartBoardNumb == 0) {
+        return 12
+      } else {
+        return game.match.suggested_play_order % 12;
+      }
     }
   }
   else if (tournament.toLowerCase().includes('domd')) {
