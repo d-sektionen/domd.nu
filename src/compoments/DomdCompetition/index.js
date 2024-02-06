@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Typography, Select, FormControl, InputLabel, MenuItem } from "@mui/material";
+import { Box, Typography, Select, FormControl, InputLabel, MenuItem, CircularProgress } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import API_KEY from './config';
 // import { makeStyles } from "@mui/styles";
@@ -180,6 +180,7 @@ export default function DomdComp() {
   const [time, setGameTime] = useState('');
   const [boardNumb, setBoardNumb] = useState('');
   const [location, setLocation] = useState('');
+  const [loading, setLoading] = useState(false);  // State to manage loading indicator
 
   const changeTournament = async (event) => {
     const tournamentName = event.target.value;
@@ -235,6 +236,7 @@ export default function DomdComp() {
       if(!tournamentID) {
         return;
       }
+      setLoading(true);  // Set loading state to true before starting the fetch
       const challongeUrl = `https://api.challonge.com/v1/tournaments/${tournamentID}/participants.json?api_key=${API_KEY}`;
       const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(challongeUrl)}`;
       try {
@@ -260,6 +262,8 @@ export default function DomdComp() {
       } catch (error) {
         console.error('Error fetching teams:', error);
         alert('Något har gått fel,\n var vänligen kontakta Sekretariatet.');
+      } finally {
+        setLoading(false);
       }
     }
     getAllTeams();
@@ -373,6 +377,9 @@ export default function DomdComp() {
             display: (displayTeam && !teamHasGame) ? 'block' : 'none',}}
         >Lag/Spelare {selectedTeam} har inga matcher att spela!
         </Typography>
+      </Box>
+      <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {loading && <CircularProgress/> /* Render CircularProgress while loading is true */}
       </Box>
     </Box>
   );
