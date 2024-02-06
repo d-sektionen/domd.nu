@@ -97,7 +97,8 @@ const MenuPropsTeam = {
 // Returns all games of a tournamentId
 async function fetchAllGames(tournamentId, apiKey) {
   try {
-    const url = `https://thingproxy.freeboard.io/fetch/https://api.challonge.com/v1/tournaments/${tournamentId}/matches.json?api_key=${apiKey}`;
+    const challongeUrl = `https://api.challonge.com/v1/tournaments/${tournamentId}/matches.json?api_key=${apiKey}`;
+    const url = `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(challongeUrl)}`;
     const response = await fetch(url);    
     
     if (!response.ok) {
@@ -231,7 +232,8 @@ export default function DomdComp() {
   useEffect(() => {
     async function getAllTeams() {
       console.log(tournamentID, 'fetching teams');
-      const url = `https://thingproxy.freeboard.io/fetch/https://api.challonge.com/v1/tournaments/${tournamentID}/participants.json?api_key=${API_KEY}`;
+      const challongeUrl = `https://api.challonge.com/v1/tournaments/${tournamentID}/participants.json?api_key=${API_KEY}`;
+      const url = `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(challongeUrl)}`;
       try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -255,6 +257,7 @@ export default function DomdComp() {
         // console.log('All teams of the tournament:', teams[0].participant.name);
       } catch (error) {
         console.error('Error fetching teams:', error);
+        alert.error('Något har gått fel,\n var vänligen kontakta Sekretariatet.')
       }
     }
     getAllTeams();
@@ -353,7 +356,7 @@ export default function DomdComp() {
         alignItems: 'center',
         px: '10px',}}
       >
-        <Typography variant="h4" sx={{textAlign: 'center', display: displayTeam ? 'none' : 'block',}}>Ta reda på när ditt lag spelar under tävlingen!</Typography>
+        <Typography variant="h4" sx={{textAlign: 'center', display: displayTeam ? 'none' : 'block',}}>Ta reda på när ditt lag spelar under tävlingen!!</Typography>
         <Typography
           variant="h4"
           sx={{
