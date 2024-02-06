@@ -98,7 +98,7 @@ const MenuPropsTeam = {
 async function fetchAllGames(tournamentId, apiKey) {
   try {
     const challongeUrl = `https://api.challonge.com/v1/tournaments/${tournamentId}/matches.json?api_key=${apiKey}`;
-    const url = `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(challongeUrl)}`;
+    const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(challongeUrl)}`;
     const response = await fetch(url);    
     
     if (!response.ok) {
@@ -181,7 +181,7 @@ export default function DomdComp() {
   const [boardNumb, setBoardNumb] = useState('');
   const [location, setLocation] = useState('');
 
-  const changeYear = async (event) => {
+  const changeTournament = async (event) => {
     const tournamentName = event.target.value;
     setTournamentID(tournamentName);
     setAllGames(await fetchAllGames(tournamentName, API_KEY));
@@ -232,14 +232,17 @@ export default function DomdComp() {
   useEffect(() => {
     async function getAllTeams() {
       console.log(tournamentID, 'fetching teams');
+      if(!tournamentID) {
+        return;
+      }
       const challongeUrl = `https://api.challonge.com/v1/tournaments/${tournamentID}/participants.json?api_key=${API_KEY}`;
-      const url = `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(challongeUrl)}`;
+      const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(challongeUrl)}`;
       try {
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-
+        
         const teams = await response.json();
         // console.log(teams);
         let teamList = [];
@@ -253,11 +256,10 @@ export default function DomdComp() {
         teamList.sort();
         setTeams(teamList);
         setTeamsID(teamsIdentification);
-        console.log(teamsIdentification);
         // console.log('All teams of the tournament:', teams[0].participant.name);
       } catch (error) {
         console.error('Error fetching teams:', error);
-        alert.error('Något har gått fel,\n var vänligen kontakta Sekretariatet.')
+        alert('Något har gått fel,\n var vänligen kontakta Sekretariatet.');
       }
     }
     getAllTeams();
@@ -284,7 +286,7 @@ export default function DomdComp() {
             id="comp-select"
             value={tournamentID}
             label="comp"
-            onChange={changeYear}
+            onChange={changeTournament}
             MenuProps={MenuPropsTeam}
             // inputProps={{
             //   classes: {
@@ -356,7 +358,7 @@ export default function DomdComp() {
         alignItems: 'center',
         px: '10px',}}
       >
-        <Typography variant="h4" sx={{textAlign: 'center', display: displayTeam ? 'none' : 'block',}}>Ta reda på när ditt lag spelar under tävlingen!!</Typography>
+        <Typography variant="h4" sx={{textAlign: 'center', display: displayTeam ? 'none' : 'block',}}>Ta reda på när ditt lag spelar under tävlingen!</Typography>
         <Typography
           variant="h4"
           sx={{
