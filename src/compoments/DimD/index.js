@@ -54,7 +54,7 @@ function DimD() {
           </Typography>
           <Typography variant="h4" gutotmButtom color fontSize={"1.75em"}>
             <ul>
-              <li>2023 - Anton Bergman</li>
+              <li>2024 - Anton Bergman</li>
               <li>2023 - Linus Göransson</li>
               <li>2022 - Carl Wikström </li>
               <li>2021 - Payam Tavakoli </li>
