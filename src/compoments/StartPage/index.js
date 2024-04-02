@@ -14,7 +14,7 @@ import Ida from "../../res/sponsImg/idaSpons.webp";
 import Desktop from "../../res/background/computer_back.webp";
 import Mobile from "../../res/background/mobile_back.webp";
 import Darttavla from "../../res/background/darttavla_svart_vit.jpg";
-import TemaEnligBakgrund from "../../res/background/4x2vepa.jpg";
+// import TemaEnligBakgrund from "../../res/background/4x2vepa.jpg";
 import TemaEnligBakgrundMobil from "../../res/background/bakgrund_mobil_test.jpg";
 import SoundcloudPlayer from "react-player";
 import YoutubeEmbed from "./YoutubeEmbed";
@@ -25,6 +25,7 @@ import FacebookEventWidget from "./FacebookEmbed";
 import { FacebookProvider } from "react-facebook";
 import Schema from "./schema";
 import Bakgrund from '../../res/background/dartBackground.jpg';
+import TemaEnligBakgrund from '../../res/background/backGround2024.png'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailIcon from '@mui/icons-material/Email';
@@ -136,11 +137,11 @@ const Root = styled(Box)(({ theme }) => ({
   textAlign: "center",
   mt: { xs: 6, md: 2 },
   [theme.breakpoints.down("md")]: {
-    backgroundImage: `url(${Bakgrund})`,
+    backgroundImage: `url(${TemaEnligBakgrund})`,
     backgroundPosition: "50% 10%",
   },
   [theme.breakpoints.up("md")]: {
-    backgroundImage: `url(${Bakgrund})`,
+    backgroundImage: `url(${TemaEnligBakgrund})`,
     backgroundPosition: "50% 30%",
   },
 }));
@@ -265,7 +266,7 @@ function StartPage() {
                 fontSize: "38px",
               }}
             >
-              Snart Är Det Vår.
+              Nu Är Det Vår.
             </Typography>
           </Grid>
         </Grid>

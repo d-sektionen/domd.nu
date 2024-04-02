@@ -3,11 +3,12 @@ import React from "react";
 import dart from "../../res/dart.gif";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import TemaEnligBakgrund from "../../res/background/4x2vepa.jpg";
+// import TemaEnligBakgrund from "../../res/background/4x2vepa.jpg";
 import TemaEnligBakgrundMobil from "../../res/background/bakgrund_mobil_test.jpg";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import logo from "../../res/images/standard.png";
+import TemaEnligBakgrund from "../../res/background/backGround2024.png"
 import Bakgrund from '../../res/background/dartBackground.jpg';
 
 
@@ -22,18 +23,18 @@ const Root = styled(Box)(({ theme }) => ({
   textAlign: "center",
   mt: { xs: 6, md: 2 },
   [theme.breakpoints.down("md")]: {
-    backgroundImage: `url(${Bakgrund})`,
+    backgroundImage: `url(${TemaEnligBakgrund})`,
     backgroundPosition: "50% 10%",
   },
   [theme.breakpoints.up("md")]: {
-    backgroundImage: `url(${Bakgrund})`,
+    backgroundImage: `url(${TemaEnligBakgrund})`,
     backgroundPosition: "50% 30%",
   },
 }));
 
 function Rules() {
   return (
-    <Root container sx={{ pt: { xs: 7, md: 11 } }} align="left">
+    <Root container sx={{ pt: { xs: 7, md: 11 }}} align="left">
       <Grid
         xs={12}
         sx={{
@@ -58,7 +59,7 @@ function Rules() {
         </Typography>
         <Typography
           variant="h6"
-          sx={{ color: "white", padding: { xs: 1, md: 12 }, pb: 4 }}
+          sx={{ color: "white", padding: { xs: 3, md: 12 }, pb: 4 }}
         >
           <li>
             §1.Lagen ska själva se till att de har pilar. Pilarna ska besiktigas
