@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d8706ff0.css",
-    "main.js": "/static/js/main.cfe4581d.js",
+    "main.css": "/static/css/main.3ce2d1ad.css",
+    "main.js": "/static/js/main.735cd4d8.js",
     "static/js/787.aefa6315.chunk.js": "/static/js/787.aefa6315.chunk.js",
     "static/media/afterMovie23.mp4": "/static/media/afterMovie23.9f961720ae82d2413418.mp4",
     "static/media/dart.gif": "/static/media/dart.02b8850179c98d63bcb8.gif",
@@ -48,8 +48,7 @@
     "static/media/mobile_back.webp": "/static/media/mobile_back.5d49f5d35590a019318e.webp",
     "static/media/dartBackground.jpg": "/static/media/dartBackground.c608985119ee9ca379b2.jpg",
     "static/media/computer_back.webp": "/static/media/computer_back.64b1e6bc82ce64ff510c.webp",
-    "static/media/pokeball.png": "/static/media/pokeball.9faa5e7e3d57879c33c0.png",
-    "static/media/test.png": "/static/media/test.b413fe3a6369fec0d822.png",
+    "static/media/pokemonball.png": "/static/media/pokemonball.d5fdb2d024eeb22d5fc5.png",
     "static/media/bakgrund_mobil_test.jpg": "/static/media/bakgrund_mobil_test.f4bbc560b1ce65cc47ad.jpg",
     "static/media/ericssonSpons.webp": "/static/media/ericssonSpons.03e3ca6f24fc0446bd8c.webp",
     "static/media/microtec.png": "/static/media/microtec.612dfee338c98156ead7.png",
@@ -59,12 +58,12 @@
     "static/media/Detective1.png": "/static/media/Detective1.5db8747531f80e3eefc5.png",
     "static/media/idaSpons.webp": "/static/media/idaSpons.4d7ba4fcb091672879e9.webp",
     "index.html": "/index.html",
-    "main.d8706ff0.css.map": "/static/css/main.d8706ff0.css.map",
-    "main.cfe4581d.js.map": "/static/js/main.cfe4581d.js.map",
+    "main.3ce2d1ad.css.map": "/static/css/main.3ce2d1ad.css.map",
+    "main.735cd4d8.js.map": "/static/js/main.735cd4d8.js.map",
     "787.aefa6315.chunk.js.map": "/static/js/787.aefa6315.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d8706ff0.css",
-    "static/js/main.cfe4581d.js"
+    "static/css/main.3ce2d1ad.css",
+    "static/js/main.735cd4d8.js"
   ]
 }
