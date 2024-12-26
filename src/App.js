@@ -17,16 +17,16 @@ import DomdComp from "./compoments/DomdCompetition";
 //<Route exact path="lag" element={<Lag />} />
 
 function App() {
-  const domdDate = new Date("04/10/2025");
+  const domdDate = new Date("04/11/2024");
   const currentDate = new Date();
-
+    
   // To calculate the time difference of two dates
   const differenceInTime = domdDate.getTime() - currentDate.getTime();
-
+    
   // To calculate the no. of days between two dates
   const daysUntilDomd = Math.floor(differenceInTime / (1000 * 3600 * 24));
-  console.log(daysUntilDomd);
-
+  console.log(daysUntilDomd)
+  
   if (daysUntilDomd <= 100) {
     return (
       <Router>
@@ -44,8 +44,8 @@ function App() {
       </Router>
     );
   }
-
-  return <Error404></Error404>;
+  
+  return <Error404></Error404>
 }
 
 export default App;
