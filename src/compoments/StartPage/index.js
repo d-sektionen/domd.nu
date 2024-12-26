@@ -333,7 +333,7 @@ function StartPage() {
 
       <Grid align="center" sx={{ marginTop: "5%" }}>
         {/* DömD tidningen */}
-        <Grid overflow="hidden" xs={10}>
+        {/* <Grid overflow="hidden" xs={10}>
           <Typography
             align="center"
             variant="h4"
@@ -346,7 +346,7 @@ function StartPage() {
           </Typography>
 
           <Tidning></Tidning>
-        </Grid>
+        </Grid> */}
 
         <Typography
           xs={12}

@@ -4,43 +4,50 @@ import "./style.css";
 
 import { Container } from "@mui/material";
 
-// import Sida0 from "../../res/images/Tidning/0.png";
-import Sida1 from "../../res/images/Tidning/01.png";
-import Sida2 from "../../res/images/Tidning/02.png";
-import Sida3 from "../../res/images/Tidning/03.png";
-import Sida4 from "../../res/images/Tidning/04.png";
-import Sida5 from "../../res/images/Tidning/05.png";
-import Sida6 from "../../res/images/Tidning/06.png";
-import Sida7 from "../../res/images/Tidning/07.png";
-import Sida8 from "../../res/images/Tidning/08.png";
-import Sida9 from "../../res/images/Tidning/09.png";
-import Sida10 from "../../res/images/Tidning/10.png";
-import Sida11 from "../../res/images/Tidning/11.png";
-import Sida12 from "../../res/images/Tidning/12.png";
-import Sida13 from "../../res/images/Tidning/13.png";
-import Sida14 from "../../res/images/Tidning/14.png";
-import Sida15 from "../../res/images/Tidning/15.png";
-import Sida16 from "../../res/images/Tidning/16.png";
-import Sida17 from "../../res/images/Tidning/17.png";
-import Sida18 from "../../res/images/Tidning/18.png";
-import Sida19 from "../../res/images/Tidning/19.png";
-import Sida20 from "../../res/images/Tidning/20.png";
-import Sida21 from "../../res/images/Tidning/21.png";
-import Sida22 from "../../res/images/Tidning/22.png";
-import Sida23 from "../../res/images/Tidning/23.png";
-import Sida24 from "../../res/images/Tidning/24.png";
-import Sida25 from "../../res/images/Tidning/25.png";
-import Sida26 from "../../res/images/Tidning/26.png";
-import Sida27 from "../../res/images/Tidning/27.png";
-import Sida28 from "../../res/images/Tidning/28.png";
-import Sida29 from "../../res/images/Tidning/29.png";
-import Sida30 from "../../res/images/Tidning/30.png";
-import Sida31 from "../../res/images/Tidning/31.png";
-import Sida32 from "../../res/images/Tidning/32.png";
-import Sida33 from "../../res/images/Tidning/33.png";
-import Sida34 from "../../res/images/Tidning/34.png";
-import Sida35 from "../../res/images/Tidning/35.png";
-import Sida36 from "../../res/images/Tidning/36.png";
+import Sida0 from "../../res/images/Tidning/0.jpg";
+import Sida1 from "../../res/images/Tidning/1.jpg";
+import Sida2 from "../../res/images/Tidning/2.jpg";
+import Sida3 from "../../res/images/Tidning/3.jpg";
+import Sida4 from "../../res/images/Tidning/4.jpg";
+import Sida5 from "../../res/images/Tidning/5.jpg";
+import Sida6 from "../../res/images/Tidning/6.jpg";
+import Sida7 from "../../res/images/Tidning/7.jpg";
+import Sida8 from "../../res/images/Tidning/8.jpg";
+import Sida9 from "../../res/images/Tidning/9.jpg";
+import Sida10 from "../../res/images/Tidning/10.jpg";
+import Sida11 from "../../res/images/Tidning/11.jpg";
+import Sida12 from "../../res/images/Tidning/12.jpg";
+import Sida13 from "../../res/images/Tidning/13.jpg";
+import Sida14 from "../../res/images/Tidning/14.jpg";
+import Sida15 from "../../res/images/Tidning/15.jpg";
+import Sida16 from "../../res/images/Tidning/16.jpg";
+import Sida17 from "../../res/images/Tidning/17.jpg";
+import Sida18 from "../../res/images/Tidning/18.jpg";
+import Sida19 from "../../res/images/Tidning/19.jpg";
+import Sida20 from "../../res/images/Tidning/20.jpg";
+import Sida21 from "../../res/images/Tidning/21.jpg";
+import Sida22 from "../../res/images/Tidning/22.jpg";
+import Sida23 from "../../res/images/Tidning/23.jpg";
+import Sida24 from "../../res/images/Tidning/24.jpg";
+import Sida25 from "../../res/images/Tidning/25.jpg";
+import Sida26 from "../../res/images/Tidning/26.jpg";
+import Sida27 from "../../res/images/Tidning/27.jpg";
+import Sida28 from "../../res/images/Tidning/28.jpg";
+import Sida29 from "../../res/images/Tidning/29.jpg";
+import Sida30 from "../../res/images/Tidning/30.jpg";
+import Sida31 from "../../res/images/Tidning/31.jpg";
+import Sida32 from "../../res/images/Tidning/32.jpg";
+import Sida33 from "../../res/images/Tidning/33.jpg";
+import Sida34 from "../../res/images/Tidning/34.jpg";
+import Sida35 from "../../res/images/Tidning/35.jpg";
+import Sida36 from "../../res/images/Tidning/36.jpg";
+import Sida37 from "../../res/images/Tidning/37.jpg";
+import Sida38 from "../../res/images/Tidning/38.jpg";
+import Sida39 from "../../res/images/Tidning/39.jpg";
+import Sida40 from "../../res/images/Tidning/40.jpg";
+import Sida41 from "../../res/images/Tidning/41.jpg";
+import Sida42 from "../../res/images/Tidning/42.jpg";
+import Sida43 from "../../res/images/Tidning/43.jpg";
 
 const PageCover = React.forwardRef((props, ref) => {
   return (
@@ -86,11 +93,11 @@ function MyAlbum(props) {
           className="tidning"
         >
           <PageCover>
-            <img src={Sida1} width="100%" />
+            <img src={Sida0} width="100%" />
           </PageCover>
-          {/* <Page number="1">
+          <Page number="1">
             <img src={Sida1} width="100%" />
-          </Page> */}
+          </Page>
           <Page number="2">
             <img src={Sida2} width="100%" />
           </Page>
@@ -193,9 +200,30 @@ function MyAlbum(props) {
           <Page number="35">
             <img src={Sida35} width="100%" />
           </Page>
+          <Page number="36">
+            <img src={Sida36} width="100%" />
+          </Page>
+          <Page number="37">
+            <img src={Sida37} width="100%" />
+          </Page>
+          <Page number="38">
+            <img src={Sida38} width="100%" />
+          </Page>
+          <Page number="39">
+            <img src={Sida39} width="100%" />
+          </Page>
+          <Page number="40">
+            <img src={Sida40} width="100%" />
+          </Page>
+          <Page number="41">
+            <img src={Sida41} width="100%" />
+          </Page>
+          <Page number="42">
+            <img src={Sida42} width="100%" />
+          </Page>
 
           <PageCover>
-            <img src={Sida36} width="100%" />
+            <img src={Sida43} width="100%" />
           </PageCover>
         </HTMLFlipBook>
       </div>
