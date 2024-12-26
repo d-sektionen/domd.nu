@@ -9,7 +9,6 @@ import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import Cygate from "../../res/sponsImg/Cygate.webp";
 import Xamera from "../../res/sponsImg/xamera.png";
 import Ericsson from "../../res/sponsImg/ericssonSpons.webp";
-import EricssonBanner from "../../res/sponsImg/domdBanner.png";
 import Microtec from "../../res/sponsImg/microtec.png";
 import Ida from "../../res/sponsImg/idaSpons.webp";
 import Desktop from "../../res/background/computer_back.webp";
@@ -329,11 +328,6 @@ function StartPage() {
               <img src={Xamera} alt="Logo 4" style={{ width: '80%' }} />
             </a>
           </Grid>
-        </Grid>
-        <Grid item>
-          <a href='https://www.ericsson.com/en/careers' target="_blank">
-            <img src={EricssonBanner} alt="Ericsson Banner" style={{ width: '100%', height: 'auto'}} />
-          </a>
         </Grid>
       </Box>
 
