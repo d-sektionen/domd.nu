@@ -7,7 +7,6 @@ import Paper from '@mui/material/Paper';
 
 import {styled} from "@mui/material/styles"
 import TemaEnligBakgrund from "../../res/background/backGround2024.png"
-import LoadingPokemonBall from "./loading.js";
 
 // import { makeStyles } from "@mui/styles";
 
@@ -341,10 +340,9 @@ export default function DomdComp() {
         let teamList = [];
         let teamsIdentification = {};
         for (let team of teams) {
-          const teamCapitlizedName = team.participant.name.charAt(0).toUpperCase() + team.participant.name.slice(1)
-          teamList.push(teamCapitlizedName);
+          teamList.push(team.participant.name);
           // console.log(team.participant, "team info");
-          teamsIdentification[teamCapitlizedName] = team.participant.id;
+          teamsIdentification[team.participant.name] = team.participant.id;
           // console.log(team.participant.id);
         }
         teamList.sort();
@@ -448,10 +446,9 @@ export default function DomdComp() {
           </Typography>
         </Paper>
       </Box>
-      {/* <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        {loading && <CircularProgress/>}
-      </Box> */}
-      <LoadingPokemonBall loading={loading} />
+      <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {loading && <CircularProgress/> /* Render CircularProgress while loading is true */}
+      </Box>
       <Box 
         sx={{
           position: 'fixed',
