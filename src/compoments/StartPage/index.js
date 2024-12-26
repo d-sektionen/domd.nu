@@ -322,11 +322,6 @@ function StartPage() {
               <img src={Ida} alt="Logo 3" style={{ width: '80%' }} />
             </a>
           </Grid>
-          <Grid item xs={6} sm={3}>
-            <a href="https://xamera.se/">
-              <img src={Xamera} alt="Logo 4" style={{ width: '80%' }} />
-            </a>
-          </Grid>
         </Grid>
       </Box>
 
