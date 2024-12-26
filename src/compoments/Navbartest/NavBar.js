@@ -165,7 +165,7 @@ const NavBar = () => {
                   variant="h5"
                   fontWeight="bold"
                 >
-                  Nu är det
+                  Snart är det
                 </Typography>
                 <Typography 
                   variant="h5"

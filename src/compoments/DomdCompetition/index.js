@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Box, Typography, Select, FormControl, InputLabel, MenuItem, CircularProgress, Link } from "@mui/material";
+import { Box, Typography, Select, FormControl, InputLabel, MenuItem, CircularProgress } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import API_KEY from './config';
-import { Bracket, RoundProps} from 'react-brackets';
-import Paper from '@mui/material/Paper';
-
-import {styled} from "@mui/material/styles"
-import TemaEnligBakgrund from "../../res/background/backGround2024.png"
-
 // import { makeStyles } from "@mui/styles";
 
 // const theme = createTheme({
@@ -20,55 +14,16 @@ const SEMI_FINAL_BOARD1 = 2;
 const SEMI_FINAL_BOARD2 = 5;
 const FINAL_BOARD = 5;
 
+const TOURNAMENT_URL = 'https://api.challonge.com/v1/tournaments/testAvAPI/matches.json';
+
 const TOURNAMENT_ID = 'domd2023';
+// const TEAMS_URL = `https://api.challonge.com/v1/tournaments/${year}/participants.json`;
+
+
+// const TOURNAMENT_ID = 'testAvAPI';
 const MATCHES_URL = `https://api.challonge.com/v1/tournaments/${TOURNAMENT_ID}/matches.json`;
 
-// const rounds: RoundProps[] = [
-//   {
-//     title: 'Round one',
-//     seeds: [
-//       {
-//         id: 1,
-//         date: new Date().toDateString(),
-//         teams: [{ name: 'Team A' }, { name: 'Team B' }],
-//       },
-//       {
-//         id: 2,
-//         date: new Date().toDateString(),
-//         teams: [{ name: 'Team C' }, { name: 'Team D' }],
-//       },
-//     ],
-//   },
-//   {
-//     title: 'Round one',
-//     seeds: [
-//       {
-//         id: 3,
-//         date: new Date().toDateString(),
-//         teams: [{ name: 'Team A' }, { name: 'Team C' }],
-//       },
-//     ],
-//   },
-// ];
 // Function to get the team's next game with time and station details
-const Root = styled(Box)(({ theme }) => ({
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
-  backgroundAttachment: "fixed",
-  color: "white",
-  textAlign: "center",
-  mt: { xs: 6, md: 2 },
-  [theme.breakpoints.down("md")]: {
-    backgroundImage: `url(${TemaEnligBakgrund})`,
-    backgroundPosition: "50% 10%",
-  },
-  [theme.breakpoints.up("md")]: {
-    backgroundImage: `url(${TemaEnligBakgrund})`,
-    backgroundPosition: "50% 30%",
-  },
-}));
-
-
 async function getNextGameDetails(teamID) {
   try {
     const response = await fetch(`${MATCHES_URL}?api_key=${API_KEY}`);
@@ -102,6 +57,15 @@ async function getNextGameDetails(teamID) {
   }
 }
 
+// Call the function to get the team's next game details
+// getNextGameDetails(TEAM_ID);
+
+const MATCH_ID = 304405505;
+const MATCH_URL = `https://api.challonge.com/v1/tournaments/${TOURNAMENT_ID}/matches/${MATCH_ID}.json`;
+
+const time = '10:30';
+const location = 'Baljan';
+const boardNumb = '16';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -148,32 +112,10 @@ async function fetchAllGames(tournamentId, apiKey) {
   }
 }
 
-/*
-[
-  {
-    opponentId: 'opponentID',
-    score: '2-1',
-  },
-]
-*/
-
-
 // checks if a team has a game, return true or false
 function doesTeamHaveGame(allGames, teamId) {
     const matches = allGames;
     console.log("Matches json: ", matches);
-    // const previousGames = [];
-
-    // for (let game of allGames) {
-    //   const previousGameItem = {};
-    //   console.log("item:", game.match.id);
-    //   if(game.match.player1_id == teamId || game.match.player2_id == teamId){
-    //     previousGameItem['opponentId'] = game.match.loser_id;
-    //     previousGameItem['score'] = game.match.scores_csv;
-    //     previousGames.push(previousGameItem);
-    //   }
-    // }
-    // console.log("games of a player: ", previousGames);
     // Check if teamId is in any match
     const hasGame = matches.some(match => (match.match.player1_id == teamId || match.match.player2_id == teamId) && match.match.state !== 'complete');
     console.log("Does player have game:", hasGame);
@@ -181,14 +123,9 @@ function doesTeamHaveGame(allGames, teamId) {
 }
 
 // Returns the next game of a competing team
-// TODO: GET INFORMATION ABOUT NEXT GAME AND THE PREVIOUS GAME OF A TEAM MEMBER
 function getNextGame(allGames, teamId) {
   const matches = allGames;
-  const previousGames = [];
   console.log("Matches json: ", matches);
-  for (let game of allGames) {
-    console.log("item game:", game.match.id);
-  }
   // Check if teamId is in any match
   const game = matches.find(match => (match.match.player1_id == teamId || match.match.player2_id == teamId) && match.match.state !== 'complete');
   console.log("This is the next game:", game);
@@ -196,66 +133,46 @@ function getNextGame(allGames, teamId) {
 }
 
 // Return the dartBoardNumb of a certain game
-async function getDartBoardNumb(tournamentID, allGames, game) {
-  console.log("game id hopefully: ", game.match.id)
-  const challongeUrl = `https://api.challonge.com/v1/tournaments/${tournamentID}/matches/${game.match.id}/attachments.json?api_key=${API_KEY}`;
-  const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(challongeUrl)}`;
-  
-  try {
-    const response = await fetch(url);
-    console.log("Hopefully din mamma: ", response)
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+function getDartBoardNumb(tournament, allGames, game) {
+  if (tournament.toLowerCase().includes('dimd')) {
+    console.log(allGames.length, "amount of games")
+    // return other 
+    console.log(game.match.suggested_play_order, "game numb");
+    if(allGames.length - game.match.suggested_play_order <= 2) {
+      switch (game.match.suggested_play_order) {
+        case 61: 
+          return SEMI_FINAL_BOARD1;
+        case 62:
+          return SEMI_FINAL_BOARD2;
+        case 63:
+          return FINAL_BOARD;
+      }
+    } else {
+      const dartBoardNumb = game.match.suggested_play_order % 12;
+      if (dartBoardNumb == 0) {
+        return 12
+      } else {
+        return game.match.suggested_play_order % 12;
+      }
     }
-    const attachment = await response.json();
-    console.log("Attachment: ", attachment[0].match_attachment.description)
-    return attachment[0].match_attachment.description
-  } catch (error) {
-    console.error('Error fetching attachment:', error)
-    alert('Något har gått fel,\n var vänligen kontakta Sekretariatet.')
   }
-  // if (tournamentID.toLowerCase().includes('dimd')) {
-  //   console.log(allGames.length, "amount of games")
-  //   // return other 
-  //   console.log(game.match.suggested_play_order, "game numb");
-  //   if(allGames.length - game.match.suggested_play_order <= 2) {
-  //     switch (game.match.suggested_play_order) {
-  //       case 61: 
-  //         return SEMI_FINAL_BOARD1;
-  //       case 62:
-  //         return SEMI_FINAL_BOARD2;
-  //       case 63:
-  //         return FINAL_BOARD;
-  //     }
-  //   } else {
-  //     const dartBoardNumb = game.match.suggested_play_order % 12;
-  //     if (dartBoardNumb == 0) {
-  //       return 12
-  //     } else {
-  //       return game.match.suggested_play_order % 12;
-  //     }
-  //   }
-  // }
-  // else if (tournamentID.toLowerCase().includes('domd')) {
-  //   if(allGames.length - game.match.suggested_play_order <= 6) {
-  //     switch (game.match.suggested_play_order) {
-  //       case 61: 
-  //         return SEMI_FINAL_BOARD1;
-  //       case 62:
-  //         return SEMI_FINAL_BOARD2;
-  //       case 63:
-  //         return FINAL_BOARD;
-  //       default:
-  //         return FINAL_BOARD;
-  //     }
-  //   } else {
-  //     return game.match.suggested_play_order % 32;
-  //   }
-  // }
+  else if (tournament.toLowerCase().includes('domd')) {
+    if(allGames.length - game.match.suggested_play_order <= 6) {
+      switch (game.match.suggested_play_order) {
+        case 61: 
+          return SEMI_FINAL_BOARD1;
+        case 62:
+          return SEMI_FINAL_BOARD2;
+        case 63:
+          return FINAL_BOARD;
+        default:
+          return FINAL_BOARD;
+      }
+    } else {
+      return game.match.suggested_play_order % 32;
+    }
+  }
 }
-
-
-// const Bracket = ()
 
 export default function DomdComp() {
   const [teams, setTeams] = useState([]);
@@ -276,7 +193,7 @@ export default function DomdComp() {
     setAllGames(await fetchAllGames(tournamentName, API_KEY));
   }
 
-  const changeTeam = async (event) => {
+  const changeTeam = (event) => {
     const teamName = event.target.value;
     setSelectedTeam(teamName);
     if (teamName !== '') {
@@ -290,7 +207,6 @@ export default function DomdComp() {
     if (teamHasGame) {
       setTeamHasGame(true);
       // TODO: update the time, boardNumb and location
-      // const previousGames = 
       const nextGame = getNextGame(allGamesOfTournament, teamsID[teamName]);
       const gameTime = nextGame.match.scheduled_time;
       const formattedTime = new Date(gameTime).toLocaleTimeString('sv-SE', {
@@ -298,24 +214,23 @@ export default function DomdComp() {
         minute: 'numeric',
         hour12: false // If you want 24-hour format
       });
-
-      const dartBoardNumb = await getDartBoardNumb(tournamentID, allGamesOfTournament, nextGame);
       setGameTime(formattedTime);
+
+      // checks if it not the last three games
+
+      const dartBoardNumb = getDartBoardNumb(tournamentID, allGamesOfTournament, nextGame);
       setBoardNumb(dartBoardNumb);
 
       if (dartBoardNumb <= 8) {
         setLocation('Baljan');
-      } else if (dartBoardNumb <= 18) {
-        setLocation('Grillen');
-      } else if (dartBoardNumb <= 29) {
-        setLocation('Matsalen');
-      } else if (dartBoardNumb <= 32) {
-        setLocation('Entrén');
+      } else if (dartBoardNumb <= 12) {
+        setLocation('Nano');
       } else {
-        setLocation('Matsalen')
+        setLocation('Matsalen');
       }
     } else {
       setTeamHasGame(false);
+      console.log("team does not have game");
     }
   }
 
@@ -360,8 +275,8 @@ export default function DomdComp() {
   }, [tournamentID]);
 
   return (
-    <Root container sx={{ pt: { xs: 10, md: 11 }, height: '89vh'}} align="left">
 
+    <Box sx={{height: '90vh', backgroundColor: 'rgba(255, 230, 0, 0.5)', paddingTop: '10vh', alignItems:'center'}}>
       <Typography variant="h4" sx={{textAlign: 'center'}}>Välj Tävling!</Typography>
         <FormControl
           sx={{
@@ -372,7 +287,7 @@ export default function DomdComp() {
             marginRight:'auto',
             display: 'flex',
           }}
-          >
+        >
           <InputLabel id="comp-select-label">Tävling</InputLabel>
           <Select
             autoWidth
@@ -389,7 +304,6 @@ export default function DomdComp() {
             // }}
           >
             {/* <MenuItem value={'dimd2024'} sx={{borderWidth:1}}>DIMD 2024</MenuItem> */}
-            <MenuItem value={'domd2024'}>DÖMD 2024</MenuItem>
             <MenuItem value={'dimd2024'}>DIMD 2024</MenuItem>
             <MenuItem value={'domd2023'}>DÖMD 2023</MenuItem>
             <MenuItem value={'dimd2023'}>DIMD 2023</MenuItem>
@@ -405,7 +319,7 @@ export default function DomdComp() {
           marginRight:'auto',
           display: 'flex',
         }}
-        >
+      >
         <InputLabel id="team-label">Lag</InputLabel>
         <Select
           autoWidth
@@ -415,12 +329,37 @@ export default function DomdComp() {
           label="team"
           onChange={changeTeam}
           MenuProps={MenuPropsTeam}
+          // sx={{
+          //   '.MuiMenu-list': {
+          //     backgroundColor:"white",
+          //     width: '300px',
+          //   },
+          //   '.MuiSelect-select': {
+          //     color: 'blue',
+          //   }
+          // }}
         >
           {teams.map((item, index) => (
             <MenuItem key={index} value={item}>
               {item}
             </MenuItem>
           ))}
+          {/* <MenuItem value={1}>Lag 1</MenuItem>
+          <MenuItem value={2}>Lag 2</MenuItem>
+          <MenuItem value={3}>Lag 3</MenuItem>
+          <MenuItem value={4}>Lag 4</MenuItem>
+          <MenuItem value={5}>Lag 5</MenuItem>
+          <MenuItem value={6}>Lag 6</MenuItem>
+          <MenuItem value={7}>Lag 7</MenuItem>
+          <MenuItem value={8}>Lag 8</MenuItem>
+          <MenuItem value={9}>2022</MenuItem>
+          <MenuItem value={10}>2024</MenuItem>
+          <MenuItem value={11}>2023</MenuItem>
+          <MenuItem value={12}>2022</MenuItem>
+          <MenuItem value={13}>2024</MenuItem>
+          <MenuItem value={14}>2023</MenuItem>
+          <MenuItem value={15}>2021</MenuItem> */}
+
         </Select>
       </FormControl>
       <Box sx={{
@@ -428,46 +367,26 @@ export default function DomdComp() {
         alignItems: 'center',
         px: '10px',}}
       >
-        <Paper elevation={2} sx={{ padding: 2, margin: 2, maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto'}}>
-          <Typography variant="h4" sx={{textAlign: 'center', display: displayTeam ? 'none' : 'block',}}>Ta reda på när ditt lag spelar under tävlingen!</Typography>
-          <Typography
-            variant="h4"
-            sx={{
-              textAlign: 'center',
-              display: displayTeam && teamHasGame ? 'block' : 'none',}}
-              >Lag {selectedTeam} spelar {time} i {location} på tavla {boardNumb}
-          </Typography>
-          <Typography
-            variant="h4"
-            sx={{
-              textAlign: 'center',
-              display: (displayTeam && !teamHasGame) ? 'block' : 'none',}}
-              >Lag {selectedTeam} har inga matcher att spela! Njut av en kall DömD-IPA!
-          </Typography>
-        </Paper>
+        <Typography variant="h4" sx={{textAlign: 'center', display: displayTeam ? 'none' : 'block',}}>Ta reda på när ditt lag spelar under tävlingen!</Typography>
+        <Typography
+          variant="h4"
+          sx={{
+            textAlign: 'center',
+            display: displayTeam && teamHasGame ? 'block' : 'none',}}
+        >Lag/Spelare {selectedTeam} spelar {time} i {location} på tavla {boardNumb}
+        </Typography>
+        <Typography
+          variant="h4"
+          sx={{
+            textAlign: 'center',
+            display: (displayTeam && !teamHasGame) ? 'block' : 'none',}}
+        >Lag/Spelare {selectedTeam} har inga matcher att spela!
+        </Typography>
       </Box>
       <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {loading && <CircularProgress/> /* Render CircularProgress while loading is true */}
       </Box>
-      <Box 
-        sx={{
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          // paddingX: '20px',  
-          paddingY: '20px',
-          width: '100%',
-          bgcolor: 'background.paper',
-          color: 'text.primary',
-          textAlign: 'center',
-          boxShadow: 'rgba(0, 0, 0, 0.1) 0px -2px 10px',
-        }}
-        >
-        <Typography>
-          För mer info om DÖMD 2024 kontakta sekretariatet eller gå till <Link href={`https://challonge.com/domd2024`} target="_blank">CHALLONGE</Link>
-        </Typography>
-      </Box>      
-    </Root>
+    </Box>
   );
 }
 
