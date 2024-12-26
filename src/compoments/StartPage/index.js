@@ -11,7 +11,7 @@ import Xamera from "../../res/sponsImg/xamera.png";
 import Ericsson from "../../res/sponsImg/ericssonSpons.webp";
 import EricssonBanner from "../../res/sponsImg/domdBanner.png";
 import Microtec from "../../res/sponsImg/microtec.png";
-import Ida from "../../res/sponsImg/idaSpons.png";
+import Ida from "../../res/sponsImg/idaSpons.webp";
 import Desktop from "../../res/background/computer_back.webp";
 import Mobile from "../../res/background/mobile_back.webp";
 import Darttavla from "../../res/background/darttavla_svart_vit.jpg";
@@ -321,7 +321,7 @@ function StartPage() {
           {/* On medium or larger screens, display 4 logos per row */}
           <Grid item xs={6} sm={3}>
             <a href="https://idainfront.se/en/">
-              <img src={Ida} alt="Logo 3" style={{ width: '100%' }} />
+              <img src={Ida} alt="Logo 3" style={{ width: '80%' }} />
             </a>
           </Grid>
           <Grid item xs={6} sm={3}>
