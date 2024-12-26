@@ -206,12 +206,27 @@ const mobilerenderProportional = ({ days, hours, minutes, seconds }) => (
 
 const Slideshow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false); // Track if SoundCloud is playing
+  const [trackUrl, setTrackUrl] = useState(
+    "https://soundcloud.com/d-group/sets/doemd-2024"
+  ); // Track currently playing URL
 
-  // Generate slide data dynamically
+  // Generate image slide data dynamically
   const slides = Array.from({ length: TOTIMG }, (_, i) => ({
     label: `Slide ${i + 1}`,
     imgPath: `slideshow/${i + 1}.jpg`,
   }));
+
+  // Rövsoundcloud har ingen shuffle
+  const shufflePlaylist = () => {
+    const playlist = [
+      "https://soundcloud.com/d-group/karallen-star-i-brand-prod?in=d-group/sets/doemd-2024&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", // Replace with actual track URLs
+      "https://soundcloud.com/d-group/doemd-girl?in=d-group/sets/doemd-2024&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+      "https://soundcloud.com/d-group/alla-alskar-min-d?in=d-group/sets/doemd-2024&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+    ];
+    const shuffledTrack = playlist[Math.floor(Math.random() * playlist.length)];
+    setTrackUrl(shuffledTrack); // Set a random track
+  };
 
   // Move to the next slide
   const nextSlide = () => {
@@ -219,16 +234,44 @@ const Slideshow = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3000); // Change every 3 seconds
-    return () => clearInterval(interval); // Clean up
+    const interval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    return () => clearInterval(interval); // Cleanup interval
   }, []);
 
   const current = slides[currentSlide];
 
+  const handlePlayPause = () => {
+    if (!isPlaying) {
+      shufflePlaylist(); // Shuffle the track when starting playback
+    }
+    setIsPlaying(!isPlaying);
+  };
+
   return (
-    <Box position="relative" sx={{ width: "100%", height: '1100px', overflow: "hidden" }}>
+    <Box position="relative" sx={{ width: "100%", height: "1100px", overflow: "hidden" }}>
       {/* Countdown */}
       <Countdown renderer={mobilerenderProportional} date={DOMDdate} />
+
+      {/* Play Button */}
+      <Box
+        position="absolute"
+        top="30px"
+        right="20px"
+        zIndex={3}
+        onClick={handlePlayPause} // Toggle play/pause
+        sx={{
+          cursor: "pointer",
+          backgroundColor: "rgba(255, 255, 100, 255)",
+          color: "",
+          padding: "10px 15px",
+          borderRadius: "50%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {isPlaying ? "⏸️" : "🎵"} {/* Toggle play/pause icon */}
+      </Box>
 
       {/* Slideshow */}
       <img
@@ -240,9 +283,19 @@ const Slideshow = () => {
           objectFit: "cover",
         }}
       />
+
+      {/* SoundCloud Player (Hidden) */}
+      <Box sx={{ display: "none" }}>
+        <SoundcloudPlayer
+          url={trackUrl} // Use shuffled track URL
+          playing={isPlaying} // Control playback state
+          controls={false} // Hide controls
+        />
+      </Box>
     </Box>
   );
 };
+
 
 
 function StartPage() {
