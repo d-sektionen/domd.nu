@@ -39,7 +39,7 @@ import afterMovie23 from "./movies/afterMovie23.mp4";
 // Colors
 const PINK = '#FF05C8';
 const BROWN = '#30201D';
-const DOMDdate = new Date("2024-04-11T22:00:00");
+const DOMDdate = new Date("2025-03-11T22:00:00");
 const TOTIMG = 35;
 const U_LAG_EVENT = 'https://www.facebook.com/events/802960461639286/?acontext=%7B%22event_action_history%22%3A[%7B%22mechanism%22%3A%22your_upcoming_events_unit%22%2C%22surface%22%3A%22bookmark%22%7D]%2C%22ref_notif_type%22%3Anull%7D';
 
@@ -72,7 +72,7 @@ const mobilerender = ({ days, hours, minutes, seconds }) => {
 const SocialIcons = () => {
   const openInstagram = () => {
     // Open Instagram URL
-    window.open('https://www.instagram.com/dgroup2324/', '_blank');
+    window.open('https://www.instagram.com/dgroup2425/', '_blank');
   };
 
   const openFacebook = () => {
@@ -145,39 +145,104 @@ const Root = styled(Box)(({ theme }) => ({
   },
 }));
 
+const mobilerenderProportional = ({ days, hours, minutes, seconds }) => (
+  <Box
+    position="absolute"
+    top="20px"
+    left="650px"
+    transform="translate(-50%, 0)"
+    zIndex={2}
+    sx={{
+      textAlign: "center",
+      fontFamily: "Courier New",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    }}
+  >
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 15, // Adjusts spacing between items
+      }}
+    >
+      <Box textAlign="center">
+        <Typography variant="h2" sx={{ fontWeight: "bold", color: "#ff69b4" }}>
+          {days}
+        </Typography>
+        <Typography variant="subtitle1" sx={{ fontSize: "16px", color: "#ff69b4" }}>
+          DAYS
+        </Typography>
+      </Box>
+      <Box textAlign="center">
+        <Typography variant="h2" sx={{ fontWeight: "bold", color: "#ff69b4" }}>
+          {hours}
+        </Typography>
+        <Typography variant="subtitle1" sx={{ fontSize: "16px", color: "#ff69b4" }}>
+          HRS
+        </Typography>
+      </Box>
+      <Box textAlign="center">
+        <Typography variant="h2" sx={{ fontWeight: "bold", color: "#ff69b4" }}>
+          {minutes}
+        </Typography>
+        <Typography variant="subtitle1" sx={{ fontSize: "16px", color: "#ff69b4" }}>
+          MIN
+        </Typography>
+      </Box>
+      <Box textAlign="center">
+        <Typography variant="h2" sx={{ fontWeight: "bold", color: "#ff69b4" }}>
+          {seconds}
+        </Typography>
+        <Typography variant="subtitle1" sx={{ fontSize: "16px", color: "#ff69b4" }}>
+          SEC
+        </Typography>
+      </Box>
+    </Box>
+  </Box>
+);
 
-// Slideshow component
 const Slideshow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [
-  ];
-  // inserting all images from public/slideshow into slides
-  for (let i = 1; i <= TOTIMG; i++) {
-    slides.push(
-      {label: `Slide ${i}`, imgPath: `slideshow/${i}.jpg`}
-    )
-  }
 
+  // Generate slide data dynamically
+  const slides = Array.from({ length: TOTIMG }, (_, i) => ({
+    label: `Slide ${i + 1}`,
+    imgPath: `slideshow/${i + 1}.jpg`,
+  }));
+
+  // Move to the next slide
   const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === slides.length - 1 ? 0 : prevSlide + 1));
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 3000); // Change slide every 3 seconds (adjust as needed)
-
-    return () => clearInterval(interval);
+    const interval = setInterval(nextSlide, 3000); // Change every 3 seconds
+    return () => clearInterval(interval); // Clean up
   }, []);
 
-  console.log(slides[currentSlide].imgPath, 'testing imgpath')
+  const current = slides[currentSlide];
+
   return (
-    <Box>
-        <img src={slides[currentSlide].imgPath} alt={slides[currentSlide].label} style={{ width: '100%' }} />
+    <Box position="relative" sx={{ width: "100%", height: '1100px', overflow: "hidden" }}>
+      {/* Countdown */}
+      <Countdown renderer={mobilerenderProportional} date={DOMDdate} />
+
+      {/* Slideshow */}
+      <img
+        src={current.imgPath}
+        alt={current.label}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
     </Box>
   );
 };
-
 
 
 function StartPage() {
@@ -210,66 +275,6 @@ function StartPage() {
   return (
     <Root container sx={{ pt: { xs: 5, md: 5 } }}>
       <Slideshow />
-      <Grid sm={12} container>
-        <Grid xs={12} sx={{ pb: 0, px: 2, pt: 0 }}>
-          <Grid
-            xs={12}
-            sx={{
-              backgroundColor: "rgba(0,0,0,0.5)",
-              paddingY: "5px",
-              paddingX: "5px",
-            }}
-          >
-            {/* <Typography
-              variant="h5"
-              gutterBottom
-              fontFamily={"Courier New"}
-              align="center"
-              sx={{
-                display: {
-                  xs: "none",
-                  md: "inline",
-                  textShadow:
-                    "1px 1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
-                },
-              }} 
-            >
-              <Countdown renderer={render} date={DOMDdate} /> <br />
-            </Typography> */}
-            <Typography
-              variant="h5"
-              fontFamily={"Courier New"}
-              gutterBottom
-              align="center"
-              sx={{
-                display: {
-                  xs: "inline",
-                  sm: "inline",
-                  // md: "none",
-                  textShadow:
-                    "1px 1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
-                },
-              }} /* Mobil rendering av countdown */
-            >
-              <Countdown renderer={mobilerender} date={DOMDdate} /> <br />
-            </Typography>
-            <Typography
-              variant="h5"
-              gutterBottom
-              align="center"
-              fontFamily={"Courier New"}
-              sx={{
-                mt: 5,
-                textShadow:
-                  "1px 1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
-                fontSize: "38px",
-              }}
-            >
-              Snart Är Det Vår.
-            </Typography>
-          </Grid>
-        </Grid>
-      </Grid>
 
       {/* <Schema></Schema> */}
       {/* <Box
