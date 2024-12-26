@@ -149,60 +149,109 @@ const mobilerenderProportional = ({ days, hours, minutes, seconds }) => (
   <Box
     position="absolute"
     top="20px"
-    left="650px"
+    left="700px"
     transform="translate(-50%, 0)"
     zIndex={2}
     sx={{
       textAlign: "center",
       fontFamily: "Courier New",
       display: "flex",
-      flexDirection: "column",
+      justifyContent: "center",
       alignItems: "center",
+      gap: 15, // Adjusts spacing between items
     }}
   >
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 15, // Adjusts spacing between items
-      }}
-    >
-      <Box textAlign="center">
-        <Typography variant="h2" sx={{ fontWeight: "bold", color: "#ff69b4" }}>
-          {days}
-        </Typography>
-        <Typography variant="subtitle1" sx={{ fontSize: "16px", color: "#ff69b4" }}>
-          DAYS
-        </Typography>
-      </Box>
-      <Box textAlign="center">
-        <Typography variant="h2" sx={{ fontWeight: "bold", color: "#ff69b4" }}>
-          {hours}
-        </Typography>
-        <Typography variant="subtitle1" sx={{ fontSize: "16px", color: "#ff69b4" }}>
-          HRS
-        </Typography>
-      </Box>
-      <Box textAlign="center">
-        <Typography variant="h2" sx={{ fontWeight: "bold", color: "#ff69b4" }}>
-          {minutes}
-        </Typography>
-        <Typography variant="subtitle1" sx={{ fontSize: "16px", color: "#ff69b4" }}>
-          MIN
-        </Typography>
-      </Box>
-      <Box textAlign="center">
-        <Typography variant="h2" sx={{ fontWeight: "bold", color: "#ff69b4" }}>
-          {seconds}
-        </Typography>
-        <Typography variant="subtitle1" sx={{ fontSize: "16px", color: "#ff69b4" }}>
-          SEC
-        </Typography>
-      </Box>
+    <Box textAlign="center">
+      <Typography
+        variant="h2"
+        sx={{
+          fontWeight: "bold",
+          color: "#FF69B4", // Pink text color
+          textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700", // Yellow glow
+        }}
+      >
+        {days}
+      </Typography>
+      <Typography
+        variant="subtitle1"
+        sx={{
+          fontSize: "16px",
+          color: "#FF69B4",
+          textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700", // Yellow glow
+        }}
+      >
+        DAYS
+      </Typography>
+    </Box>
+    <Box textAlign="center">
+      <Typography
+        variant="h2"
+        sx={{
+          fontWeight: "bold",
+          color: "#FF69B4",
+          textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700", // Yellow glow
+        }}
+      >
+        {hours}
+      </Typography>
+      <Typography
+        variant="subtitle1"
+        sx={{
+          fontSize: "16px",
+          color: "#FF69B4",
+          textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700", // Yellow glow
+        }}
+      >
+        HRS
+      </Typography>
+    </Box>
+    <Box textAlign="center">
+      <Typography
+        variant="h2"
+        sx={{
+          fontWeight: "bold",
+          color: "#FF69B4",
+          textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700", // Yellow glow
+        }}
+      >
+        {minutes}
+      </Typography>
+      <Typography
+        variant="subtitle1"
+        sx={{
+          fontSize: "16px",
+          color: "#FF69B4",
+          textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700", // Yellow glow
+        }}
+      >
+        MIN
+      </Typography>
+    </Box>
+    <Box textAlign="center">
+      <Typography
+        variant="h2"
+        sx={{
+          fontWeight: "bold",
+          color: "#FF69B4",
+          textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700", // Yellow glow
+        }}
+      >
+        {seconds}
+      </Typography>
+      <Typography
+        variant="subtitle1"
+        sx={{
+          fontSize: "16px",
+          color: "#FF69B4",
+          textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700", // Yellow glow
+        }}
+      >
+        SEC
+      </Typography>
     </Box>
   </Box>
 );
+
 
 const Slideshow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -261,7 +310,7 @@ const Slideshow = () => {
         onClick={handlePlayPause} // Toggle play/pause
         sx={{
           cursor: "pointer",
-          backgroundColor: "rgba(255, 255, 100, 255)",
+          backgroundColor: "rgba(255, 255, 50, 255)",
           color: "",
           padding: "10px 15px",
           borderRadius: "50%",
