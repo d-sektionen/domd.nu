@@ -270,8 +270,6 @@ export default function DomdComp() {
   const [boardNumb, setBoardNumb] = useState('');
   const [location, setLocation] = useState('');
   const [loading, setLoading] = useState(false);  // State to manage loading indicator
-  const [isFinal, setIsFinal] = useState(false);  // State to manage loading indicator
-
 
   const changeTournament = async (event) => {
     const tournamentName = event.target.value;
@@ -303,12 +301,6 @@ export default function DomdComp() {
       });
 
       const dartBoardNumb = await getDartBoardNumb(tournamentID, allGamesOfTournament, nextGame);
-      if (dartBoardNumb == 'Finsittningen') {
-        setIsFinal(true)
-      } else {
-        setIsFinal(false)
-      }
-      
       setGameTime(formattedTime);
       setBoardNumb(dartBoardNumb);
 
@@ -444,15 +436,8 @@ export default function DomdComp() {
             variant="h4"
             sx={{
               textAlign: 'center',
-              display: displayTeam && teamHasGame && !isFinal ? 'block' : 'none',}}
+              display: displayTeam && teamHasGame ? 'block' : 'none',}}
               >Lag {selectedTeam} spelar {time} i {location} på tavla {boardNumb}
-          </Typography>
-          <Typography
-            variant="h4"
-            sx={{
-              textAlign: 'center',
-              display: displayTeam && teamHasGame && isFinal ? 'block' : 'none',}}
-              >Lag {selectedTeam} spelar {time} i matsalen på {boardNumb}
           </Typography>
           <Typography
             variant="h4"
