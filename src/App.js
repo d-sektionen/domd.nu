@@ -49,7 +49,7 @@ const SocialMediaIcons = () => (
 
 
 function App() {
-  const domdDate = new Date("03/11/2025");
+  const domdDate = new Date("04/12/2025");
   const currentDate = new Date();
 
   // To calculate the time difference of two dates
