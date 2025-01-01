@@ -146,22 +146,21 @@ const Root = styled(Box)(({ theme }) => ({
   backgroundAttachment: "fixed",
   color: "white",
   textAlign: "center",
-  margin : 0,
-  top: 100,
-  padding : 0,
-  mt: { xs: 0, md: 0 },
+  margin: 0,
+  padding: 0,
   [theme.breakpoints.down("md")]: {
     backgroundImage: `url(${Bakgrund})`,
     backgroundPosition: "50% 10%",
     margin: 0,
     padding: 0,
-    widht : "100%",
+    width: "100%",
   },
   [theme.breakpoints.up("md")]: {
     backgroundImage: `url(${Bakgrund})`,
     backgroundPosition: "50% 30%",
   },
 }));
+
 
 const mobilerenderProportional = ({ days, hours, minutes, seconds }) => (
   <Box
@@ -274,9 +273,7 @@ const mobilerenderProportional = ({ days, hours, minutes, seconds }) => (
 const Slideshow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [trackUrl, setTrackUrl] = useState(
-    "https://soundcloud.com/d-group/sets/doemd-2024"
-  );
+  const trackUrl = "https://soundcloud.com/d-group/karallen-star-i-brand-prod";
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -285,16 +282,6 @@ const Slideshow = () => {
     label: `Slide ${i + 1}`,
     imgPath: `slideshow/${i + 1}.jpg`,
   }));
-
-  const shufflePlaylist = () => {
-    const playlist = [
-      "https://soundcloud.com/d-group/karallen-star-i-brand-prod",
-      //"https://soundcloud.com/d-group/doemd-girl",
-      //"https://soundcloud.com/d-group/alla-alskar-min-d",
-    ];
-    const shuffledTrack = playlist[Math.floor(Math.random() * playlist.length)];
-    setTrackUrl(shuffledTrack);
-  };
 
   const nextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
@@ -308,9 +295,6 @@ const Slideshow = () => {
   const current = slides[currentSlide];
 
   const handlePlayPause = () => {
-    if (!isPlaying) {
-      shufflePlaylist();
-    }
     setIsPlaying(!isPlaying);
   };
 
@@ -319,9 +303,8 @@ const Slideshow = () => {
       sx={{
         width: "100%",
         overflow: "hidden",
-        margin: isMobile ? 0 : "auto",
-        padding: isMobile ? 0 : "auto",
-        mt:0
+        margin: 0,
+        padding: 0,
       }}
     >
       {/* Slideshow */}
@@ -330,10 +313,8 @@ const Slideshow = () => {
         sx={{
           width: "100%",
           height: isMobile ? "60vh" : "1100px",
-          overflow: "hidden",
           margin: 0,
-          padding:0,
-          mt:0
+          padding: 0,
         }}
       >
         <img
@@ -382,7 +363,7 @@ const Slideshow = () => {
               backgroundColor: "rgba(255, 255, 50, 1)",
               padding: "10px 15px",
               borderRadius: "50%",
-              boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)", // Adds a subtle shadow for visibility
+              boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -407,7 +388,7 @@ const Slideshow = () => {
       {isMobile && (
         <Box
           sx={{
-            mt: 1,
+            mt: -3, // Move it closer to the slideshow
             textAlign: "center",
           }}
         >
@@ -432,11 +413,11 @@ const Slideshow = () => {
       {isMobile && (
         <Box
           sx={{
-            mt: 2,
+            mt: 1, // Adjust margin between button and timer
             textAlign: "center",
             fontFamily: "Courier New",
             color: "#FF69B4",
-            textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700", // Yellow glow
+            textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700",
           }}
         >
           <Countdown renderer={mobilerender} date={DOMDdate} />
@@ -445,6 +426,7 @@ const Slideshow = () => {
     </Box>
   );
 };
+
 
 function StartPage() {
   const [email, setEmail] = useState('');
