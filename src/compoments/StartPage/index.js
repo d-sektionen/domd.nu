@@ -298,67 +298,96 @@ const Slideshow = () => {
   };
 
   return (
-    <Box
-      position="relative"
-      sx={{
-        width: "100%",
-        height: isMobile ? "60vh" : "1100px",
-        overflow: "hidden",
-      }}
-    >
-      <Countdown
-        renderer={mobilerenderProportional}
-        date={DOMDdate}
-        sx={{
-          position: "absolute",
-          top: isMobile ? "10px" : "30px",
-          left: isMobile ? "50%" : "700px",
-          transform: isMobile ? "translateX(-50%)" : "none",
-          zIndex: 3,
-        }}
-      />
-
+    <Box sx={{ width: "100%", overflow: "hidden" }}>
+      {/* Slideshow */}
       <Box
-        position="absolute"
-        top="10px"
-        right={isMobile ? "10px" : "20px"}
-        zIndex={3}
-        onClick={handlePlayPause}
+        position="relative"
         sx={{
-          cursor: "pointer",
-          backgroundColor: "rgba(255, 255, 50, 255)",
-          padding: isMobile ? "8px" : "10px 15px",
-          borderRadius: "50%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          width: "100%",
+          height: isMobile ? "60vh" : "1100px",
+          overflow: "hidden",
         }}
       >
-        {isPlaying ? "⏸️" : "🎵"}
-      </Box>
-
-      <img
-        src={current.imgPath}
-        alt={current.label}
-        style={{
-          width: "100%",
-          height: isMobile ? "60vh" : "100%",
-          objectFit: isMobile ? "contain" : "cover",
-        }}
-      />
-
-      <Box sx={{ display: "none" }}>
-        <SoundcloudPlayer
-          url={trackUrl}
-          playing={isPlaying}
-          controls={false}
-          className="soundcloud-player"
+        <img
+          src={current.imgPath}
+          alt={current.label}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: isMobile ? "contain" : "cover",
+          }}
         />
+
+        {/* Timer on slideshow for PC */}
+        {!isMobile && (
+          <Box
+            position="absolute"
+            top="10px"
+            transform="translateX(-50%)"
+            zIndex={3}
+            sx={{
+              textAlign: "center",
+              fontFamily: "Courier New",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: 15,
+              color: "#FF69B4", // Pink text color
+              textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700", // Yellow glow
+            }}
+          >
+            <Countdown renderer={mobilerenderProportional} date={DOMDdate} />
+          </Box>
+        )}
+
+        {/* Play Button */}
+        <Box
+          position="absolute"
+          top="10px"
+          right="20px"
+          zIndex={3}
+          onClick={handlePlayPause}
+          sx={{
+            cursor: "pointer",
+            backgroundColor: "rgba(255, 255, 50, 255)",
+            padding: "10px 15px",
+            borderRadius: "50%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {isPlaying ? "⏸️" : "🎵"}
+        </Box>
+
+        {/* SoundCloud Player (Hidden) */}
+        <Box sx={{ display: "none" }}>
+          <SoundcloudPlayer
+            url={trackUrl}
+            playing={isPlaying}
+            controls={false}
+            className="soundcloud-player"
+          />
+        </Box>
       </Box>
+
+      {/* Timer below slideshow for mobile */}
+      {isMobile && (
+        <Box
+          sx={{
+            mt: 2,
+            textAlign: "center",
+            fontFamily: "Courier New",
+            color: "#FF69B4",
+            textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700", // Yellow glow
+          }}
+        >
+          <Countdown renderer={mobilerender} date={DOMDdate} />
+        </Box>
+      )}
     </Box>
   );
 };
-
 
 
 
