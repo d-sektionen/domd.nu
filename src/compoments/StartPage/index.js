@@ -59,9 +59,9 @@ const mobilerender = ({ days, hours, minutes, seconds }) => (
     sx={{
       textAlign: "center",
       fontFamily: "Courier New",
-      color: "#8B4513", // Brown color
+      color: "#5C4033", 
       textShadow: "0 0 5px #FF69B4, 0 0 10px #FF69B4", // Pink hue glow
-      fontSize: "34px", // Larger font size for mobile
+      fontSize: "50px", 
       mt: 2,
     }}
   >
@@ -317,6 +317,7 @@ const Slideshow = () => {
           width: "100%",
           height: isMobile ? "60vh" : "1100px",
           overflow: "hidden",
+          mt: isMobile ? "0" : "unset", // remove margin for mobile.
         }}
       >
         <img
