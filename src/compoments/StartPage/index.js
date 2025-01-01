@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Countdown from "react-countdown";
 import { Grid, Box, Link, Typography, TextField, Button, IconButton, InputAdornment, Paper} from '@mui/material';
 import ReactPlayer from "react-player";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 import { Send } from '@mui/icons-material';
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
@@ -39,8 +40,8 @@ import afterMovie23 from "./movies/afterMovie23.mp4";
 // Colors
 const PINK = '#FF05C8';
 const BROWN = '#30201D';
-const DOMDdate = new Date("2025-03-11T22:00:00");
-const TOTIMG = 35;
+const DOMDdate = new Date("2025-04-10T22:00:00");
+const TOTIMG = 34;
 const U_LAG_EVENT = 'https://www.facebook.com/events/802960461639286/?acontext=%7B%22event_action_history%22%3A[%7B%22mechanism%22%3A%22your_upcoming_events_unit%22%2C%22surface%22%3A%22bookmark%22%7D]%2C%22ref_notif_type%22%3Anull%7D';
 
 
@@ -260,16 +261,19 @@ const Slideshow = () => {
     "https://soundcloud.com/d-group/sets/doemd-2024"
   ); // Track currently playing URL
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // Check if screen is small
+
   // Generate image slide data dynamically
   const slides = Array.from({ length: TOTIMG }, (_, i) => ({
     label: `Slide ${i + 1}`,
     imgPath: `slideshow/${i + 1}.jpg`,
   }));
 
-  // Rövsoundcloud har ingen shuffle
+  // Shuffle SoundCloud playlist
   const shufflePlaylist = () => {
     const playlist = [
-      "https://soundcloud.com/d-group/karallen-star-i-brand-prod?in=d-group/sets/doemd-2024&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", // Replace with actual track URLs
+      "https://soundcloud.com/d-group/karallen-star-i-brand-prod?in=d-group/sets/doemd-2024&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
       "https://soundcloud.com/d-group/doemd-girl?in=d-group/sets/doemd-2024&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
       "https://soundcloud.com/d-group/alla-alskar-min-d?in=d-group/sets/doemd-2024&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
     ];
@@ -297,26 +301,42 @@ const Slideshow = () => {
   };
 
   return (
-    <Box position="relative" sx={{ width: "100%", height: "1100px", overflow: "hidden" }}>
+    <Box
+      position="relative"
+      sx={{
+        width: "100%",
+        height: isMobile ? "60vh" : "1100px", // Adjust height for mobile screens
+        overflow: "hidden",
+      }}
+    >
       {/* Countdown */}
-      <Countdown renderer={mobilerenderProportional} date={DOMDdate} />
+      <Countdown
+        renderer={mobilerenderProportional}
+        date={DOMDdate}
+        sx={{
+          position: "absolute",
+          top: isMobile ? "10px" : "30px",
+          left: isMobile ? "50%" : "700px",
+          transform: isMobile ? "translateX(-50%)" : "none",
+        }}
+      />
 
       {/* Play Button */}
       <Box
         position="absolute"
-        top="30px"
-        right="20px"
+        top="10px"
+        right={isMobile ? "10px" : "20px"}
         zIndex={3}
         onClick={handlePlayPause} // Toggle play/pause
         sx={{
           cursor: "pointer",
           backgroundColor: "rgba(255, 255, 50, 255)",
-          color: "",
-          padding: "10px 15px",
+          padding: isMobile ? "8px" : "10px 15px",
           borderRadius: "50%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          fontSize: isMobile ? "14px" : "inherit",
         }}
       >
         {isPlaying ? "⏸️" : "🎵"} {/* Toggle play/pause icon */}
@@ -344,6 +364,7 @@ const Slideshow = () => {
     </Box>
   );
 };
+
 
 
 
