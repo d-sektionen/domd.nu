@@ -146,10 +146,15 @@ const Root = styled(Box)(({ theme }) => ({
   backgroundAttachment: "fixed",
   color: "white",
   textAlign: "center",
-  mt: { xs: 6, md: 2 },
+  margin : 0,
+  padding : 0,
+  mt: { xs: 0, md: 0 },
   [theme.breakpoints.down("md")]: {
     backgroundImage: `url(${Bakgrund})`,
     backgroundPosition: "50% 10%",
+    margin: 0,
+    padding: 0,
+    widht : "100%",
   },
   [theme.breakpoints.up("md")]: {
     backgroundImage: `url(${Bakgrund})`,
@@ -324,6 +329,8 @@ const Slideshow = () => {
           width: "100%",
           height: isMobile ? "60vh" : "1100px",
           overflow: "hidden",
+          margin: 0,
+          padding:0,
         }}
       >
         <img
@@ -487,10 +494,16 @@ function StartPage() {
         container
         sx={{
           backgroundColor: "rgba(0,0,0,0.5)",
-          paddingY: "10px",
-          paddingX: "5px",
-          marginX: "16px",
-          marginTop: 16,
+          marginY: 2, // Remove margin
+          paddingY: 4, // Remove padding
+          marginX : 0,
+          paddingX :0,
+          width: "100%", // Ensure full width
+          
+          //paddingY: "10px",
+          //paddingX: "5px",
+          //marginX: "16px",
+          //marginTop: 16,
         }}
       >
         <Typography 
