@@ -309,7 +309,14 @@ const Slideshow = () => {
   };
 
   return (
-    <Box sx={{ width: "100%", overflow: "hidden" }}>
+    <Box
+      sx={{
+        width: "100%",
+        overflow: "hidden",
+        margin: isMobile ? 0 : "auto",
+        padding: isMobile ? 0 : "auto",
+      }}
+    >
       {/* Slideshow */}
       <Box
         position="relative"
@@ -317,8 +324,6 @@ const Slideshow = () => {
           width: "100%",
           height: isMobile ? "60vh" : "1100px",
           overflow: "hidden",
-          margin: "0", // Remove any margins
-          padding: "0", // Remove padding
         }}
       >
         <img
@@ -354,30 +359,30 @@ const Slideshow = () => {
           </Box>
         )}
 
-        {/* Play Button */}
-        <Box
-          position={isMobile ? "absolute" : "absolute"}
-          top={isMobile ? "10px" : "30px"}
-          right={isMobile ? "10px" : "20px"}
-          zIndex={3}
-          onClick={handlePlayPause}
-          sx={{
-            cursor: "pointer",
-            backgroundColor: "rgba(255, 255, 50, 1)",
-            padding: isMobile ? "15px" : "10px 15px", // Bigger size for mobile
-            borderRadius: "50%",
-            boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)", // Adds a subtle shadow for visibility
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: isMobile ? "70px" : "unset", // Larger button for mobile
-            height: isMobile ? "70px" : "unset",
-          }}
-        >
-          {isPlaying ? "⏸️" : "🎵"}
-        </Box>
+        {/* Play Button for PC */}
+        {!isMobile && (
+          <Box
+            position="absolute"
+            top="30px"
+            right="20px"
+            zIndex={3}
+            onClick={handlePlayPause}
+            sx={{
+              cursor: "pointer",
+              backgroundColor: "rgba(255, 255, 50, 1)",
+              padding: "10px 15px",
+              borderRadius: "50%",
+              boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)", // Adds a subtle shadow for visibility
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {isPlaying ? "⏸️" : "🎵"}
+          </Box>
+        )}
 
-        {/* SoundCloud Player (Hidden) */}
+        {/* SoundCloud Player (Hidden for all) */}
         <Box sx={{ display: "none" }}>
           <SoundcloudPlayer
             url={trackUrl}
@@ -388,11 +393,36 @@ const Slideshow = () => {
         </Box>
       </Box>
 
-      {/* Timer below slideshow for mobile */}
+      {/* Play Music Button above Timer for Mobile */}
       {isMobile && (
         <Box
           sx={{
-            mt: 1, 
+            mt: 1,
+            textAlign: "center",
+          }}
+        >
+          <Button
+            onClick={handlePlayPause}
+            sx={{
+              backgroundColor: "yellow",
+              color: "black",
+              fontWeight: "bold",
+              borderRadius: "20px",
+              px: 3,
+              py: 1,
+              "&:hover": { backgroundColor: "gold" },
+            }}
+          >
+            {isPlaying ? "Pause Music" : "Play Music"}
+          </Button>
+        </Box>
+      )}
+
+      {/* Timer below slideshow for Mobile */}
+      {isMobile && (
+        <Box
+          sx={{
+            mt: 2,
             textAlign: "center",
             fontFamily: "Courier New",
             color: "#FF69B4",
@@ -402,39 +432,9 @@ const Slideshow = () => {
           <Countdown renderer={mobilerender} date={DOMDdate} />
         </Box>
       )}
-
-      {/* Music Button below slideshow for mobile */}
-      {isMobile && (
-        <Box
-          sx={{
-            mt: 2,
-            textAlign: "center",
-          }}
-        >
-          <Box
-            onClick={handlePlayPause}
-            sx={{
-              display: "inline-block",
-              cursor: "pointer",
-              backgroundColor: "rgba(255, 255, 50, 1)",
-              padding: "10px 20px",
-              borderRadius: "30px",
-              textAlign: "center",
-              fontSize: "16px", 
-              color: "#000", // Black text for contrast
-            }}
-          >
-            {isPlaying ? "Pause Music" : "Play Music"}
-          </Box>
-        </Box>
-      )}
     </Box>
   );
 };
-
-
-
-
 
 function StartPage() {
   const [email, setEmail] = useState('');
