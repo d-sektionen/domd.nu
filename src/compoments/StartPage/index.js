@@ -54,20 +54,31 @@ const render = ({ days, hours, minutes, seconds }) => {
     </span>
   );
 };
-
-// Mobile countdown Renderer component
-const mobilerender = ({ days, hours, minutes, seconds }) => {
-  return (
-    <span>
-      {days} Dagar <br />
-      {hours} Timmar <br />
-      {minutes} Minuter <br />
-      {seconds} Sekunder
-      <br />
-      Kvar Tills D<span STYLE="font-size:75%">ÖM</span>D!
-    </span>
-  );
-};
+const mobilerender = ({ days, hours, minutes, seconds }) => (
+  <Box
+    sx={{
+      textAlign: "center",
+      fontFamily: "Courier New",
+      color: "#8B4513", // Brown color
+      textShadow: "0 0 5px #FF69B4, 0 0 10px #FF69B4", // Pink hue glow
+      fontSize: "34px", // Larger font size for mobile
+      mt: 2,
+    }}
+  >
+    <Typography
+      variant="h4"
+      sx={{
+        fontWeight: "bold",
+      }}
+    >
+      {days} Dagar
+    </Typography>
+    <Typography variant="h5">{hours} Timmar</Typography>
+    <Typography variant="h5">{minutes} Minuter</Typography>
+    <Typography variant="h5">{seconds} Sekunder</Typography>
+    <Typography variant="h6">Kvar Tills D<span STYLE="font-size:75%">ÖM</span>D!</Typography>
+  </Box>
+);
 
 // Component for social media
 const SocialIcons = () => {
@@ -343,7 +354,7 @@ const Slideshow = () => {
         {/* Play Button */}
         <Box
           position="absolute"
-          top="10px"
+          top="40px"
           right="20px"
           zIndex={3}
           onClick={handlePlayPause}
