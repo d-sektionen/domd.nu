@@ -161,7 +161,7 @@ const mobilerenderProportional = ({ days, hours, minutes, seconds }) => (
   <Box
     position="absolute"
     top="20px"
-    left="700px"
+    left=""
     transform="translate(-50%, 0)"
     zIndex={2}
     sx={{
@@ -317,7 +317,8 @@ const Slideshow = () => {
           width: "100%",
           height: isMobile ? "60vh" : "1100px",
           overflow: "hidden",
-          mt: isMobile ? "0 !important" : "unset", // remove margin for mobile.
+          margin: "0", // Remove any margins
+          padding: "0", // Remove padding
         }}
       >
         <img
@@ -335,6 +336,7 @@ const Slideshow = () => {
           <Box
             position="absolute"
             top="10px"
+            left="50%"
             transform="translateX(-50%)"
             zIndex={3}
             sx={{
@@ -354,24 +356,26 @@ const Slideshow = () => {
 
         {/* Play Button */}
         <Box
-  position={isMobile ? "fixed" : "absolute"}
-  top={isMobile ? "20px" : "30px"}
-  right={isMobile ? "15px" : "20px"}
-  zIndex={3}
-  onClick={handlePlayPause}
-  sx={{
-    cursor: "pointer",
-    backgroundColor: "rgba(255, 255, 50, 1)",
-    padding: isMobile ? "10px" : "10px 15px",
-    borderRadius: "50%",
-    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)", // Adds a subtle shadow for visibility
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  }}
->
-  {isPlaying ? "⏸️" : "🎵"}
-</Box>
+          position={isMobile ? "absolute" : "absolute"}
+          top={isMobile ? "10px" : "30px"}
+          right={isMobile ? "10px" : "20px"}
+          zIndex={3}
+          onClick={handlePlayPause}
+          sx={{
+            cursor: "pointer",
+            backgroundColor: "rgba(255, 255, 50, 1)",
+            padding: isMobile ? "15px" : "10px 15px", // Bigger size for mobile
+            borderRadius: "50%",
+            boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)", // Adds a subtle shadow for visibility
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: isMobile ? "70px" : "unset", // Larger button for mobile
+            height: isMobile ? "70px" : "unset",
+          }}
+        >
+          {isPlaying ? "⏸️" : "🎵"}
+        </Box>
 
         {/* SoundCloud Player (Hidden) */}
         <Box sx={{ display: "none" }}>
@@ -388,7 +392,7 @@ const Slideshow = () => {
       {isMobile && (
         <Box
           sx={{
-            mt: 2,
+            mt: 1, 
             textAlign: "center",
             fontFamily: "Courier New",
             color: "#FF69B4",
@@ -398,9 +402,36 @@ const Slideshow = () => {
           <Countdown renderer={mobilerender} date={DOMDdate} />
         </Box>
       )}
+
+      {/* Music Button below slideshow for mobile */}
+      {isMobile && (
+        <Box
+          sx={{
+            mt: 2,
+            textAlign: "center",
+          }}
+        >
+          <Box
+            onClick={handlePlayPause}
+            sx={{
+              display: "inline-block",
+              cursor: "pointer",
+              backgroundColor: "rgba(255, 255, 50, 1)",
+              padding: "10px 20px",
+              borderRadius: "30px",
+              textAlign: "center",
+              fontSize: "16px", 
+              color: "#000", // Black text for contrast
+            }}
+          >
+            {isPlaying ? "Pause Music" : "Play Music"}
+          </Box>
+        </Box>
+      )}
     </Box>
   );
 };
+
 
 
 
