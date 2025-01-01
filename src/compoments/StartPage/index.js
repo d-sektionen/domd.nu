@@ -256,46 +256,43 @@ const mobilerenderProportional = ({ days, hours, minutes, seconds }) => (
 
 const Slideshow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false); // Track if SoundCloud is playing
+  const [isPlaying, setIsPlaying] = useState(false);
   const [trackUrl, setTrackUrl] = useState(
     "https://soundcloud.com/d-group/sets/doemd-2024"
-  ); // Track currently playing URL
+  );
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // Check if screen is small
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  // Generate image slide data dynamically
   const slides = Array.from({ length: TOTIMG }, (_, i) => ({
     label: `Slide ${i + 1}`,
     imgPath: `slideshow/${i + 1}.jpg`,
   }));
 
-  // Shuffle SoundCloud playlist
   const shufflePlaylist = () => {
     const playlist = [
-      "https://soundcloud.com/d-group/karallen-star-i-brand-prod?in=d-group/sets/doemd-2024&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
-      "https://soundcloud.com/d-group/doemd-girl?in=d-group/sets/doemd-2024&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
-      "https://soundcloud.com/d-group/alla-alskar-min-d?in=d-group/sets/doemd-2024&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+      "https://soundcloud.com/d-group/karallen-star-i-brand-prod",
+      "https://soundcloud.com/d-group/doemd-girl",
+      "https://soundcloud.com/d-group/alla-alskar-min-d",
     ];
     const shuffledTrack = playlist[Math.floor(Math.random() * playlist.length)];
-    setTrackUrl(shuffledTrack); // Set a random track
+    setTrackUrl(shuffledTrack);
   };
 
-  // Move to the next slide
   const nextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
-    return () => clearInterval(interval); // Cleanup interval
+    const interval = setInterval(nextSlide, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   const current = slides[currentSlide];
 
   const handlePlayPause = () => {
     if (!isPlaying) {
-      shufflePlaylist(); // Shuffle the track when starting playback
+      shufflePlaylist();
     }
     setIsPlaying(!isPlaying);
   };
@@ -305,11 +302,10 @@ const Slideshow = () => {
       position="relative"
       sx={{
         width: "100%",
-        height: isMobile ? "60vh" : "1100px", // Adjust height for mobile screens
+        height: isMobile ? "60vh" : "1100px",
         overflow: "hidden",
       }}
     >
-      {/* Countdown */}
       <Countdown
         renderer={mobilerenderProportional}
         date={DOMDdate}
@@ -318,16 +314,16 @@ const Slideshow = () => {
           top: isMobile ? "10px" : "30px",
           left: isMobile ? "50%" : "700px",
           transform: isMobile ? "translateX(-50%)" : "none",
+          zIndex: 3,
         }}
       />
 
-      {/* Play Button */}
       <Box
         position="absolute"
         top="10px"
         right={isMobile ? "10px" : "20px"}
         zIndex={3}
-        onClick={handlePlayPause} // Toggle play/pause
+        onClick={handlePlayPause}
         sx={{
           cursor: "pointer",
           backgroundColor: "rgba(255, 255, 50, 255)",
@@ -336,34 +332,33 @@ const Slideshow = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          fontSize: isMobile ? "14px" : "inherit",
         }}
       >
-        {isPlaying ? "⏸️" : "🎵"} {/* Toggle play/pause icon */}
+        {isPlaying ? "⏸️" : "🎵"}
       </Box>
 
-      {/* Slideshow */}
       <img
         src={current.imgPath}
         alt={current.label}
         style={{
           width: "100%",
-          height: "100%",
-          objectFit: "cover",
+          height: isMobile ? "60vh" : "100%",
+          objectFit: isMobile ? "contain" : "cover",
         }}
       />
 
-      {/* SoundCloud Player (Hidden) */}
       <Box sx={{ display: "none" }}>
         <SoundcloudPlayer
-          url={trackUrl} // Use shuffled track URL
-          playing={isPlaying} // Control playback state
-          controls={false} // Hide controls
+          url={trackUrl}
+          playing={isPlaying}
+          controls={false}
+          className="soundcloud-player"
         />
       </Box>
     </Box>
   );
 };
+
 
 
 
