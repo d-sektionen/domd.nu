@@ -147,6 +147,7 @@ const Root = styled(Box)(({ theme }) => ({
   color: "white",
   textAlign: "center",
   margin : 0,
+  top: 100,
   padding : 0,
   mt: { xs: 0, md: 0 },
   [theme.breakpoints.down("md")]: {
@@ -288,8 +289,8 @@ const Slideshow = () => {
   const shufflePlaylist = () => {
     const playlist = [
       "https://soundcloud.com/d-group/karallen-star-i-brand-prod",
-      "https://soundcloud.com/d-group/doemd-girl",
-      "https://soundcloud.com/d-group/alla-alskar-min-d",
+      //"https://soundcloud.com/d-group/doemd-girl",
+      //"https://soundcloud.com/d-group/alla-alskar-min-d",
     ];
     const shuffledTrack = playlist[Math.floor(Math.random() * playlist.length)];
     setTrackUrl(shuffledTrack);
@@ -320,6 +321,7 @@ const Slideshow = () => {
         overflow: "hidden",
         margin: isMobile ? 0 : "auto",
         padding: isMobile ? 0 : "auto",
+        mt:0
       }}
     >
       {/* Slideshow */}
@@ -331,6 +333,7 @@ const Slideshow = () => {
           overflow: "hidden",
           margin: 0,
           padding:0,
+          mt:0
         }}
       >
         <img
