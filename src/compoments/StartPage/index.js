@@ -61,8 +61,8 @@ const mobilerender = ({ days, hours, minutes, seconds }) => (
       fontFamily: "Courier New",
       color: "#5C4033", 
       textShadow: "0 0 5px #FF69B4, 0 0 10px #FF69B4", // Pink hue glow
-      fontSize: "80px", 
-      mt: 2,
+      fontSize: "84px", 
+      mt: 0,
     }}
   >
     <Typography
@@ -354,23 +354,24 @@ const Slideshow = () => {
 
         {/* Play Button */}
         <Box
-          position="absolute"
-          top="40px"
-          right="20px"
-          zIndex={3}
-          onClick={handlePlayPause}
-          sx={{
-            cursor: "pointer",
-            backgroundColor: "rgba(255, 255, 50, 255)",
-            padding: "10px 15px",
-            borderRadius: "50%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {isPlaying ? "⏸️" : "🎵"}
-        </Box>
+  position={isMobile ? "fixed" : "absolute"}
+  top={isMobile ? "20px" : "30px"}
+  right={isMobile ? "15px" : "20px"}
+  zIndex={3}
+  onClick={handlePlayPause}
+  sx={{
+    cursor: "pointer",
+    backgroundColor: "rgba(255, 255, 50, 1)",
+    padding: isMobile ? "10px" : "10px 15px",
+    borderRadius: "50%",
+    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)", // Adds a subtle shadow for visibility
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }}
+>
+  {isPlaying ? "⏸️" : "🎵"}
+</Box>
 
         {/* SoundCloud Player (Hidden) */}
         <Box sx={{ display: "none" }}>
