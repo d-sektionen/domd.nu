@@ -21,7 +21,7 @@ const GroupStage = () => {
       setGroups(groupsData);
     } catch (err) {
       console.error("Fel vid hämtning av gruppspelsdata:", err);
-      setError("Kunde inte hämta gruppspelsdata. Försök igen senare.");
+      setError("Kunde inte hämta gruppspelsdata. Försök igen.");
     } finally {
       setLoading(false);
       setTimeout(() => setShowLogo(false), 2000);
