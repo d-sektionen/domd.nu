@@ -1,191 +1,136 @@
-const PARTICIPANTS_URL = (apiKey, tournamentId) =>
-  `https://api.challonge.com/v1/tournaments/${tournamentId}/participants.json?api_key=${apiKey}`;
-
-const MATCHES_URL = (apiKey, tournamentId) =>
-  `https://api.challonge.com/v1/tournaments/${tournamentId}/matches.json?api_key=${apiKey}`;
-
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000; // 1 second
 const FETCH_TIMEOUT = 5000; // 5 seconds
 
 /**
- * Fetch with retry and timeout
+ * Return static participants data
  */
-const fetchWithRetry = async (url, options = {}, retries = MAX_RETRIES) => {
-  try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
-
-    const response = await fetch(url, { ...options, signal: controller.signal });
-    clearTimeout(timeoutId);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    return response;
-  } catch (error) {
-    if (retries > 0) {
-      console.warn(`Retrying... (${retries} attempts left)`);
-      await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
-      return fetchWithRetry(url, options, retries - 1);
-    } else {
-      console.error("Max retries reached. Giving up.");
-      throw error;
-    }
-  }
+export const fetchParticipants = async () => {
+  return {
+    1: { name: "Marcus Döberl", groupId: 1, alternateIds: [] },
+    2: { name: "Olle Morberg", groupId: 1, alternateIds: [] },
+    3: { name: "Axel Genar", groupId: 1, alternateIds: [] },
+    4: { name: "Jens Viberg", groupId: 1, alternateIds: [] },
+    5: { name: "Daniel Wendin", groupId: 2, alternateIds: [] },
+    6: { name: "Edvin Sångberg", groupId: 2, alternateIds: [] },
+    7: { name: "Cora Gelin", groupId: 2, alternateIds: [] },
+    8: { name: "Darja Saed", groupId: 2, alternateIds: [] },
+    9: { name: "Marc Taylor", groupId: 3, alternateIds: [] },
+    10: { name: "Gustav Viberg", groupId: 3, alternateIds: [] },
+    11: { name: "Emelie Santesson", groupId: 3, alternateIds: [] },
+    12: { name: "Elisabet Hammarberg", groupId: 3, alternateIds: [] },
+    13: { name: "Dan Suleiman", groupId: 4, alternateIds: [] },
+    14: { name: "Alvin Bragd", groupId: 4, alternateIds: [] },
+    15: { name: "Erik Luttu", groupId: 4, alternateIds: [] },
+    16: { name: "Edvin Dyremark", groupId: 4, alternateIds: [] },
+    17: { name: "Linus Göransson", groupId: 5, alternateIds: [] },
+    18: { name: "Rickard Hjerpe", groupId: 5, alternateIds: [] },
+    19: { name: "Simon Hansson", groupId: 5, alternateIds: [] },
+    20: { name: "Carl Rosvall", groupId: 5, alternateIds: [] },
+    21: { name: "Adam Rylander", groupId: 6, alternateIds: [] },
+    22: { name: "Sebastian Persson", groupId: 6, alternateIds: [] },
+    23: { name: "Ludvig Mårtén", groupId: 6, alternateIds: [] },
+    24: { name: "Shamil Limbasiya", groupId: 6, alternateIds: [] },
+    25: { name: "Viktor Axén", groupId: 7, alternateIds: [] },
+    26: { name: "William Thordson", groupId: 7, alternateIds: [] },
+    27: { name: "Kacper Orzel", groupId: 7, alternateIds: [] },
+    28: { name: "Jacob Slunga", groupId: 7, alternateIds: [] },
+    29: { name: "Junia Mannervik", groupId: 8, alternateIds: [] },
+    30: { name: "Ludvig Bengtsson", groupId: 8, alternateIds: [] },
+    31: { name: "Anton Bergman", groupId: 8, alternateIds: [] },
+    32: { name: "Emil Duchosal", groupId: 8, alternateIds: [] },
+    33: { name: "Mehmet Yildirim", groupId: 9, alternateIds: [] },
+    34: { name: "Erik Hilke", groupId: 9, alternateIds: [] },
+    35: { name: "David Sjöberg", groupId: 9, alternateIds: [] },
+    36: { name: "Hugo Staaff", groupId: 9, alternateIds: [] },
+    37: { name: "Daneyal Abdul", groupId: 10, alternateIds: [] },
+    38: { name: "Gustav Bornander", groupId: 10, alternateIds: [] },
+    39: { name: "Ludvig Wrethman", groupId: 10, alternateIds: [] },
+    40: { name: "Samuel Malmfors", groupId: 10, alternateIds: [] },
+    41: { name: "Simon Harrysson", groupId: 11, alternateIds: [] },
+    42: { name: "Eleanor Brunskog", groupId: 11, alternateIds: [] },
+    43: { name: "Filip Jakobsson", groupId: 11, alternateIds: [] },
+    44: { name: "Felix Johansson", groupId: 11, alternateIds: [] },
+    45: { name: "Kajsa Näsman", groupId: 12, alternateIds: [] },
+    46: { name: "Axel Peters", groupId: 12, alternateIds: [] },
+    47: { name: "Oliver Sannicolò", groupId: 12, alternateIds: [] },
+    48: { name: "Simon Ganning", groupId: 12, alternateIds: [] },
+    49: { name: "Felix Ramnelöv", groupId: 13, alternateIds: [] },
+    50: { name: "Filip Nygren", groupId: 13, alternateIds: [] },
+    51: { name: "Philip Beiming", groupId: 13, alternateIds: [] },
+    52: { name: "Axel Östberg", groupId: 13, alternateIds: [] },
+    53: { name: "Jacob Volz", groupId: 14, alternateIds: [] },
+    54: { name: "Disa Kärnbring", groupId: 14, alternateIds: [] },
+    55: { name: "Jimi Henricsson", groupId: 14, alternateIds: [] },
+    56: { name: "Andreas Arrestam", groupId: 14, alternateIds: [] },
+    57: { name: "Mateo Zalabardo", groupId: 15, alternateIds: [] },
+    58: { name: "Fredrik Martinsson", groupId: 15, alternateIds: [] },
+    59: { name: "Jack Ydehall", groupId: 15, alternateIds: [] },
+    60: { name: "Henrik Thorén", groupId: 15, alternateIds: [] },
+    61: { name: "Elliot Eriksson", groupId: 16, alternateIds: [] },
+    62: { name: "Alexander Bucht Linde", groupId: 16, alternateIds: [] },
+    63: { name: "Christian Bagler", groupId: 16, alternateIds: [] },
+    64: { name: "Eric Abramian", groupId: 16, alternateIds: [] }
+  };
 };
 
 /**
- * Fetch participants from the Challonge API and map participant IDs to names and group player IDs.
+ * Return static matches data
  */
-export const fetchParticipants = async (apiKey, tournamentId) => {
-  try {
-    const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(
-      PARTICIPANTS_URL(apiKey, tournamentId)
-    )}`;
-    const response = await fetchWithRetry(url);
+export const fetchGroupMatches = async () => {
+  const participants = await fetchParticipants();
+  const matches = [];
 
-    const participants = await response.json();
-    const participantMap = participants.reduce((acc, curr) => {
-      const participant = curr.participant;
-      acc[participant.id] = {
-        name: participant.name,
-        groupId: participant.group_id,
-        alternateIds: participant.group_player_ids || [], // Include alternate IDs
-      };
-      return acc;
-    }, {});
+  Object.values(participants).forEach((p1, index) => {
+    Object.values(participants).forEach((p2) => {
+      if (p1.groupId === p2.groupId && p1.name !== p2.name) {
+        matches.push({
+          id: matches.length + 1,
+          groupId: p1.groupId,
+          player1: p1.name,
+          player2: p2.name,
+          score1: "0",
+          score2: "0",
+          winner: "TBD"
+        });
+      }
+    });
+  });
 
-    return participantMap;
-  } catch (error) {
-    console.error("Error fetching participants:", error);
-    throw error;
-  }
+  return matches;
 };
 
 /**
- * Fetch matches from the Challonge API and resolve player IDs to participant names.
+ * Return static groups with participants and matches
  */
-export const fetchGroupMatches = async (apiKey, tournamentId, participants) => {
-  try {
-    const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(
-      MATCHES_URL(apiKey, tournamentId)
-    )}`;
-    const response = await fetchWithRetry(url);
+export const fetchGroupsWithParticipantsAndMatches = async () => {
+  const participants = await fetchParticipants();
+  const matches = await fetchGroupMatches();
 
-    const matches = await response.json();
+  const groups = {};
 
-    // Attach participant names to matches using both IDs and alternate IDs
-    const enrichedMatches = matches
-      .filter((match) => match.match.group_id !== null) // Filter group stage matches
-      .map((match) => {
-        const matchData = match.match;
+  Object.values(participants).forEach(participant => {
+    const groupName = `${String.fromCharCode(64 + participant.groupId)}`;
 
-        // Resolve player names using participant IDs and alternate IDs
-        const resolveName = (playerId) =>
-          Object.values(participants).find(
-            (p) => p.alternateIds.includes(playerId) || p.id === playerId
-          )?.name || "Unknown Player";
-
-        return {
-          id: matchData.id,
-          groupId: matchData.group_id,
-          player1: resolveName(matchData.player1_id),
-          player2: resolveName(matchData.player2_id),
-          score1: matchData.scores_csv
-            ? matchData.scores_csv.split("-")[0]
-            : "0",
-          score2: matchData.scores_csv
-            ? matchData.scores_csv.split("-")[1]
-            : "0",
-          winner: matchData.winner_id
-            ? resolveName(matchData.winner_id)
-            : "TBD",
-        };
-      });
-
-    return enrichedMatches;
-  } catch (error) {
-    console.error("Error fetching group matches:", error);
-    throw error;
-  }
-};
-
-export const fetchGroupsWithParticipantsAndMatches = async (apiKey, tournamentId, timestamp) => {
-  try {
-    const [participantsData, matchesData] = await Promise.all([
-      fetchWithRetry(`https://api.allorigins.win/raw?url=${encodeURIComponent(PARTICIPANTS_URL(apiKey, tournamentId))}&timestamp=${timestamp}`)
-        .then(res => res.json()),
-      fetchWithRetry(`https://api.allorigins.win/raw?url=${encodeURIComponent(MATCHES_URL(apiKey, tournamentId))}&timestamp=${timestamp}`)
-        .then(res => res.json())
-    ]);
-
-    const participants = {};
-    participantsData.forEach(({ participant }) => {
-      participants[participant.id] = {
-        id: participant.id,
-        name: participant.name,
-        groupId: participant.group_id,
-        alternateIds: participant.group_player_ids || [],
+    if (!groups[groupName]) {
+      groups[groupName] = {
+        participants: [],
+        matches: [],
+        station: `Station ${participant.groupId}`,
+        originalId: participant.groupId
       };
-    });
+    }
 
-    const resolveName = (playerId) => {
-      if (!playerId) return "Unknown Player";
-      return (
-        Object.values(participants).find(
-          (p) => p.id === playerId || (p.alternateIds && p.alternateIds.includes(playerId))
-        )?.name || "Unknown Player"
-      );
-    };
+    groups[groupName].participants.push(participant.name);
+  });
 
-    let groups = {};
-    matchesData.forEach(({ match }) => {
-      if (!match.group_id) return;
+  matches.forEach(match => {
+    const groupName = `${String.fromCharCode(64 + match.groupId)}`;
+    if (groups[groupName]) {
+      groups[groupName].matches.push(match);
+    }
+  });
 
-      if (!groups[match.group_id]) {
-        groups[match.group_id] = {
-          participants: [],
-          matches: [],
-          station: match.location || match.identifier || "Unknown Station",
-          originalId: match.group_id,
-        };
-      }
-
-      groups[match.group_id].matches.push({
-        id: match.id,
-        groupId: match.group_id,
-        player1: resolveName(match.player1_id),
-        player2: resolveName(match.player2_id),
-        score1: match.scores_csv ? match.scores_csv.split("-")[0] : "0",
-        score2: match.scores_csv ? match.scores_csv.split("-")[1] : "0",
-        winner: match.winner_id ? resolveName(match.winner_id) : "TBD",
-      });
-    });
-
-    Object.values(participants).forEach((participant) => {
-      if (participant.groupId && groups[participant.groupId]) {
-        groups[participant.groupId].participants.push(participant.name);
-      }
-    });
-
-    let sortedGroups = Object.values(groups).sort((a, b) => a.originalId - b.originalId);
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    sortedGroups = sortedGroups.map((group, index) => ({
-      ...group,
-      name: letters[index] || `Group ${index + 1}`
-    }));
-
-    groups = sortedGroups.reduce((acc, group) => {
-      acc[group.name] = group;
-      return acc;
-    }, {});
-
-    console.log("Final Processed Groups:", groups);
-    return groups;
-  } catch (error) {
-    console.error("Error fetching groups, participants, and matches:", error);
-    throw error;
-  }
+  console.log("Static Processed Groups:", groups);
+  return groups;
 };
