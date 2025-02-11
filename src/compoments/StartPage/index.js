@@ -478,7 +478,7 @@ function StartPage() {
       <Box
         container
         sx={{
-          backgroundColor: "rgba(0,0,0,0.5)",
+          backgroundColor: "rgba(146, 138, 138, 0.6)",
           marginY: 2, // Remove margin
           paddingY: 4, // Remove padding
           marginX : 0,
@@ -513,9 +513,16 @@ function StartPage() {
           {/* On medium or larger screens, display 4 logos per row */}
           <Grid item xs={6} sm={3}>
             <a href="https://idainfront.se/en/">
-              <img src={Ida} alt="Logo 3" style={{ width: '80%' }} />
+              <img src="/companyLogos/idainfront-logo.png" alt="Ida Infront" style={{ width: "120%" }} />
             </a>
           </Grid>
+
+          <Grid item xs={6} sm={3}>
+            <a href="https://www.opera.com/">
+              <img src="/companyLogos/opera-logo.png" alt="Ida Infront" style={{ width: "100%" }} />
+            </a>
+          </Grid>
+
         </Grid>
       </Box>
 

@@ -7,6 +7,7 @@
 # ignore config files with sensitive information
 config.js
 
+src/components/DomdCompetition/utils/config.js
 # testing
 /coverage
 

@@ -10,14 +10,10 @@ import Grid from "@mui/material/Grid";
 import logo from "../../res/images/standard.png";
 import Bakgrund from '../../res/background/dartBackground.jpg';
 
-
-
-//
-
 const Root = styled(Box)(({ theme }) => ({
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
-  backgroundAttachment: "fixed",
+  backgroundAttachment: "fixed",    
   color: "white",
   textAlign: "center",
   mt: { xs: 6, md: 2 },
@@ -140,7 +136,7 @@ function Rules() {
             <br />
           </li>
           <li>
-            §13. Efter att en match pågått i 60 minuter kommer matchen att
+            §13. Efter att en match pågått i 40 minuter kommer matchen att
             avbrytas och den som leder i matchen tilldelas segern. Om det står
             1-1 i ben avgörs matchen via middling. <br />
             <br />
