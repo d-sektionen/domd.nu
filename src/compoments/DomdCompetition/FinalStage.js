@@ -11,7 +11,7 @@ const FinalStage = () => {
     setLoading(true);
     setError("");
     try {
-      console.log("🔍 Hämtar finalspelsdata...");
+      console.log("🔍 Hämtar slutspelsdata...");
       const groupedMatches = await fetchFinalStageData();
 
       console.log("✅ Matcher hämtade:", groupedMatches);
