@@ -1,149 +1,92 @@
 import { API_KEY, TOURNAMENT_ID } from "../utils/config";
 
-const API_BASE_URL = `https://api.challonge.com/v1/tournaments/${TOURNAMENT_ID}`;
-const API_PUBLIC_PROXY = "https://thingproxy.freeboard.io/fetch/"; // 🔹 Public CORS proxy (Fallback)
+const PARTICIPANTS_URL = (apiKey, tournamentId) =>
+  `https://api.challonge.com/v1/tournaments/${tournamentId}/participants.json?api_key=${apiKey}`;
 
-const checkCORS = async () => {
+const MATCHES_URL = (apiKey, tournamentId) =>
+  `https://api.challonge.com/v1/tournaments/${tournamentId}/matches.json?api_key=${apiKey}`;
+
+const MAX_RETRIES = 3;
+const RETRY_DELAY = 1000; // 1 second
+const FETCH_TIMEOUT = 5000; // 5 seconds
+
+/**
+ * Fetch with retry and timeout
+ */
+const fetchWithRetry = async (url, options = {}, retries = MAX_RETRIES) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/matches.json?api_key=${API_KEY}`, { mode: "no-cors" });
-    return response.ok;
-  } catch (error) {
-    return false;
-  }
-};
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
 
-// 🕒 Convert UTC Time to Swedish Local Time (HH:MM)
-const formatToSwedishTime = (utcTime) => {
-  if (!utcTime) return null; // No time set
-  const date = new Date(utcTime);
-  
-  return date.toLocaleTimeString("sv-SE", {
-    hour: "2-digit",
-    minute: "2-digit",
-    timeZone: "Europe/Stockholm", // ✅ Converts to Swedish time (CET/CEST)
-  });
-};
+    const response = await fetch(url, { ...options, signal: controller.signal });
+    clearTimeout(timeoutId);
 
-// 📍 Determine Match Location (Station)
-const getMatchStation = async (tournamentID, matchID) => {
-  try {
-    const url = `${API_BASE_URL}/matches/${matchID}/attachments.json?api_key=${API_KEY}`;
-    const response = await fetch(url);
-
-    if (!response.ok) throw new Error(`API Error: ${response.status}`);
-
-    const attachments = await response.json();
-
-    if (attachments.length > 0 && attachments[0].match_attachment.description) {
-      return attachments[0].match_attachment.description.trim();
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    return "Ej angiven"; // Default if no station found
+    return response;
   } catch (error) {
-    console.error("❌ Error fetching match location:", error);
-    return "Ej angiven"; // Fallback
+    if (retries > 0) {
+      console.warn(`Retrying... (${retries} attempts left)`);
+      await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+      return fetchWithRetry(url, options, retries - 1);
+    } else {
+      console.error("Max retries reached. Giving up.");
+      throw error;
+    }
   }
 };
 
-// 🛠 Fetch Participants & Create ID Map
-export const fetchFinalParticipants = async () => {
+export const fetchFinalStageData = async (apiKey = API_KEY, tournamentId = TOURNAMENT_ID, timestamp = Date.now()) => {
   try {
-    let url = `${API_BASE_URL}/participants.json?api_key=${API_KEY}`;
-    if (!(await checkCORS())) url = `${API_PUBLIC_PROXY}${url}`;
+    const [participantsData, matchesData] = await Promise.all([
+      fetchWithRetry(`https://api.allorigins.win/raw?url=${encodeURIComponent(PARTICIPANTS_URL(apiKey, tournamentId))}&timestamp=${timestamp}`)
+        .then(res => res.json()),
+      fetchWithRetry(`https://api.allorigins.win/raw?url=${encodeURIComponent(MATCHES_URL(apiKey, tournamentId))}&timestamp=${timestamp}`)
+        .then(res => res.json())
+    ]);
 
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`API Error: ${response.status}`);
-    const data = await response.json();
+    const participants = {};
+    participantsData.forEach(({ participant }) => {
+      participants[participant.id] = {
+        id: participant.id,
+        name: participant.name,
+      };
+    });
 
-    return data.reduce((acc, curr) => {
-      acc[curr.participant.id] = curr.participant.name;
-      return acc;
-    }, {});
-  } catch (error) {
-    throw error;
-  }
-};
+    const resolveName = (playerId) => {
+      if (!playerId) return "Unknown Player";
+      return participants[playerId]?.name || "Unknown Player";
+    };
 
-// 🛠 Fetch Final Stage Matches & Include Station & Time
-let lastFetchedAt = null; // Timestamp for incremental updates
-export const fetchFinalMatches = async (participants) => {
-  try {
-    let url = `${API_BASE_URL}/matches.json?api_key=${API_KEY}`;
-    if (lastFetchedAt) url += `&updated_since=${lastFetchedAt}`;
-    if (!(await checkCORS())) url = `${API_PUBLIC_PROXY}${url}`;
+    let matches = matchesData.filter(({ match }) => match.group_id === null).map(({ match }) => {
+      const time = match.scheduled_time 
+        ? new Date(match.scheduled_time).toLocaleTimeString("sv-SE", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Stockholm" }) 
+        : null;
+      
+      return {
+        id: match.id,
+        round: match.round,
+        player1: resolveName(match.player1_id),
+        player2: resolveName(match.player2_id),
+        score: match.scores_csv || "0-0",
+        winner: match.winner_id ? resolveName(match.winner_id) : "TBD",
+        station: time ? `${match.location || "Baljan"} | ⏰ ${time}` : (match.location || "Baljan"),
+        time: time || ""
+      };
+    });
 
-    lastFetchedAt = Math.floor(Date.now() / 1000); // Update timestamp
-
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`API Error: ${response.status}`);
-    const data = await response.json();
-
-    // Fetch stations for each match asynchronously
-    const matchDataPromises = data
-      .filter((match) => match.match.group_id === null) // ✅ Exclude group stage matches
-      .map(async (match) => {
-        const station = await getMatchStation(TOURNAMENT_ID, match.match.id);
-        return {
-          id: match.match.id,
-          round: match.match.round,
-          player1: participants[match.match.player1_id] || "TBD",
-          player2: participants[match.match.player2_id] || "TBD",
-          score: match.match.scores_csv || "0-0",
-          winner: match.match.winner_id ? participants[match.match.winner_id] : "TBD",
-          station: station, // ✅ Correct location from API
-          time: formatToSwedishTime(match.match.scheduled_time), // ✅ Converts UTC to Swedish time
-        };
-      });
-
-    return await Promise.all(matchDataPromises);
-  } catch (error) {
-    throw error;
-  }
-};
-
-// 🛠 Fetch All Final Stage Data (Participants + Matches) and Group by Rounds
-export const fetchFinalStageData = async () => {
-  try {
-    const participants = await fetchFinalParticipants();
-    const matches = await fetchFinalMatches(participants);
-
-    // ✅ Grouping Matches by Round
     const groupedMatches = matches.reduce((acc, match) => {
       if (!acc[match.round]) acc[match.round] = [];
       acc[match.round].push(match);
       return acc;
     }, {});
 
+    console.log("Final Processed Matches:", groupedMatches);
     return groupedMatches;
   } catch (error) {
+    console.error("Error fetching final stage data:", error);
     throw error;
-  }
-};
-
-// 🔄 Polling for Auto Updates (Adjust interval time)
-export const startAutoRefresh = (setMatches, interval = 15000) => {
-  const refreshData = async () => {
-    const updatedMatches = await fetchFinalStageData();
-    setMatches(updatedMatches);
-  };
-
-  const intervalId = setInterval(refreshData, interval);
-  return () => clearInterval(intervalId); // Cleanup on unmount
-};
-// 📍 DEBUG FUNCTION: Fetch raw station data for a single match
-const debugMatchStation = async (matchID) => {
-  try {
-    const url = `${API_BASE_URL}/matches/${matchID}/attachments.json?api_key=${API_KEY}`;
-    const response = await fetch(url);
-
-    if (!response.ok) throw new Error(`API Error: ${response.status}`);
-
-    const attachments = await response.json();
-    console.log("📍 RAW STATION DATA:", attachments);
-
-    return attachments;
-  } catch (error) {
-    console.error("❌ Error debugging match location:", error);
-    return "ERROR";
   }
 };
