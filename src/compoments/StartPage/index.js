@@ -510,6 +510,12 @@ function StartPage() {
             </a>
           </Grid>
 
+          <Grid item xs={6} sm={3}>
+            <a href="https://www.opera.com/">
+              <img src="/companyLogos/opera-logo.png" alt="Ida Infront" style={{ width: "100%" }} />
+            </a>
+          </Grid>
+
           {/* On medium or larger screens, display 4 logos per row */}
           <Grid item xs={6} sm={3}>
             <a href="https://idainfront.se/en/">
@@ -517,11 +523,7 @@ function StartPage() {
             </a>
           </Grid>
 
-          <Grid item xs={6} sm={3}>
-            <a href="https://www.opera.com/">
-              <img src="/companyLogos/opera-logo.png" alt="Ida Infront" style={{ width: "100%" }} />
-            </a>
-          </Grid>
+         
 
         </Grid>
       </Box>
