@@ -50,10 +50,11 @@ function DimD() {
             sx={{ fontWeight: "bold", textAlign: "center" }}
           >
             {" "}
-            Tidigare Vinnare av D<span tyle="font-size:75%">IM</span>D
+            Tidigare Vinnare av D<span tyle="font-size:70%">IM</span>D
           </Typography>
-          <Typography variant="h4" gutotmButtom color fontSize={"1.75em"}>
+          <Typography variant="h4" gutotmButtom color fontSize={"1.65em"}>
             <ul>
+              <li>2025 - Marc Taylor</li>
               <li>2024 - Anton Bergman</li>
               <li>2023 - Linus Göransson</li>
               <li>2022 - Carl Wikström </li>
