@@ -17,10 +17,10 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import logo from "../../res/images/D-group.png";
 
-import Xamera from "../../res/sponsImg/xamera.png";
-import Ericsson from "../../res/sponsImg/ericssonSpons.webp";
-import Microtec from "../../res/sponsImg/microtec.png";
-import Ida from "../../res/sponsImg/idaSpons.webp";
+import Xamera from "../../res/companyLogos/xamera.png";
+import Ericsson from "../../res/companyLogos/ericssonSpons.webp";
+import Microtec from "../../res/companyLogos/microtec.png";
+import Ida from "../../res/companyLogos/idaSpons.webp";
 import { Paper } from "@material-ui/core";
 import { ClassNames } from "@emotion/react";
 //import logotheme from "../../res/images/logotheme.png";

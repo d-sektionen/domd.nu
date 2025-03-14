@@ -12,6 +12,7 @@ import NavbarNew from "./compoments/Navbartest";
 import ThrowDart from "./compoments/ThrowDart";
 import NavBar from "./compoments/Navbartest/NavBar";
 import DomdComp from "./compoments/DomdCompetition";
+import Tidningar from "./compoments/Tidningar/";
 
 // Import Material-UI Icons
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -73,7 +74,7 @@ function App() {
           <Route exact path="/rules" element={<Rules />} />
           <Route exact path="/start" element={<StartPage />} />
           <Route exact path="/kastapil" element={<ThrowDart />} />
-          <Route exact path="/tavling" element={<DomdComp />} />
+          <Route exact path="/Tidningar" element={<Tidningar />} />
         </Routes>
       </Router>
     );

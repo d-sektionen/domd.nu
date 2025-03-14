@@ -2,14 +2,18 @@ import React, { useState, useEffect, useRef } from "react";
 import { AppBar, Box, Toolbar, IconButton, Typography, Container, Button, MenuItem, Slide } from "@mui/material";
 import { keyframes } from '@emotion/react';
 import { Link } from "react-router-dom";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu, GiPaper } from "react-icons/gi";
 import { CiMusicNote1 } from 'react-icons/ci';
 import { FcRules } from "react-icons/fc";
 import { MdHistory } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { GiDart } from "react-icons/gi";
+import { FaNewspaper } from "react-icons/fa";
+import NewspaperIcon from "@mui/icons-material/Article"; 
+import { FcNews } from "react-icons/fc";
 
-import { Close } from '@mui/icons-material';
+
+import { Close, Newspaper } from '@mui/icons-material';
 
 import dgLogo from './../../res/images/standard.png';
 import Logo from './../../res/images/dartArrow.png';
@@ -20,10 +24,14 @@ const BROWN = '#30201D';
 
 const MusicLogo = () => <CiMusicNote1 color="black" size={"40px"} />
 const DgLogo = () => <img src={dgLogo} height={'40px'}/>
-const DartLogo = () => <GiDart color="black" size={"40px"} />
+
 const RulesLogo = () => <FcRules color="black" size={"40px"} />
 const DimdLogo = () => <MdHistory color="black" size={"40px"} />
 const HomeLogo = () => <FaHome color="black" size={"40px"} />
+
+const NewspaperLogo = () => <FaNewspaper color="black" size={"40px"} />; // FontAwesome
+
+
 
 const scaleAnimation = keyframes`
 from {
@@ -109,7 +117,7 @@ const NavBar = () => {
           pointerEvents: 'none',
         }}
       />
-      <AppBar position="fixed" sx={{ bgcolor: BROWN, zIndex: 1}}>
+      <AppBar position="fixed" sx={{ bgcolor: BROWN, zIndex: 1, height : 50}}>
         <Toolbar ref={navbarRef} sx={{ display: 'flex'}}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <img src={Logo} alt="Logo" style={{ height: '60px', position: 'absolute', marginTop: '20px' }} />
@@ -207,7 +215,7 @@ const NavBar = () => {
                 
               </Button>
               <PageLink link="/rules" title="Regler" Logo={RulesLogo} closeMenu={toggleMenu}/>
-              <PageLink link="/tavling" title="Tävling" Logo={DartLogo} closeMenu={toggleMenu}/>
+              <PageLink link="/Tidningar" title="Tidningar" Logo={NewspaperLogo} closeMenu={toggleMenu}/>
               {/* Button to link to the main page and go to dg music section, but did not work. */}
               {/* <Button 
                 component="a"
