@@ -493,7 +493,7 @@ function StartPage() {
         }}
       >
         <Typography 
-          variant="h2"
+          variant="h4"
           fontFamily={"Brush Script MT"}
         >
           Samarbetspartners
