@@ -20,6 +20,7 @@ import TemaEnligBakgrundMobil from "../../res/background/bakgrund_mobil_test.jpg
 import SoundcloudPlayer from "react-player";
 import YoutubeEmbed from "./YoutubeEmbed";
 
+
 import "./style.css";
 import VimeoEmbed from "./VimeoEmbed";
 import FacebookEventWidget from "./FacebookEmbed";
@@ -492,7 +493,7 @@ function StartPage() {
         }}
       >
         <Typography 
-          variant="h4"
+          variant="h2"
           fontFamily={"Brush Script MT"}
         >
           Samarbetspartners
@@ -511,18 +512,29 @@ function StartPage() {
           </Grid>
 
           <Grid item xs={6} sm={3}>
+            <a href="https://xamera.se/">
+              <img src={Xamera} alt="Logo 2" style={{ width: '80%' }} />
+            </a>
+          </Grid>
+
+          <Grid item xs={6} sm={3}>
             <a href="https://www.opera.com/">
               <img src="/companyLogos/opera-logo.png" alt="Ida Infront" style={{ width: "100%" }} />
             </a>
           </Grid>
 
           {/* On medium or larger screens, display 4 logos per row */}
-          <Grid item xs={6} sm={3}>
+          <Grid item xs={6} sm={4}>
             <a href="https://idainfront.se/en/">
               <img src="/companyLogos/idainfront-logo.png" alt="Ida Infront" style={{ width: "120%" }} />
             </a>
           </Grid>
-
+       
+          <Grid item xs={6} sm={4}>
+            <a href="https://www.dartstore.se/">
+              <img src={"/companyLogos/dartstore1.png"} alt="Logo 2" style={{ width: '100%' }} />
+            </a>
+          </Grid>
          
 
         </Grid>
@@ -635,11 +647,12 @@ function StartPage() {
       </Grid>
 
       <Box bgcolor={BROWN} height={190} padding={2}>
+        
         <Typography variant="h6" >
-          Vill du bli uppdaterad inför <br />
-          D<span STYLE="font-size:75%">ÖM</span>D?
+          {/* Vill du bli uppdaterad inför <br />
+          D<span STYLE="font-size:75%">ÖM</span>D? */}
         </Typography>
-        <Box sx={{maxWidth: '350px', marginX: 'auto'}}>
+        {/* <Box sx={{maxWidth: '350px', marginX: 'auto'}}>
           <form onSubmit={handleSubmit} sx={{maxWidth: '350px'}}>
             <TextField
               label="Email"
@@ -661,7 +674,7 @@ function StartPage() {
               }}
             />
           </form>
-        </Box>
+        </Box> */}
         <SocialIcons />
       </Box>
     </Root>
