@@ -12,8 +12,6 @@ import MusicPlayerButton from "./subComponents/Musicplayerbutton";
 // Import the background
 import Bakgrund from "../../res/background/dartBackground.jpg";
 
-
-
 const StartPage = () => {
   return (
     <Box
@@ -49,7 +47,7 @@ const StartPage = () => {
       <Box sx={{ width: "100vw"}}>
         <Sponsors />
       </Box>
-      
+
       {/* Aftermovies */}
       <Box sx={{ width: "100vw"}}>
         <Aftermovies />

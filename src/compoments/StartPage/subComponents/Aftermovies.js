@@ -7,6 +7,14 @@ import VimeoEmbed from "./VimeoEmbed";
 import afterMovie22 from "../movies/afterMovie22.mp4";
 import afterMovie23 from "../movies/afterMovie23.mp4";
 
+const VideoContainer = ({ children }) => (
+  <div style={{ position: "relative", paddingTop: "56.25%", width: "100%" }}>
+    <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
+      {children}
+    </div>
+  </div>
+);
+
 const Aftermovies = () => {
   return (
     <Grid align="center">
@@ -25,7 +33,7 @@ const Aftermovies = () => {
       >
         Aftermovies
       </Typography>
-      <Grid container justifyContent="space-evenly">
+      <Grid container justifyContent="center">
         <Grid item xs={11} lg={4} margin={3}>
           <video width="100%" controls>
             <source src={afterMovie23} type="video/mp4" />
@@ -38,11 +46,20 @@ const Aftermovies = () => {
             Your browser does not support the video tag.
           </video>
         </Grid>
-        <Grid item xs={11} lg={4} margin={3}>
-          <YoutubeEmbed embedId="aU4x0WtvJIs" />
+        <Grid item xs={11} sm={8} md={6} lg={4} margin={3} sx={{ width: "100%" }}>
+          <VideoContainer>
+            <YoutubeEmbed embedId="aU4x0WtvJIs" />
+          </VideoContainer>
         </Grid>
-        <Grid item xs={11} lg={4} margin={3}>
-          <YoutubeEmbed embedId="qwltF5RATTE" />
+        <Grid item xs={11} sm={8} md={6} lg={4} margin={3} sx={{ width: "100%" }}>
+          <VideoContainer>
+            <YoutubeEmbed embedId="qwltF5RATTE" />
+          </VideoContainer>
+        </Grid>
+        <Grid item xs={11} sm={8} md={6} lg={4} margin={3} sx={{ width: "100%" }}>
+          <VideoContainer>
+            <VimeoEmbed embedId="816998178" />
+          </VideoContainer>
         </Grid>
       </Grid>
 
@@ -59,15 +76,21 @@ const Aftermovies = () => {
       >
         Taggfilmer
       </Typography>
-      <Grid container justifyContent="space-evenly">
-        <Grid item xs={11} lg={4} margin={3}>
-          <VimeoEmbed embedId="816998178" />
+      <Grid container justifyContent="center">
+        <Grid item xs={11} sm={8} md={6} lg={4} margin={3} sx={{ width: "100%" }}>
+          <VideoContainer>
+            <VimeoEmbed embedId="816998178" />
+          </VideoContainer> 
         </Grid>
-        <Grid item xs={11} lg={4} margin={3}>
-          <VimeoEmbed embedId="694777821" />
+        <Grid item xs={11} sm={8} md={6} lg={4} margin={3} sx={{ width: "100%" }}>
+          <VideoContainer>
+            <VimeoEmbed embedId="694777821" />
+          </VideoContainer>
         </Grid>
-        <Grid item xs={11} lg={4} margin={3}>
-          <VimeoEmbed embedId="533536885" />
+        <Grid item xs={11} sm={8} md={6} lg={4} margin={3} sx={{ width: "100%" }}>
+          <VideoContainer>
+            <VimeoEmbed embedId="533536885" />
+          </VideoContainer>
         </Grid>
       </Grid>
     </Grid>

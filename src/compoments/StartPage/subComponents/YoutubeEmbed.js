@@ -2,23 +2,25 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReactPlayer from "react-player";
 
-/*
-  <iframe
-      width="853"
-      height="480"
-      src={`https://www.youtube.com/embed/${embedId}`}
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-      title="Embedded youtube"
-    />
-*/
-
 const YoutubeEmbed = ({ embedId }) => (
-  <div className="video-responsive">
+  <div
+    style={{
+      width: "100%",
+      maxWidth: "100%",
+      aspectRatio: "16/9", // Enforces correct video proportions
+      position: "relative",
+    }}
+  >
     <ReactPlayer
-      url={`https://www.youtube.com/embed/${embedId}`}
-      controls={true}
+      url={`https://www.youtube.com/watch?v=${embedId}`}
+      controls
+      width="100%"
+      height="100%"
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+      }}
     />
   </div>
 );
