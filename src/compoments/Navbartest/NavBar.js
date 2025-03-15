@@ -11,6 +11,8 @@ import DimdLogo from "./subComponents/DimdLogo";
 import HomeLogo from "./subComponents/HomeLogo";
 import NewspaperLogo from "./subComponents/NewspaperLogo";
 
+
+
 const PINK = '#FF05C8';
 const BROWN = '#30201D';
 
@@ -76,7 +78,7 @@ const NavBar = () => {
                 <Typography variant="h5" fontWeight="bold">vår!</Typography>
               </Box>
               <PageLink link="/" title="Start" Logo={HomeLogo} closeMenu={toggleMenu} />
-              <PageLink link="/dimd" title="D<span style={{ fontSize: '80%' }}>IM</span>D" Logo={DimdLogo} closeMenu={toggleMenu} />
+              <PageLink link="/dimd" title="DimD" Logo={DimdLogo} closeMenu={toggleMenu} />
               <PageLink link="/rules" title="Regler" Logo={RulesLogo} closeMenu={toggleMenu} />
               <PageLink link="/Tidningar" title="Tidningar" Logo={NewspaperLogo} closeMenu={toggleMenu} />
               <Button 
