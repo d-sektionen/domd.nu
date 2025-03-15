@@ -116,7 +116,7 @@ function MyAlbum2023() {
           <img src={Sida0} width="100%" alt="Cover" />
         </PageCover>
 
-        {/* Dynamiskt rendera alla sidor */}
+        {/* Dynamiskt render alla sidor */}
         {[
           Sida1, Sida2, Sida3, Sida4, Sida5, Sida6, Sida7, Sida8, Sida9, Sida10,
           Sida11, Sida12, Sida13, Sida14, Sida15, Sida16, Sida17, Sida18, Sida19,

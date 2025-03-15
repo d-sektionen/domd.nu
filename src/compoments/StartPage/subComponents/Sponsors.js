@@ -22,7 +22,7 @@ const Sponsors = () => {
     <Box
       sx={{
         backgroundColor: "rgba(146, 138, 138, 0.6)", // Semi-transparent gray
-        marginY: 2,
+        marginY: 1,
         paddingY: 4,
         width: "100%",
         textAlign: "center",

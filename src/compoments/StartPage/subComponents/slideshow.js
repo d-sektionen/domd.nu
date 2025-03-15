@@ -26,30 +26,22 @@ const Slideshow = () => {
       setWindowHeight(window.innerHeight);
     };
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const current = slides[currentSlide];
-
   const isMobile = windowWidth < 768;
-  const slideshowStyles = {
-    width: "100%",
-    maxHeight: isMobile ? "85vh" : "1100px",
-    objectFit: isMobile ? "contain" : "cover",
-  };
 
   return (
     <Box
       sx={{
-        width: "100%",
-        height: slideshowStyles.maxHeight,
+        width: "100vw",
+        height: isMobile ? "auto" : "100vh", // Auto på mobil, 100vh på desktop
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         overflow: "hidden",
         position: "relative",
-        height : "relative",
       }}
     >
       <img
@@ -57,9 +49,10 @@ const Slideshow = () => {
         alt="Slideshow"
         style={{
           width: "100%",
-          height: "auto",
-          maxHeight: slideshowStyles.maxHeight,
-          objectFit: slideshowStyles.objectFit,
+          height: isMobile ? "auto" : "100%",
+          maxHeight: "100vh",
+          objectFit: isMobile ? "contain" : "cover",
+          display: "block", // Tar bort eventuella extra marginaler
         }}
       />
     </Box>

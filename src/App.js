@@ -4,14 +4,10 @@ import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import StartPage from "./compoments/StartPage";
 import Rules from "./compoments/Rules";
 import DimD from "./compoments/DimD";
-import Ulag from "./compoments/U_lag";
-import Lag from "./compoments/Lag";
 import Error404 from "./compoments/error404";
 
-import NavbarNew from "./compoments/Navbartest";
 import ThrowDart from "./compoments/ThrowDart";
 import NavBar from "./compoments/Navbartest/NavBar";
-import DomdComp from "./compoments/DomdCompetition";
 import Tidningar from "./compoments/Tidningar/";
 
 // Import Material-UI Icons
