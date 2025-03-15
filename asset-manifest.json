@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.10ea1a22.css",
-    "main.js": "/static/js/main.b7087814.js",
+    "main.css": "/static/css/main.a693a175.css",
+    "main.js": "/static/js/main.7cf9481b.js",
     "static/js/787.aefa6315.chunk.js": "/static/js/787.aefa6315.chunk.js",
     "static/media/afterMovie23.mp4": "/static/media/afterMovie23.9f961720ae82d2413418.mp4",
     "static/media/dart.gif": "/static/media/dart.02b8850179c98d63bcb8.gif",
@@ -51,7 +51,6 @@
     "static/media/35.jpg": "/static/media/35.5a9d79a8261c1469bf38.jpg",
     "static/media/40.jpg": "/static/media/40.46d8d585b7240c42ebfa.jpg",
     "static/media/6.jpg": "/static/media/6.89d55948b2817ec24c7f.jpg",
-    "static/media/D-group.png": "/static/media/D-group.77e4d0451a678d4eb832.png",
     "static/media/8.jpg": "/static/media/8.73174b82f3070057edfb.jpg",
     "static/media/12.jpg": "/static/media/12.f473a5d3a4cd7e48b452.jpg",
     "static/media/16.png": "/static/media/16.d83ea909d81ee0d9868c.png",
@@ -64,7 +63,6 @@
     "static/media/1.jpg": "/static/media/1.c57e8537c27de8ea9345.jpg",
     "static/media/2.jpg": "/static/media/2.ee8d0c1fa1aab2384649.jpg",
     "static/media/36.jpg": "/static/media/36.655010e2077d528eee9c.jpg",
-    "static/media/mobile_back.webp": "/static/media/mobile_back.5d49f5d35590a019318e.webp",
     "static/media/31.jpg": "/static/media/31.6da5dd74f4c3020bb717.jpg",
     "static/media/23.jpg": "/static/media/23.ab26277ace5dbf21c936.jpg",
     "static/media/25.jpg": "/static/media/25.bbe8048d9a191da99c01.jpg",
@@ -80,7 +78,6 @@
     "static/media/41.jpg": "/static/media/41.74e424fd29b9ffd4e962.jpg",
     "static/media/26.jpg": "/static/media/26.9c46e4beae65f80daf1d.jpg",
     "static/media/18.jpg": "/static/media/18.e9264df457c199ccb2d7.jpg",
-    "static/media/computer_back.webp": "/static/media/computer_back.64b1e6bc82ce64ff510c.webp",
     "static/media/30.jpg": "/static/media/30.6fa988e4e70ceb8af7f0.jpg",
     "static/media/42.jpg": "/static/media/42.3123c7dae62488566db8.jpg",
     "static/media/7.jpg": "/static/media/7.20366bb6b3bff9181fdb.jpg",
@@ -97,17 +94,15 @@
     "static/media/bakgrund_mobil_test.jpg": "/static/media/bakgrund_mobil_test.f4bbc560b1ce65cc47ad.jpg",
     "static/media/opera-logo.png": "/static/media/opera-logo.38fa6ae651e69b8c15f7.png",
     "static/media/ericssonSpons.webp": "/static/media/ericssonSpons.03e3ca6f24fc0446bd8c.webp",
-    "static/media/microtec.png": "/static/media/microtec.612dfee338c98156ead7.png",
     "static/media/xamera.png": "/static/media/xamera.c5d6256d77322b58b397.png",
     "static/media/standard.png": "/static/media/standard.2628669548d38cf4f6d5.png",
-    "static/media/idaSpons.webp": "/static/media/idaSpons.4d7ba4fcb091672879e9.webp",
     "index.html": "/index.html",
-    "main.10ea1a22.css.map": "/static/css/main.10ea1a22.css.map",
-    "main.b7087814.js.map": "/static/js/main.b7087814.js.map",
+    "main.a693a175.css.map": "/static/css/main.a693a175.css.map",
+    "main.7cf9481b.js.map": "/static/js/main.7cf9481b.js.map",
     "787.aefa6315.chunk.js.map": "/static/js/787.aefa6315.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.10ea1a22.css",
-    "static/js/main.b7087814.js"
+    "static/css/main.a693a175.css",
+    "static/js/main.7cf9481b.js"
   ]
 }
