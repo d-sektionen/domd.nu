@@ -6,7 +6,7 @@ import imagePaths from "../../../res/images/Tidning/imagePaths"; // Import image
 const availableYears = Object.keys(imagePaths).reverse(); // Reverse order of years
 
 const TidningViewer = () => {
-  const [selectedYear, setSelectedYear] = useState(null);
+  const [selectedYear, setSelectedYear] = useState(availableYears[0]);
   const [loadedImages, setLoadedImages] = useState([]);
   const [flipBookKey, setFlipBookKey] = useState(0); // Unique key to force re-render
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -38,8 +38,6 @@ const TidningViewer = () => {
 const bookHeight = isMobile
   ? Math.min(Math.max(windowHeight * 0.8, 400), 650) // Mobil: 400–650
   : Math.min(Math.max(windowHeight * 0.7, 800), 1500); // Desktop: 800–1500
-
-
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" minHeight="90vh" textAlign="center">
