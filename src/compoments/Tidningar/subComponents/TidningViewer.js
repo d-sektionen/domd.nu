@@ -9,15 +9,37 @@ const TidningViewer = () => {
   const [selectedYear, setSelectedYear] = useState(null);
   const [loadedImages, setLoadedImages] = useState([]);
   const [flipBookKey, setFlipBookKey] = useState(0); // Unique key to force re-render
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     if (selectedYear) {
       setLoadedImages(imagePaths[selectedYear] || []);
-      setFlipBookKey((prevKey) => prevKey + 1); // Change key to force re-render
+      setFlipBookKey((prevKey) => prevKey + 1); // Force re-render
     }
   }, [selectedYear]);
+
+  const bookWidth = isMobile
+  ? Math.min(Math.max(windowWidth * 0.95, 300), 420) // Mobil: 300–420
+  : Math.min(Math.max(windowWidth * 0.2, 600), 1100); // Desktop: 600–1100
+
+const bookHeight = isMobile
+  ? Math.min(Math.max(windowHeight * 0.8, 400), 650) // Mobil: 400–650
+  : Math.min(Math.max(windowHeight * 0.7, 800), 1500); // Desktop: 800–1500
+
+
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" minHeight="90vh" textAlign="center">
@@ -57,26 +79,27 @@ const TidningViewer = () => {
       {selectedYear && loadedImages.length > 0 ? (
         <Box mt={4} textAlign="center">
           <HTMLFlipBook
-            key={flipBookKey} // Force re-render when key changes
-            width={isMobile ? 500 : 1300} // Adjusted book size
-            height={isMobile ? 800 : 1800}
-            size="stretch"
-            minWidth={500}
-            maxWidth={1300}
-            minHeight={800}
-            maxHeight={1800}
-            maxShadowOpacity={0.5}
-            showCover={true}
-            mobileScrollSupport={true}
-            className="tidning"
-            drawShadow={false}
-            startPage={0}
-            flippingTime={500}
-            useMouseEvents={true}
-            usePortrait={isMobile} // One side flip on mobile
-            showPageCorners={true}
-            clickEventForward={true}
-          >
+  key={flipBookKey}
+  width={bookWidth}
+  height={bookHeight}
+  size="fixed" 
+  minWidth={300}
+  maxWidth={1300}
+  minHeight={400}
+  maxHeight={1800}
+  maxShadowOpacity={0.5}
+  showCover={true}
+  mobileScrollSupport={true}
+  className="tidning"
+  drawShadow={false}
+  startPage={0}
+  flippingTime={500}
+  useMouseEvents={true}
+  usePortrait={isMobile}
+  showPageCorners={true}
+  clickEventForward={true}
+>
+
             {/* Cover page */}
             <div className="cover" data-density="hard">
               <img src={loadedImages[0]} width="100%" alt="Omslag" />
