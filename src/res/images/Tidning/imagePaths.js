@@ -52,6 +52,9 @@ const imagePaths = {
     "2024": Array.from({ length: 36 }, (_, i) =>
       require(`./2024/${i + 1}.png`)
     ),
+    "2025": Array.from({ length: 44 }, (_, i) =>
+      require(`./2025/${i + 1}.png`)
+    ),
   };
   
   export default imagePaths;
