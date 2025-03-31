@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import SoundcloudPlayer from "react-player";
 
 
-const trackUrl = "https://soundcloud.com/d-group/karallen-star-i-brand-prod";
+const trackUrl = "https://soundcloud.com/d-group/the-adventures-of-domd-1";
 
 const MusicPlayerButton = ({ }) => {
   const [isPlaying, setIsPlaying] = useState(false);
