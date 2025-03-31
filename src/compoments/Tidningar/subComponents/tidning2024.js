@@ -3,15 +3,15 @@ import React from "react";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 
 // Importera alla sidor
-import Sida1 from "../../../res/images/Tidning/2024/01.png";
-import Sida2 from "../../../res/images/Tidning/2024/02.png";
-import Sida3 from "../../../res/images/Tidning/2024/03.png";
-import Sida4 from "../../../res/images/Tidning/2024/04.png";
-import Sida5 from "../../../res/images/Tidning/2024/05.png";
-import Sida6 from "../../../res/images/Tidning/2024/06.png";
-import Sida7 from "../../../res/images/Tidning/2024/07.png";
-import Sida8 from "../../../res/images/Tidning/2024/08.png";
-import Sida9 from "../../../res/images/Tidning/2024/09.png";
+import Sida1 from "../../../res/images/Tidning/2024/1.png";
+import Sida2 from "../../../res/images/Tidning/2024/2.png";
+import Sida3 from "../../../res/images/Tidning/2024/3.png";
+import Sida4 from "../../../res/images/Tidning/2024/4.png";
+import Sida5 from "../../../res/images/Tidning/2024/5.png";
+import Sida6 from "../../../res/images/Tidning/2024/6.png";
+import Sida7 from "../../../res/images/Tidning/2024/7.png";
+import Sida8 from "../../../res/images/Tidning/2024/8.png";
+import Sida9 from "../../../res/images/Tidning/2024/9.png";
 import Sida10 from "../../../res/images/Tidning/2024/10.png";
 import Sida11 from "../../../res/images/Tidning/2024/11.png";
 import Sida12 from "../../../res/images/Tidning/2024/12.png";
@@ -75,15 +75,19 @@ function MyAlbum2024() {
       minHeight="90vh"
     >
       {/* Titel ovanför tidningen */}
-      <Typography
-        variant="h4"
-        fontWeight="bold"
-        mb={4}
-        sx={{
-          textShadow: "1px 1px 3px brown, 0 0 1em #FFD700",
-          textAlign: "center",
-        }}
-      >
+       {/* Titel ovanför tidningen */}
+         <Typography
+     variant="h4"
+     fontWeight="bold"
+     mb={4}
+     sx={{
+       color: "#FFC0CB", // Ljusrosa färg
+       textShadow: "1px 1px 2px black, 0 0 3px #FF1493, 0 0 5px #FF69B4", // Rosa glow-effekt
+       textAlign: "center",
+       marginBottom: 0
+     }}
+   >
+   
         DömD-Tidningen 2024
       </Typography>
 

@@ -8,6 +8,9 @@ import Opera from "../../../res/companyLogos/opera-logo.png";
 import Ida from "../../../res/companyLogos/idainfront-logo.png";
 import Dartstore from "../../../res/companyLogos/dartstore1.png";
 
+// Import background image
+import SponsorBackground from "../../../res/domd2025/tintin.png";
+
 // Sponsor data
 const sponsors = [
   { name: "Ericsson", imgSrc: Ericsson, link: "https://www.ericsson.com/en/careers" },
@@ -21,14 +24,20 @@ const Sponsors = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "rgba(146, 138, 138, 0.6)", // Semi-transparent gray
-        marginY: 1,
+        // Kombinera gradient och bakgrundsbild med linear-gradient
+        backgroundImage: `linear-gradient(rgba(128, 128, 128, 0.6), rgba(128, 128, 128, 0.6)), url(${SponsorBackground})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         paddingY: 4,
         width: "100%",
         textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
-      <Typography variant="h4" fontFamily={"Brush Script MT"}>
+      <Typography variant="h4" fontFamily={"Brush Script MT"} sx={{ color: "white", marginBottom: 2 }}>
         Samarbetspartners
       </Typography>
 
@@ -36,7 +45,7 @@ const Sponsors = () => {
         {sponsors.map((sponsor, index) => (
           <Grid
             item
-            xs={6} // ✅ Ensures 2 images per row
+            xs={6}
             sm={6}
             md={4}
             key={index}
@@ -49,7 +58,7 @@ const Sponsors = () => {
                 src={sponsor.imgSrc}
                 alt={sponsor.name}
                 style={{
-                  maxWidth: "80%", // ✅ Prevents oversized logos
+                  maxWidth: "90%",
                   width: "100%",
                   height: "auto",
                   objectFit: "contain",

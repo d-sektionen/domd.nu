@@ -1,5 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
+import { useState, useEffect } from "react";
 
 // Import Sub Components
 import Slideshow from "./subComponents/slideshow";
@@ -9,38 +10,43 @@ import Aftermovies from "./subComponents/Aftermovies";
 import Musicplayer from "./subComponents/Musicplayer";
 import MusicPlayerButton from "./subComponents/Musicplayerbutton";
 
-// Import the background
-import Bakgrund from "../../res/background/dartBackground.jpg";
+
+const WHITE = "#FFFFFF";
 
 const StartPage = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <Box
       sx={{
-        width: "100vw", 
-        minHeight: "100vh", 
-        backgroundImage: `url(${Bakgrund})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover", 
-        backgroundPosition: "center",
+        width: "100vw",
+        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
       }}
     >
-
      {/* Countdown Timer */}
       <Box sx={{ width: "100vw"}}>
         <MusicPlayerButton />
       </Box> 
 
-      {/* Countdown Timer */}
-      <Box sx={{ width: "100vw" }}>
-        <CountdownTimer />
-      </Box>
 
       {/* Slideshow */}
       <Box sx={{width : "100vw" }}>
         <Slideshow />
+      </Box>
+
+
+      {/* Countdown Timer */}
+      <Box sx={{ width: "100vw" }}>
+        <CountdownTimer />
       </Box>
 
       {/* Sponsors */}
@@ -51,11 +57,6 @@ const StartPage = () => {
       {/* Aftermovies */}
       <Box sx={{ width: "100vw"}}>
         <Aftermovies />
-      </Box>
-
-      {/* Soundcloud */}
-      <Box sx={{ width: "100vw"}}>
-        < Musicplayer />
       </Box>
     </Box>
   );

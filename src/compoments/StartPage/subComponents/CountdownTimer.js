@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
+import domd from "../../../res/domd2025/domd.png";
+import backgroundImage from "../../../res/domd2025/kvartills.png"; // Lägg till din bakgrundsbild här
 
 // Set the event date
 const EVENT_DATE = new Date("2025-04-10T22:00:00");
@@ -34,38 +36,96 @@ const CountdownTimer = () => {
   }, []);
 
   // Determine font sizes based on screen width
-  const baseFontSize = windowWidth < 768 ? "6vw" : "4vw"; // Bigger font on mobile
-  const labelFontSize = windowWidth < 768 ? "4vw" : "1.5vw"; // Adjust label size dynamically
-  const spacing = windowWidth < 768 ? "5vw" : "2vw"; // Adjust spacing
-
+  const baseFontSize = `clamp(50px, 10vw, 150px)`; // Min 24px, max 80px, skalar dynamiskt
+  const labelFontSize = `clamp(16px, 4vw, 40px)`; // Min 12px, max 30px
+  const spacing = `clamp(15px, 6vw, 80px)`; // Min 10px, max 50px
   return (
     <Box
       sx={{
         display: "flex",
-        justifyContent: "center",
+        flexDirection: "column",
         alignItems: "center",
-        flexDirection: "row",
-        gap: spacing,
-        fontFamily: "Courier New",
-        color: "#FF69B4",
-        textShadow: "0 0 5px #FFD700, 0 0 10px #FFD700",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
-        marginTop : 6
+        justifyContent: "center",
+        width: "100%",
+        minHeight: "100vh", // Säkerställer att hela sidan fylls
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        position: "relative",
       }}
     >
-      {[
-        { label: "DAYS", value: timeLeft.days },
-        { label: "HRS", value: timeLeft.hours },
-        { label: "MIN", value: timeLeft.minutes },
-        { label: "SEC", value: timeLeft.seconds },
-      ].map((item) => (
-        <Box key={item.label} textAlign="center">
-          <Typography sx={{ fontSize: baseFontSize, fontWeight: "bold" }}>
-            {item.value}
-          </Typography>
-          <Typography sx={{ fontSize: labelFontSize }}>{item.label}</Typography>
-        </Box>
-      ))}
+      {/* Overlay för bättre kontrast */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // Mörklägger bakgrunden något
+        }}
+      />
+
+      {/* Timer & innehåll */}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 1, // Lägger detta ovanpå overlay
+          padding: "2vw",
+          borderRadius: "10px",
+        }}
+      >
+        {/* Timer */}
+  
+        <Box
+  sx={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    gap: spacing,
+    fontFamily: "Courier New",
+    color: "#FF69B4",
+    textShadow: "0 0 10px #FFD700, 0 0 20px #FFD700",
+    padding: "2vw 4vw",
+    borderRadius: "10px",
+    width: "100%",
+    marginTop: 5,
+  }}
+>
+  {[
+    { label: "DAYS", value: timeLeft.days },
+    { label: "HRS", value: timeLeft.hours },
+    { label: "MIN", value: timeLeft.minutes },
+    { label: "SEC", value: timeLeft.seconds },
+  ].map((item) => (
+    <Box key={item.label} textAlign="center">
+      <Typography sx={{ fontSize: baseFontSize, fontWeight: "bold", lineHeight: 1.1 }}>
+        {item.value}
+      </Typography>
+      <Typography sx={{ fontSize: labelFontSize }}>{item.label}</Typography>
+    </Box>
+  ))}
+</Box>
+
+
+        {/* Bilden */}
+        <img
+          src={domd}
+          alt="Event Countdown"
+          style={{
+            width: "100%",
+            maxWidth: "1000px",
+            height: "auto",
+            borderRadius: "10px",
+            marginTop: "-50px",
+          }}
+        />
+      </Box>
     </Box>
   );
 };

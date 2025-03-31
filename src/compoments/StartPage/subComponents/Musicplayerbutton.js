@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import SoundcloudPlayer from "react-player";
 
 
@@ -24,9 +24,9 @@ const MusicPlayerButton = ({ }) => {
         sx={{
           cursor: "pointer",
           backgroundColor: "rgba(255, 255, 50, 1)",
-          padding: "10px 15px",
-          borderRadius: "50%",
-          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
+          padding: "1px 4px",
+          borderRadius: "40%",
+          //boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

@@ -42,6 +42,7 @@ const Slideshow = () => {
         alignItems: "center",
         overflow: "hidden",
         position: "relative",
+        marginTop: "55px"
       }}
     >
       <img

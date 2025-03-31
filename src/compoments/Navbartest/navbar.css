@@ -1,3 +1,13 @@
 .MuiMenu-list {
   background-color: #051820;
 }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Högre än andra element */
+  background-color: rgba(255, 255, 255, 0.9); /* Transparent bakgrund om du vill */
+  backdrop-filter: blur(10px); /* Soft blur effekt om du vill ha det snyggare */
+}
