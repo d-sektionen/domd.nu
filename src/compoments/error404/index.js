@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 
+//Not used, can be used if you want countdown timer to when 100 days is to DÖMD
 const hundreddays = new Date("2021-12-31T00:00:00");
 
 const render = ({ days, hours, minutes, seconds }) => {

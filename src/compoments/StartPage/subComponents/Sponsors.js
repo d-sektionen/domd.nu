@@ -9,13 +9,15 @@ import Ida from "../../../res/companyLogos/idainfront-logo.png";
 import Dartstore from "../../../res/companyLogos/dartstore1.png";
 
 // Import background image
-import SponsorBackground from "../../../res/domd2025/tintin.png";
+// import SponsorBackground from "../../../res/domd2025/tintin.png";
+// import SponsorBackground from "../../../res/images/dart.png";
+import SponsorBackground from "../../../res/background/dartBackground_onehundredandeighty.jpg";
 
 // Sponsor data
 const sponsors = [
   { name: "Ericsson", imgSrc: Ericsson, link: "https://www.ericsson.com/en/careers" },
-  { name: "Xamera", imgSrc: Xamera, link: "https://xamera.se/" },
-  { name: "Opera", imgSrc: Opera, link: "https://www.opera.com/" },
+  // { name: "Xamera", imgSrc: Xamera, link: "https://xamera.se/" },
+  // { name: "Opera", imgSrc: Opera, link: "https://www.opera.com/" },
   { name: "Ida Infront", imgSrc: Ida, link: "https://idainfront.se/en/" },
   { name: "Dartstore", imgSrc: Dartstore, link: "https://www.dartstore.se/" },
 ];

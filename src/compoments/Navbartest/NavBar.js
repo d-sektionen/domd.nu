@@ -4,11 +4,10 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Close } from "@mui/icons-material";
 
 import Logo from "./../../res/images/dartArrow.png";
-import rocket from "./../../res/domd2025/raket.png";
-import VepaBackground from "./../../res/domd2025/navbar.png"; // ✅ Import your background image
 
-import NavbarSmall from "./../../res/domd2025/vepa_dömd_lossless.jpg"; // ✅ Background for small screens
-import NavbarLarge from "./../../res/domd2025/vepa_dömd_lossless.jpg"; // ✅ Background for larger screens
+//Dessa kan ändras mot temaenlig banner i toppen:
+import NavbarSmall from "./../../res/images/brunBanner.png";
+import NavbarLarge from "./../../res/images/brunBanner.png";
 
 
 import PageLink from "./subComponents/PageLink";
@@ -17,6 +16,10 @@ import RulesLogo from "./subComponents/RulesLogo";
 import DimdLogo from "./subComponents/DimdLogo";
 import HomeLogo from "./subComponents/HomeLogo";
 import NewspaperLogo from "./subComponents/NewspaperLogo";
+import AftermoviesLogo from "./subComponents/ClapperboardLogo";
+import TaggfilmerLogo from "./subComponents/VideoCamera";
+import DartLogo from "./subComponents/DartLogo";
+import OldThemeLogo from "./subComponents/OldThemes";
 
 const PINK = "#FF05C8";
 const BROWN = "#30201D";
@@ -133,10 +136,15 @@ const NavBar = () => {
                   vår!
                 </Typography>
               </Box>
+              
               <PageLink link="/" title="Start" Logo={HomeLogo} closeMenu={toggleMenu} />
-              <PageLink link="/dimd" title="DimD" Logo={DimdLogo} closeMenu={toggleMenu} />
+              <PageLink link="/dimd" title="DimD" Logo={DartLogo} closeMenu={toggleMenu} />
               <PageLink link="/rules" title="Regler" Logo={RulesLogo} closeMenu={toggleMenu} />
               <PageLink link="/Tidningar" title="Tidningar" Logo={NewspaperLogo} closeMenu={toggleMenu} />
+              <PageLink link="/Aftermovies" title="Aftermovies" Logo={AftermoviesLogo} closeMenu={toggleMenu} />
+              <PageLink link="/Taggfilmer" title="Taggfilmer" Logo={TaggfilmerLogo} closeMenu={toggleMenu} />
+              <PageLink link="/OldThemes" title="Gamla Teman" Logo={OldThemeLogo} closeMenu={toggleMenu} />
+
               <Button
                 href="https://d-group.se/"
                 sx={{

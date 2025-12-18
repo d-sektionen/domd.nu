@@ -6,12 +6,8 @@ import { useState, useEffect } from "react";
 import Slideshow from "./subComponents/slideshow";
 import CountdownTimer from "./subComponents/CountdownTimer";
 import Sponsors from "./subComponents/Sponsors"; 
-import Aftermovies from "./subComponents/Aftermovies";
 import Musicplayer from "./subComponents/Musicplayer";
 import MusicPlayerButton from "./subComponents/Musicplayerbutton";
-
-
-const WHITE = "#FFFFFF";
 
 const StartPage = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -25,24 +21,24 @@ const StartPage = () => {
   return (
     <Box
       sx={{
-        width: "100vw",
+        width: "100%",
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        overflowX: "hidden",
+        position: "relative",
       }}
     >
-     {/* Countdown Timer */}
+     {/* Teaser music button */}
       <Box sx={{ width: "100vw"}}>
         <MusicPlayerButton />
       </Box> 
-
 
       {/* Slideshow */}
       <Box sx={{width : "100vw" }}>
         <Slideshow />
       </Box>
-
 
       {/* Countdown Timer */}
       <Box sx={{ width: "100vw" }}>
@@ -54,9 +50,9 @@ const StartPage = () => {
         <Sponsors />
       </Box>
 
-      {/* Aftermovies */}
+      {/* Music Player */}
       <Box sx={{ width: "100vw"}}>
-        <Aftermovies />
+        <Musicplayer />
       </Box>
     </Box>
   );

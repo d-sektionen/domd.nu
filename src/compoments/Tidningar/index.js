@@ -1,11 +1,10 @@
 import React from "react";
-import { Grid, Box } from "@mui/material";
-import Tidning2023 from "./subComponents/tidning2023";
-import Tidning2024 from "./subComponents/tidning2024";
-import Tidning2022 from "./subComponents/tidning2022";
-import TidningViewer from "./subComponents/TidningViewer";
+import { Box } from "@mui/material";
+
+import TidningViewer from "./TidningViewer";
 // Import the background
-import Bakgrund from "../../res/domd2025/affish.jpg";
+
+import Bakgrund from "../../res/background/darttavla_far.jpg";
 
 const Tidningar = () => {
   return (
@@ -21,10 +20,11 @@ const Tidningar = () => {
       flexDirection: "column",
       alignItems: "center",
     }}
-  >
-  <Box sx={{ width: "100vw"}}>
-        <TidningViewer/>
-      </Box> 
+    >
+     
+  
+    <TidningViewer />
+    
     </Box>
   );
 };

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
-import domd from "../../../res/domd2025/domd.png";
-import backgroundImage from "../../../res/domd2025/kvartills.png"; // Lägg till din bakgrundsbild här
+
+
+// Här läggs temat för DÖMD
+import domd from "../../../res/domd2025/Kopia av dömd temalös logga 4 appen.png";
+import backgroundImage from "../../../res/dart_utan_banner.gif";
 
 // Set the event date
-const EVENT_DATE = new Date("2025-04-10T22:00:00");
+const EVENT_DATE = new Date("2026-04-23T22:00:00");
 
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState(getTimeRemaining());

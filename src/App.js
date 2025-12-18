@@ -1,14 +1,19 @@
 import React from "react";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
+//Test för egen scrollbar
+import { GlobalStyles } from "@mui/material";
+
 import StartPage from "./compoments/StartPage";
 import Rules from "./compoments/Rules";
 import DimD from "./compoments/DimD";
 import Error404 from "./compoments/error404";
 
-import ThrowDart from "./compoments/ThrowDart";
 import NavBar from "./compoments/Navbartest/NavBar";
 import Tidningar from "./compoments/Tidningar/";
+import Taggfilmer from "./compoments/Taggfilmer";
+import Aftermovies from "./compoments/Aftermovies";
+import OldThemes from "./compoments/OldThemes";
 
 // Import Material-UI Icons
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -56,7 +61,7 @@ function App() {
   const daysUntilDomd = Math.floor(differenceInTime / (1000 * 3600 * 24));
   console.log(daysUntilDomd);
 
-  if (daysUntilDomd <= 100) {
+  if (daysUntilDomd <= 200) {
     return (
       <Router>
         {/* Include the Social Media Icons */}
@@ -65,12 +70,12 @@ function App() {
         <NavBar />
         <Routes>
           <Route exact path="/" element={<StartPage />} />
-          <Route exact path="/domd.nu" element={<StartPage />} />
           <Route exact path="/dimd" element={<DimD />} />
           <Route exact path="/rules" element={<Rules />} />
-          <Route exact path="/start" element={<StartPage />} />
-          <Route exact path="/kastapil" element={<ThrowDart />} />
           <Route exact path="/Tidningar" element={<Tidningar />} />
+          <Route exact path="/Taggfilmer" element={<Taggfilmer />} />
+          <Route exact path="/Aftermovies" element={<Aftermovies />} />
+          <Route exact path="/OldThemes" element={<OldThemes />} />
         </Routes>
       </Router>
     );

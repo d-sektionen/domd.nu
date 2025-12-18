@@ -1,14 +1,11 @@
-import React from "react";
 
-import dart from "../../res/dart.gif";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import TemaEnligBakgrund from "../../res/background/4x2vepa.jpg";
-import TemaEnligBakgrundMobil from "../../res/background/bakgrund_mobil_test.jpg";
-import backgroundTheme from "../../res/domd2025/affish.jpg";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import logo from "../../res/images/standard.png";
+
+//Bakgrund som bör ändras för tema
 import Bakgrund from '../../res/background/dartBackground.jpg';
 
 const Root = styled(Box)(({ theme }) => ({
@@ -19,11 +16,11 @@ const Root = styled(Box)(({ theme }) => ({
   textAlign: "center",
   mt: { xs: 6, md: 2 },
   [theme.breakpoints.down("md")]: {
-    backgroundImage: `url(${backgroundTheme})`,
+    backgroundImage: `url(${Bakgrund})`,
     backgroundPosition: "50% 10%",
   },
   [theme.breakpoints.up("md")]: {
-    backgroundImage: `url(${backgroundTheme})`,
+    backgroundImage: `url(${Bakgrund})`,
     backgroundPosition: "50% 30%",
   },
 }));

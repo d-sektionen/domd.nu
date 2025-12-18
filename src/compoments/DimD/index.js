@@ -1,31 +1,11 @@
-import React from "react";
+
 import Typography from "@mui/material/Typography";
 import dart from "../../res//dart.gif";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import { NavLink } from "react-router-dom";
+
 import Darttavla from "../../res/background/darttavla_svart_vit.jpg";
 
-// Bracket till DimD, redo att läggas in
-/*<Grid xs={12} sx={{ m: { xs: 4, m: 4 } }}>
-<Typography
-  variant="h4"
-  gutterBottom
-  sx={{ fontWeight: "bold", textAlign: "center" }}
->
-  {" "}
-  Bracket D<span tyle="font-size:75%">IM</span>D 2022
-</Typography>
-<iframe
-  src="https://challonge.com/dimd2022/module"
-  title="DimD2022"
-  width="100%"
-  height="500"
-  frameborder="0"
-  scrolling="auto"
-  allowtransparency="true"
-></iframe>
-</Grid>*/
 
 function DimD() {
   return (

@@ -1,18 +1,22 @@
 import React from "react";
 import { Typography, Grid, Box } from "@mui/material";
 
+import musicPlayerBackground from "../../../res/images/Slideshow/35.jpg"
+
 const Musicplayer = () => {
   return (
     <Box
       sx={{
+        backgroundImage: `linear-gradient(rgba(128, 128, 128, 0.6), rgba(128, 128, 128, 0.6)), url(${musicPlayerBackground})`,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
         textAlign: "center",
-        mt: 4,
-        mb: 4,
+        mt: 0,
+        mb: 0,
+        pb: 4,
       }}
     >
       {/* Titeltext */}
@@ -20,6 +24,7 @@ const Musicplayer = () => {
         variant="h5"
         gutterBottom
         sx={{
+          mt: 2,
           fontWeight: "bold",
           textShadow: "1px 3px blue, 0 0 1em #051820, 0 0 0.2em #051820",
           color: "white",
