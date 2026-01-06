@@ -140,10 +140,10 @@ const NavBar = () => {
               <PageLink link="/" title="Start" Logo={HomeLogo} closeMenu={toggleMenu} />
               <PageLink link="/dimd" title="DimD" Logo={DartLogo} closeMenu={toggleMenu} />
               <PageLink link="/rules" title="Regler" Logo={RulesLogo} closeMenu={toggleMenu} />
-              <PageLink link="/Tidningar" title="Tidningar" Logo={NewspaperLogo} closeMenu={toggleMenu} />
               <PageLink link="/Aftermovies" title="Aftermovies" Logo={AftermoviesLogo} closeMenu={toggleMenu} />
               <PageLink link="/Taggfilmer" title="Taggfilmer" Logo={TaggfilmerLogo} closeMenu={toggleMenu} />
               <PageLink link="/OldThemes" title="Gamla Teman" Logo={OldThemeLogo} closeMenu={toggleMenu} />
+               <PageLink link="/Tidningar" title="Tidningar" Logo={NewspaperLogo} closeMenu={toggleMenu} />
 
               <Button
                 href="https://d-group.se/"

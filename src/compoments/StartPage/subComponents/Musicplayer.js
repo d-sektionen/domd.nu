@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Grid, Box } from "@mui/material";
 
-import musicPlayerBackground from "../../../res/images/Slideshow/35.jpg"
+import musicPlayerBackground from "../../../res/background/musicPlayerBackground.jpg";
 
 const Musicplayer = () => {
   return (

@@ -117,7 +117,7 @@ const CountdownTimer = () => {
 
 
         {/* Bilden */}
-        <img
+       {/* <img
           src={domd}
           alt="Event Countdown"
           style={{
@@ -127,7 +127,28 @@ const CountdownTimer = () => {
             borderRadius: "10px",
             marginTop: "-50px",
           }}
-        />
+        /> */}
+
+        <Typography
+          sx={{
+            marginTop: "-20px",
+            fontFamily: '"Impact", "Arial Black", sans-serif',
+            fontSize: "clamp(40px, 8vw, 120px)",
+            color: "#FFFFFF",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            textAlign: "center",
+            textShadow: `
+              2px 2px 0 #000,
+              -2px 2px 0 #000,
+              2px -2px 0 #000,
+              -2px -2px 0 #000,
+              0 0 20px #000
+            `,
+          }}
+        >
+          SNART ÄR DET VÅR
+        </Typography>
       </Box>
     </Box>
   );
