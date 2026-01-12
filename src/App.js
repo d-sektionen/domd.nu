@@ -61,7 +61,7 @@ function App() {
   const daysUntilDomd = Math.floor(differenceInTime / (1000 * 3600 * 24));
   console.log(daysUntilDomd);
 
-  if (daysUntilDomd <= 200) {
+  if (daysUntilDomd <= 100) {
     return (
       <Router>
         {/* Include the Social Media Icons */}
