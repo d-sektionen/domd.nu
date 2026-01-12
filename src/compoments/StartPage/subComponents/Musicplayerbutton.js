@@ -3,7 +3,8 @@ import { Box } from "@mui/material";
 import SoundcloudPlayer from "react-player";
 
 
-const trackUrl = "https://soundcloud.com/d-group/the-adventures-of-domd-1";
+// const trackUrl = "https://soundcloud.com/d-group/the-adventures-of-domd-1";
+const trackUrl = "https://soundcloud.com/d-group/afterdart-det-ar-ju-lordag?si=3856d06c29e448b5a32770e9cc70e7a5&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing";
 
 const MusicPlayerButton = ({ }) => {
   const [isPlaying, setIsPlaying] = useState(false);

@@ -130,7 +130,7 @@ const NavBar = () => {
   >
               <Box height={170} textAlign="center" justifyContent="center" display="flex" flexDirection="column">
                 <Typography variant="h5" fontWeight="bold">
-                  Nu är det
+                  Snart är det
                 </Typography>
                 <Typography variant="h5" fontWeight="bold">
                   vår!
