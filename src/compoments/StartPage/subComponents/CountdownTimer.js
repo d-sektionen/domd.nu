@@ -7,7 +7,8 @@ import domd from "../../../res/domd2025/Kopia av dömd temalös logga 4 appen.
 import backgroundImage from "../../../res/dart_utan_banner.gif";
 
 // Set the event date
-const EVENT_DATE = new Date("2026-04-23T22:00:00");
+// +01:00 for CEST timezone
+const EVENT_DATE = new Date("2026-04-25T09:00:00+01:00");
 
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState(getTimeRemaining());

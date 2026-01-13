@@ -51,14 +51,24 @@ const SocialMediaIcons = () => (
 
 
 function App() {
-  const domdDate = new Date("04/25/2026");
+
+  // +02:00 for CEST timezone
+  const domdDate = new Date("2026-04-25T09:00:00+02:00");
   const currentDate = new Date();
 
-  // To calculate the time difference of two dates
   const differenceInTime = domdDate.getTime() - currentDate.getTime();
+  const daysUntilDomd = Math.ceil(
+  differenceInTime / (1000 * 60 * 60 * 24)
+);
+
+  // const domdDate = new Date("04/25/2026");
+  // const currentDate = new Date();
+
+  // To calculate the time difference of two dates
+  // const differenceInTime = domdDate.getTime() - currentDate.getTime();
 
   // To calculate the no. of days between two dates
-  const daysUntilDomd = Math.floor(differenceInTime / (1000 * 3600 * 24));
+  // const daysUntilDomd = Math.floor(differenceInTime / (1000 * 3600 * 24));
   console.log(daysUntilDomd);
 
   if (daysUntilDomd <= 100) {
