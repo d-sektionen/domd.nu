@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.67dd0603.js",
+    "main.js": "/static/js/main.0cb6aadf.js",
     "static/js/787.aefa6315.chunk.js": "/static/js/787.aefa6315.chunk.js",
     "static/media/afterMovie23.mp4": "/static/media/afterMovie23.9f961720ae82d2413418.mp4",
     "static/media/dart_utan_banner.gif": "/static/media/dart_utan_banner.9b874e03a44845e99f15.gif",
@@ -73,17 +73,18 @@
     "static/media/opera-logo.png": "/static/media/opera-logo.38fa6ae651e69b8c15f7.png",
     "static/media/DOMD_2013.jpg": "/static/media/DOMD_2013.327f591df6ea12716844.jpg",
     "static/media/ericssonSpons.webp": "/static/media/ericssonSpons.03e3ca6f24fc0446bd8c.webp",
+    "static/media/fortnox.png": "/static/media/fortnox.ba17510e1c239fc91640.png",
     "static/media/DIMD_background.webp": "/static/media/DIMD_background.026c9ba8f228a68a03a5.webp",
     "static/media/xamera.png": "/static/media/xamera.c5d6256d77322b58b397.png",
     "static/media/DOMD_2017.jpg": "/static/media/DOMD_2017.b0ce5dd54461afe355d3.jpg",
     "static/media/standard.png": "/static/media/standard.2628669548d38cf4f6d5.png",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.67dd0603.js.map": "/static/js/main.67dd0603.js.map",
+    "main.0cb6aadf.js.map": "/static/js/main.0cb6aadf.js.map",
     "787.aefa6315.chunk.js.map": "/static/js/787.aefa6315.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.67dd0603.js"
+    "static/js/main.0cb6aadf.js"
   ]
 }
