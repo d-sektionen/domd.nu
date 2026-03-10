@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material";
 import DIMD_background from "../../res/background/DIMD_background.webp";
 
 const winners = [
+  { year: 2026, name: "Linus Göransson"},
   { year: 2025, name: "Marc Taylor" },
   { year: 2024, name: "Anton Bergman" },
   { year: 2023, name: "Linus Göransson" },

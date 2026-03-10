@@ -7,6 +7,7 @@ import Xamera from "../../../res/companyLogos/xamera.png";
 import Opera from "../../../res/companyLogos/opera-logo.png";
 import Ida from "../../../res/companyLogos/idainfront-logo.png";
 import Dartstore from "../../../res/companyLogos/dartstore1.png";
+import Fortnox from "../../../res/companyLogos/fortnox.png";
 
 // Import background image
 // import SponsorBackground from "../../../res/domd2025/tintin.png";
@@ -16,10 +17,12 @@ import SponsorBackground from "../../../res/background/dartBackground_onehundred
 // Sponsor data
 const sponsors = [
   { name: "Ericsson", imgSrc: Ericsson, link: "https://www.ericsson.com/en/careers" },
-  // { name: "Xamera", imgSrc: Xamera, link: "https://xamera.se/" },
   // { name: "Opera", imgSrc: Opera, link: "https://www.opera.com/" },
+  {name: "Fortnox", imgSrc: Fortnox, link: "https://www.fortnox.se/" },
+  { name: "Xamera", imgSrc: Xamera, link: "https://xamera.se/" },
   { name: "Ida Infront", imgSrc: Ida, link: "https://idainfront.se/en/" },
   { name: "Dartstore", imgSrc: Dartstore, link: "https://www.dartstore.se/" },
+
 ];
 
 const Sponsors = () => {
