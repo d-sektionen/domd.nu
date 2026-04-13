@@ -3,8 +3,10 @@ import { Box, Typography } from "@mui/material";
 
 
 // Här läggs temat för DÖMD
-import domd from "../../../res/domd2025/Kopia av dömd temalös logga 4 appen.png";
-import backgroundImage from "../../../res/dart_utan_banner.gif";
+// import domd from "../../../res/domd2025/Kopia av dömd temalös logga 4 appen.png";
+// import backgroundImage from "../../../res/dart_utan_banner.gif";
+import backgroundImage from "../../../res/ny_cool_fire.gif";
+import domd from "../../../res/domd2026/domd_title.png"
 
 // Set the event date
 // +01:00 for CEST timezone
@@ -71,6 +73,7 @@ const CountdownTimer = () => {
         }}
       />
 
+
       {/* Timer & innehåll */}
       <Box
         sx={{
@@ -83,7 +86,23 @@ const CountdownTimer = () => {
           borderRadius: "10px",
         }}
       >
-        {/* Timer */}
+
+      {/* Bilden */}
+       <img
+          src={domd}
+          alt="Event Countdown"
+          style={{
+            diplay: "block",
+            width: "100%",
+            maxWidth: "1000px",
+            height: "auto",
+            borderRadius: "10px",
+            // marginTop: "-20px",
+            marginBottom: "10px",
+          }}
+        />
+
+       {/* Timer */}
   
         <Box
   sx={{
@@ -93,8 +112,10 @@ const CountdownTimer = () => {
     flexDirection: "row",
     gap: spacing,
     fontFamily: "Courier New",
-    color: "#FF69B4",
-    textShadow: "0 0 10px #FFD700, 0 0 20px #FFD700",
+    color: "#B92125",
+    textShadow: "0 0 10px #bebcbcff, 0 0 20px #bebcbcff",
+    //  color: "#FF69B4",
+    // textShadow: "0 0 10px #FFD700, 0 0 20px #FFD700",
     padding: "2vw 4vw",
     borderRadius: "10px",
     width: "100%",
@@ -117,20 +138,9 @@ const CountdownTimer = () => {
 </Box>
 
 
-        {/* Bilden */}
-       {/* <img
-          src={domd}
-          alt="Event Countdown"
-          style={{
-            width: "100%",
-            maxWidth: "1000px",
-            height: "auto",
-            borderRadius: "10px",
-            marginTop: "-50px",
-          }}
-        /> */}
+    
 
-        <Typography
+        {/* <Typography
           sx={{
             marginTop: "-20px",
             fontFamily: '"Impact", "Arial Black", sans-serif',
@@ -149,7 +159,7 @@ const CountdownTimer = () => {
           }}
         >
           SNART ÄR DET VÅR
-        </Typography>
+        </Typography> */}
       </Box>
     </Box>
   );

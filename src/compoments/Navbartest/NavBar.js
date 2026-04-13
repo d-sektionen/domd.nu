@@ -3,11 +3,14 @@ import { AppBar, Box, Toolbar, IconButton, Typography, Button, Slide } from "@mu
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Close } from "@mui/icons-material";
 
-import Logo from "./../../res/images/dartArrow.png";
+// import Logo from "./../../res/images/dartArrow.png";
+import Logo from "./../../res/domd2026/drake9.png";
 
 //Dessa kan ändras mot temaenlig banner i toppen:
-import NavbarSmall from "./../../res/images/brunBanner.png";
-import NavbarLarge from "./../../res/images/brunBanner.png";
+// import NavbarSmall from "./../../res/images/brunBanner.png";
+// import NavbarLarge from "./../../res/images/brunBanner.png";
+import NavbarSmall from "./../../res/domd2026/navbar_small_smaller.png";
+import NavbarLarge from "./../../res/domd2026/upscaled_enhanced_roterad.png";
 
 
 import PageLink from "./subComponents/PageLink";
@@ -59,11 +62,11 @@ const NavBar = () => {
         }}
       />
       
-      {/* ✅ Apply background image to NavBar */}
+      {/* Apply background image to NavBar */}
       <AppBar
   position="fixed"
   sx={{
-    height: "55px",
+    height: "55px", 
     backgroundImage: {
       xs: `url(${NavbarSmall})`, 
       md: `url(${NavbarLarge})`, 
@@ -76,19 +79,23 @@ const NavBar = () => {
   }}
 >
 
-        <Toolbar ref={navbarRef} sx={{ display: "flex" }}>
-          {/* Logo */}
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-          <img
-  src={Logo}
-  alt="Logo"
-  style={{
-    height: "55px", 
-    position: "absolute",
-    marginTop: "10px", // ⬅️ Adjust margin so it aligns better
-  }}
-/>
-
+    <Toolbar ref={navbarRef} sx={{ display: "flex" }}>
+  
+      {/* Logo */}
+          <Box
+            sx={{
+              display: { xs: "none", sm: "block" } // 👈 hidden on phones
+            }}
+          >
+            <img
+              src={Logo}
+              alt="Logo"
+              style={{
+                height: "55px",
+                position: "absolute",
+                marginTop: "0px",
+              }}
+            />
           </Box>
         {/* Navbar Title */}
 <Button
@@ -130,7 +137,7 @@ const NavBar = () => {
   >
               <Box height={170} textAlign="center" justifyContent="center" display="flex" flexDirection="column">
                 <Typography variant="h5" fontWeight="bold">
-                  Snart är det
+                  Nu är det
                 </Typography>
                 <Typography variant="h5" fontWeight="bold">
                   vår!

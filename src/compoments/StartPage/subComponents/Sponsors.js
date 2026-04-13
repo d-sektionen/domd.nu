@@ -10,9 +10,8 @@ import Dartstore from "../../../res/companyLogos/dartstore1.png";
 import Fortnox from "../../../res/companyLogos/fortnox.png";
 
 // Import background image
-// import SponsorBackground from "../../../res/domd2025/tintin.png";
-// import SponsorBackground from "../../../res/images/dart.png";
-import SponsorBackground from "../../../res/background/dartBackground_onehundredandeighty.jpg";
+// import SponsorBackground from "../../../res/background/dartBackground_onehundredandeighty.jpg";
+import SponsorBackground from "../../../res/domd2026/Affish_DOMD_SPONS.png"
 
 // Sponsor data
 const sponsors = [

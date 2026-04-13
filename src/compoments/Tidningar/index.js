@@ -4,7 +4,8 @@ import { Box } from "@mui/material";
 import TidningViewer from "./TidningViewer";
 // Import the background
 
-import Bakgrund from "../../res/background/darttavla_far.jpg";
+// import Bakgrund from "../../res/background/darttavla_far.jpg";
+import Bakgrund from "../../res/domd2026/Affish_DOMD_REGLER.png"
 
 const Tidningar = () => {
   return (
@@ -21,8 +22,6 @@ const Tidningar = () => {
       alignItems: "center",
     }}
     >
-     
-  
     <TidningViewer />
     
     </Box>

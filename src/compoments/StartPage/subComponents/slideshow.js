@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Box, IconButton } from "@mui/material";
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -12,16 +12,23 @@ const Slideshow = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
+  const [isPaused, setIsPaused] = useState(false);
+  const pauseTimeoutRef = useRef(null);
+
   const slides = Array.from({ length: TOTIMG }, (_, i) => ({
     imgPath: `slideshow/${i + 1}.jpg`,
   }));
 
+
   useEffect(() => {
+    if (isPaused) return;
+
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 3000);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused, slides.length]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,10 +44,24 @@ const Slideshow = () => {
 
   const goNext = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
+    pauseSlideshow();
   };
 
   const goPrev = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    pauseSlideshow();
+  };
+
+  const pauseSlideshow = () => {
+    setIsPaused(true);
+
+    if (pauseTimeoutRef.current) {
+      clearTimeout(pauseTimeoutRef.current);
+    }
+
+    pauseTimeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 10000); // 10 seconds
   };
 
   return (

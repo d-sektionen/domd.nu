@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material";
 //Reuse from error404 for special charachter "ÖM"
 import {Title, Row, ÖMSpan} from "../error404/error404elements"
 
+import domd_2026 from "../../res/domd2026/DOMD_2026.png"
 import domd_2025 from "../../res/oldThemePictures/DOMD_2025.jpg"
 import domd_2024 from "../../res/oldThemePictures/DOMD_2024.jpg"
 import domd_2023 from "../../res/oldThemePictures/DOMD_2023.jpg"
@@ -20,6 +21,7 @@ import domd_2013 from "../../res/oldThemePictures/DOMD_2013.jpg"
 import domd_2012 from "../../res/oldThemePictures/DOMD_2012.jpg"
 
 const themes = [
+    {src: domd_2026, alt: "DÖMD 2026", _year: "2026"},
     {src: domd_2025, alt: "DÖMD 2025", _year: "2025"},
     {src: domd_2024, alt: "DÖMD 2024", _year: "2024"},
     {src: domd_2023, alt: "DÖMD 2023", _year: "2023"},

@@ -6,7 +6,8 @@ import Grid from "@mui/material/Grid";
 import logo from "../../res/images/standard.png";
 
 //Bakgrund som bör ändras för tema
-import Bakgrund from '../../res/background/dartBackground.jpg';
+// import Bakgrund from '../../res/background/dartBackground.jpg';
+import Bakgrund from '../../res/domd2026/Affish_DOMD_REGLER.png';
 
 const Root = styled(Box)(({ theme }) => ({
   backgroundRepeat: "no-repeat",

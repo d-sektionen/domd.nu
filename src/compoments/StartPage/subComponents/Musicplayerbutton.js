@@ -18,7 +18,7 @@ const MusicPlayerButton = ({ }) => {
       {/* Play Button */}
       <Box
         position="absolute"
-        top="65px"
+        top="85px" //65px - tidigare innan bredare navbar
         right="20px"
         zIndex={3}
         onClick={handlePlayPause}

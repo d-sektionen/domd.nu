@@ -1,13 +1,15 @@
 import React from "react";
 import { Typography, Grid, Box } from "@mui/material";
 
-import musicPlayerBackground from "../../../res/background/musicPlayerBackground.jpg";
+// import musicPlayerBackground from "../../../res/background/musicPlayerBackground.jpg";
+import musicPlayerBackground from "../../../res/domd2026/Affish_DOMD_MUSIC_2.jpg";
 
 const Musicplayer = () => {
   return (
     <Box
       sx={{
         backgroundImage: `linear-gradient(rgba(128, 128, 128, 0.6), rgba(128, 128, 128, 0.6)), url(${musicPlayerBackground})`,
+        backgroundSize: "cover",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

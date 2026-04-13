@@ -6,7 +6,8 @@ import YoutubeEmbed from "../Embedders/YoutubeEmbed";
 import VimeoEmbed from "../Embedders/VimeoEmbed";
 import FacebookEmbed from "../Embedders/FacebookEmbed";
 
-import background from "../../res/background/dark-gray-background.jpg";
+// import background from "../../res/background/dark-gray-background.jpg";
+import background from "../../res/domd2026/domd_lager.png"
 
 const VideoContainer = ({ children }) => (
   <div style={{ position: "relative", paddingTop: "56.25%", width: "80%" }}>
@@ -35,6 +36,20 @@ const Taggfilmer = () => {
         marginTop: 0
       }}
     >
+        {/* Blurred overlay layer */}
+  <Box
+    sx={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(0,0,0,0.3)",  // semi-transparent dark tint
+      backdropFilter: "blur(4px)",         // blur effect
+      zIndex: 0,                            // sits behind content
+    }}
+  />
+       <Box sx={{ position: "relative", zIndex: 1, width: "100%" }}>
         {/* Taggfilmer */}
         <Typography
             xs={12}
@@ -45,8 +60,14 @@ const Taggfilmer = () => {
                 mx: 5,
                 mt: 10,
                 mb: 3,
+                display: "inline-block",
                 textShadow: "1px 1px 3px brown, 0 0 1em #FFD700, 0 0 0.2em #FFD700",
                 color: "white", // Se till att texten syns mot bakgrunden
+                backgroundColor: "rgba(0, 0, 0, 0.6)", // semi-transparent dark background
+                padding: "8px 12px",                 // some padding around text
+                borderRadius: "8px",                  // rounded corners
+                textAlign: "center",                  // optional centering
+                boxShadow: "0 4px 6px rgba(0,0,0,0.3)" // subtle shadow for depth
             }}
             >
             Taggfilmer
@@ -54,7 +75,16 @@ const Taggfilmer = () => {
             
             <Grid container justifyContent="center">
                 <Grid item xs={11} sm={8} md={6} lg={4} margin={3} sx={{ width: "100%" }}>
-                    <Typography variant="h5" sx={{ mb: 3, color: "white" }}>
+                    <Typography variant="h5" 
+                    sx={{ mb: 3, 
+                    display: "inline-block",
+                    color: "white",
+                    textShadow: "1px 1px 3px brown, 0 0 1em #FFD700, 0 0 0.2em #FFD700",
+                    backgroundColor: "rgba(0, 0, 0, 6)", // semi-transparent dark background
+                    padding: "8px 12px",                 // some padding around text
+                    borderRadius: "8px",                  // rounded corners
+                    textAlign: "center",                  // optional centering
+                    boxShadow: "0 4px 6px rgba(0,0,0,0.3)"  }}>
                         D-Group taggar The Adventures of DÖMD 2025
                     </Typography>
                     
@@ -66,7 +96,16 @@ const Taggfilmer = () => {
                 </Grid>
 
                 <Grid item xs={11} sm={8} md={6} lg={4} margin={3} sx={{ width: "100%" }}>
-                    <Typography variant="h5" sx={{ mb: 3, color: "white" }}>
+                    <Typography variant="h5" 
+                    sx={{ mb: 3, 
+                    display: "inline-block",
+                    color: "white",
+                    textShadow: "1px 1px 3px brown, 0 0 1em #FFD700, 0 0 0.2em #FFD700",
+                    backgroundColor: "rgba(0, 0, 0, 6)", // semi-transparent dark background
+                    padding: "8px 12px",                 // some padding around text
+                    borderRadius: "8px",                  // rounded corners
+                    textAlign: "center",                  // optional centering
+                    boxShadow: "0 4px 6px rgba(0,0,0,0.3)"  }}>
                         D-Group taggar DÖMD-Mysteriet 2023
                     </Typography>
             
@@ -76,7 +115,16 @@ const Taggfilmer = () => {
                 </Grid>
 
                 <Grid item xs={11} sm={8} md={6} lg={4} margin={3} sx={{ width: "100%" }}>
-                    <Typography variant="h5" sx={{ mb: 3, color: "white" }}>
+                    <Typography variant="h5" 
+                    sx={{ mb: 3, 
+                    display: "inline-block",
+                    color: "white",
+                    textShadow: "1px 1px 3px brown, 0 0 1em #FFD700, 0 0 0.2em #FFD700",
+                    backgroundColor: "rgba(0, 0, 0, 6)", // semi-transparent dark background
+                    padding: "8px 12px",                 // some padding around text
+                    borderRadius: "8px",                  // rounded corners
+                    textAlign: "center",                  // optional centering
+                    boxShadow: "0 4px 6px rgba(0,0,0,0.3)"  }}>
                         D-Group taggar The Matrix of DÖMD 2022
                     </Typography>
                     
@@ -86,7 +134,16 @@ const Taggfilmer = () => {
                 </Grid>
 
                 <Grid item xs={11} sm={8} md={6} lg={4} margin={3} sx={{ width: "100%" }}>
-                     <Typography variant="h5" sx={{ mb: 3, color: "white" }}>
+                     <Typography variant="h5" 
+                     sx={{ mb: 3, 
+                    display: "inline-block",
+                    color: "white",
+                    textShadow: "1px 1px 3px brown, 0 0 1em #FFD700, 0 0 0.2em #FFD700",
+                    backgroundColor: "rgba(0, 0, 0, 6)", // semi-transparent dark background
+                    padding: "8px 12px",                 // some padding around text
+                    borderRadius: "8px",                  // rounded corners
+                    textAlign: "center",                  // optional centering
+                    boxShadow: "0 4px 6px rgba(0,0,0,0.3)"  }}>
                         D-Group taggar Det Fänglsande DÖMD 2021
                     </Typography>
                         
@@ -95,6 +152,7 @@ const Taggfilmer = () => {
                     </VideoContainer>
                 </Grid>
         </Grid>
+        </Box>
     </Grid>
   );
 };
