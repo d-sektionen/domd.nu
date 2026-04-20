@@ -84,11 +84,13 @@ function Rules() {
             <br />
           </li>
           <li>
-            §4. Vilken av de två motståndarna som ska börja avgörs genom
-            middling. Båda tävlanden kastar varsin pil och den som kommer
-            närmast mitten får börja. Om båda tävlanden träffar Bull’s Eye
-            (singel eller dubbel) görs en ny middling. Vid tveksamma fall avgör
-            matchdomaren utifall om-middling skall ske. <br />
+            §4. Vilken av de två motståndarna som ska börja avgörs genom 
+            middling. Båda tävlanden kastar varsin pil och den som kommer 
+            ärmast mitten får börja. Om en tävlande träffar dubbel-Bull’s Eye 
+            och den andra träffar enkel-Bull’s Eye, vinner den tävlande som 
+            träffat dubbel-Bull’s Eye middlingen. Om båda tävlanden träffar 
+            Bull’s Eye av samma valör (båda enkel eller båda dubbel) görs en ny 
+            middling. Vid tveksamma fall avgör matchdomaren huruvida om-middling skall ske. <br />
             <br />
           </li>
           <li>
