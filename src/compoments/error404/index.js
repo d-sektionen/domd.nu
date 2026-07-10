@@ -1,7 +1,6 @@
-
 import Countdown from "react-countdown";
-import {Title, Row, ÖMSpan} from "./error404elements"
-import React from 'react';
+import { Title, Row, ÖMSpan } from "./error404elements";
+import React from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -23,11 +22,11 @@ const Root = styled(Box)(({ theme }) => ({
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
   backgroundAttachment: "fixed",
-  backgroundColor:"black",
+  backgroundColor: "black",
   color: "white",
   textAlign: "center",
-  width:"100vw",
-  height:"100vh"  
+  width: "100vw",
+  height: "100vh",
 }));
 /*<Row>
           <Title >
@@ -38,9 +37,12 @@ const Root = styled(Box)(({ theme }) => ({
 const Error404 = () => {
   return (
     <Root container>
-      <Grid >
+      <Grid>
         <Row>
-          <Typography variant="h4" sx={{color:"white", pt:{md:40, xs:35}}}>
+          <Typography
+            variant="h4"
+            sx={{ color: "white", pt: { md: 40, xs: 35 } }}
+          >
             Error 404: not 100 days left until D<ÖMSpan>ÖM</ÖMSpan>D yet
           </Typography>
         </Row>

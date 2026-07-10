@@ -49,17 +49,13 @@ const SocialMediaIcons = () => (
   </div>
 );
 
-
 function App() {
-
   // +02:00 for CEST timezone
-  const domdDate = new Date("2026-04-25T09:00:00+02:00");
+  const domdDate = new Date("2027-04-24T09:00:00+02:00");
   const currentDate = new Date();
 
   const differenceInTime = domdDate.getTime() - currentDate.getTime();
-  const daysUntilDomd = Math.ceil(
-  differenceInTime / (1000 * 60 * 60 * 24)
-);
+  const daysUntilDomd = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
 
   // const domdDate = new Date("04/25/2026");
   // const currentDate = new Date();
